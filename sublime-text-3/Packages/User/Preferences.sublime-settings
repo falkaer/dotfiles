@@ -1,0 +1,25 @@
+{
+	"color_scheme": "Packages/Theme - Afterglow/Afterglow.tmTheme",
+	"dlig": true,
+	"draw_centered": true,
+	"draw_indent_guides": false,
+	"font_face": "Fira Code Medium",
+	"font_size": 10,
+	"gutter": false,
+	"ignored_packages":
+	[
+		"Vintage",
+		"Markdown"
+	],
+	"indent_guide_options":
+	[
+		"draw_active"
+	],
+	"margin": 0,
+	"save_on_focus_lost": true,
+	"scroll_speed": 0,
+	"shift_tab_unindent": true,
+	"theme": "Afterglow-blue.sublime-theme",
+	"translate_tabs_to_spaces": true,
+	"trim_automatic_white_space": false
+}

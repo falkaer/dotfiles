@@ -1,0 +1,13 @@
+#!/bin/bash
+
+# make dotfiles symlinks
+
+cd ~/dotfiles
+
+find . -type f | while read file; do 
+    
+    name="${file:2}"
+    mkdir -p "$(dirname "$HOME"/"$name")"
+    ln -sf "$PWD"/"$name" "$HOME"/"$name"
+    
+done

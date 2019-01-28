@@ -1,0 +1,30 @@
+#!/bin/bash
+
+mem=$(LC_ALL=C free  | awk '/Mem:/ {print $4}')
+swap=$(LC_ALL=C free | awk '/Swap:/ {print $3}')
+
+if [ $mem -lt $swap ]; then
+    echo "ERROR: not enough RAM to write swap back, nothing done" >&2
+    exit 1
+fi
+
+exitfn(){
+    
+    trap SIGINT
+
+    sudo swapon -a # enable swap again
+    echo "Done!"
+    exit
+    
+}
+
+# only trap interrupts if login passes
+if sudo true; then
+    
+    echo "Draining swap into RAM..."
+    trap "exitfn" INT
+    
+    sudo swapoff -a
+    exitfn
+    
+fi

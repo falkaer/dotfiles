@@ -1,0 +1,3 @@
+#!/bin/bash
+
+sshfs -o idmap=user s164396@transfer.gbar.dtu.dk:/work3/s164396 ~/work3

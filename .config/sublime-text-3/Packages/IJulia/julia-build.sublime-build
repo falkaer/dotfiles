@@ -1,0 +1,4 @@
+{
+    "cmd": ["julia", "$file"],
+    "selector": "source.julia"
+}

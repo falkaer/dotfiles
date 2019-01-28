@@ -1,0 +1,10 @@
+[
+	{ "command": "i_julia_set_working_folder_to_view", "caption": "IJulia: Set as working dir" },
+    { "caption": "Sublime-IJulia: Open New IJulia Console", "command": "i_julia_open"},
+    { "caption": "Apply Julia Syntax to .jl Files", "command": "julia_syntax"},
+    { "caption": "Sublime-IJulia: Enter", "command": "i_julia_enter"},
+    { "caption": "Sublime-IJulia: Receive", "command": "i_julia_receive"},
+    { "caption": "Sublime-IJulia: Evaluate Selection", "command": "julia_transfer_current", "args": {"scope": "selection"}},
+    { "caption": "Sublime-IJulia: Evaluate Line", "command": "julia_transfer_current", "args": {"scope": "lines"}},
+    { "caption": "Sublime-IJulia: Evaluate File", "command": "julia_transfer_current", "args": {"scope": "file"}}
+]

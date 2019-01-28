@@ -1,0 +1,3 @@
+#!/bin/bash
+
+sshfs pi@raspberrypi: ~/PiHome

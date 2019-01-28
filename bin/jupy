@@ -1,0 +1,14 @@
+#!/bin/bash
+
+if [ "$1" != "" ]; then
+    dir="$1"
+else
+    dir='~/jupyter'
+fi
+
+jupyter notebook \
+--NotebookApp.open_browser=False \
+--NotebookApp.token='' \
+--NotebookApp.allow_origin='https://colab.research.google.com' \
+--NotebookApp.iopub_data_rate_limit=1.0e10 \
+--notebook-dir="$dir"

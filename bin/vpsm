@@ -1,0 +1,3 @@
+#!/bin/bash
+
+sshfs root@45.76.42.190: ~/VPSHome
