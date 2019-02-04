@@ -1,3 +1,0 @@
-#!/bin/bash
-
-watch -n 0.5 -c -t "gpustat --color -c -p | sed -r ':a;s/(MB [^ |]*)(\ |\|\ )/\1\n\t/;ta;'"

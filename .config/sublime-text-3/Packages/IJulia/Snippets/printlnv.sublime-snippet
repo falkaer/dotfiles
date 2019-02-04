@@ -1,7 +1,0 @@
-<snippet>
-    <content><![CDATA[
-println("${1:var} \$(${1:var})")
-]]></content>
-    <tabTrigger>printlnv</tabTrigger>
-    <scope>source.julia</scope>
-</snippet>

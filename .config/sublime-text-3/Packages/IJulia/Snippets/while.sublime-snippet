@@ -1,9 +1,0 @@
-<snippet>
-	<content><![CDATA[
-while ${1:cond}
-	${0:#while body}
-end
-]]></content>
-	<tabTrigger>while</tabTrigger>
-	<scope>source.julia</scope>
-</snippet>

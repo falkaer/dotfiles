@@ -1,1 +1,0 @@
-# Python `pexpect` package as dependency for SublimeText's embedded Python

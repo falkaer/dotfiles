@@ -1,3 +1,0 @@
-#!/bin/bash
-
-ssh -q root@45.76.42.190

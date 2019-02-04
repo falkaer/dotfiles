@@ -1,4 +1,0 @@
-#!/bin/bash
-
-mkdir -p ~/DTUHome
-sshfs -o idmap=user s164396@transfer.gbar.dtu.dk: ~/DTUHome
