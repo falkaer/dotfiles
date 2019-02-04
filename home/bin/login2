@@ -1,0 +1,3 @@
+#!/bin/bash
+
+ssh -q s164396@login2.hpc.dtu.dk

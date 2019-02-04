@@ -1,0 +1,22 @@
+#!/bin/bash
+
+# make dotfiles symlinks
+
+# $1 is folder to search in, $2 is folder to place in
+function mksym(){
+    
+    find "$1" -type f | while read file; do 
+        
+        # remove prefix
+        name="${file#"$1/"}"
+        target="$2/$name"
+        
+        mkdir -p "$(dirname "$target")"
+        ln -sf "$file" "$target"
+        
+    done
+    
+}
+
+mksym "$HOME/dotfiles/home" "$HOME"
+sudo bash -c "$(declare -f mksym); mksym "$HOME/dotfiles/root" """
