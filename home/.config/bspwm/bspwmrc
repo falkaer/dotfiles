@@ -1,7 +1,21 @@
 #! /bin/sh
 
-bspc monitor HDMI-0 -d I II III
-bspc monitor DP-0 -d IV V VI
+desktops=6 # spreads the desktops across available monitors
+
+i=1
+monitors=$(bspc query -M)
+num_monitors=$(wc -l <<< $monitors)
+dpm=$((desktops/num_monitors))
+
+for m in $monitors; do
+    
+    seq $i $((i+dpm-1)) | xargs bspc monitor $m -d
+    ((i+=dpm))
+    
+done
+
+# bspc monitor HDMI-0 -d 1 2 3
+# bspc monitor DP-0 -d 4 5 6
 
 bspc config border_width        3
 bspc config window_gap          36
