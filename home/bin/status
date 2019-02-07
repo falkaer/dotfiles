@@ -1,0 +1,12 @@
+#!/bin/bash
+
+DATE=$(date '+%d/%m-%Y %H:%M:%S')
+
+if [ -f /sys/class/power_supply/BAT*/uevent ]; then
+    CHARGE=$(acpi -b | awk -F': ' '{print $2}')
+else
+    CHARGE=""
+fi
+
+#TODO: check calendar? pepega
+notify-send "$DATE" "$CHARGE"

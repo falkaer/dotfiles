@@ -1,3 +1,3 @@
 #!/bin/bash
 
-sudo pacman -Syyu
+pamac update --force-refresh -a

@@ -5,6 +5,13 @@
 # terminal emulator
 super + Return
 	alacritty
+	
+# floating terminal emulator
+super + shift + Return
+	alacritty --class Alacritty_floating
+
+super + q
+	~/bin/status
 
 #Caps_Lock
 #    rofi -show drun
