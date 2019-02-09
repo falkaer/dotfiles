@@ -1,5 +1,7 @@
 #! /bin/sh
 
+xrdb -q
+
 desktops=6 # spreads the desktops across available monitors
 
 i=1
@@ -55,6 +57,7 @@ bspc rule -a mpv                          state=floating
 bspc rule -a Pamac-manager                state=floating
 bspc rule -a Gcolor3                      state=floating
 bspc rule -a Gnome-calendar               state=floating
+bspc rule -a "Blueberry.py"               state=floating
 bspc rule -a Alacritty:Alacritty_floating state=floating follow=on desktop='^-1'
 
 # fix java assuming reparenting windows with swing
@@ -64,13 +67,26 @@ export _JAVA_AWT_WM_NONREPARENTING=1
 xsetroot -cursor_name left_ptr
 feh --no-fehbg --bg-scale ~/.wallpapers/cat.jpg
 
+# start libinput-gestures if its installed
+if [ -x $(which libinput-gestures-setup) ]; then
+    libinput-gestures-setup start &
+fi
+
 # disable screensaver
 xset -dpms
 xset s off
 xset s noblank
 
+# start thunar daemon for quicker launch
+thunar --daemon &
+
 # start compton
-compton -cb
+# compton &
 
 # start sxhkd
 killall -9 sxhkd; sxhkd &
+
+# disable regular caps lock functionality
+# but is rebound to start rofi in sxhkdrc
+# important to run this after sxhkd starts apparently
+setxkbmap -option caps:none
