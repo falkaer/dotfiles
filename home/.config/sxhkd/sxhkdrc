@@ -1,6 +1,6 @@
-#
-# wm independent hotkeys
-#
+#######################
+##  COMMON COMMANDS  ##
+#######################
 
 # terminal emulator
 super + Return
@@ -19,19 +19,23 @@ super + ctrl + alt + l
 # normal caps lock functionality is disabled, 
 # but we can still capture the keystroke
 Caps_Lock
-    rofi -show drun
+    rofi -show drun -show-icons
 
-# program launcher
-#super + space
-#	rofi -show drun
+# volume control
+XF86Audio{RaiseVolume,LowerVolume,Mute}
+	amixer {-c 0 set PCM 4dB+,-c 0 set PCM 4dB-,set Master toggle}
+	
+# music control, uses spotify control script
+XF86Audio{Next,Prev,Play,Stop}
+	sp {next,prev,play,pause}
 
 # make sxhkd reload its configuration files:
 super + Escape
 	pkill -USR1 -x sxhkd
 
-#
-# bspwm hotkeys
-#
+#####################
+##  BSPWM HOTKEYS  ##
+#####################
 
 # quit bspwm normally
 super + alt + Escape

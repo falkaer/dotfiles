@@ -1,7 +1,10 @@
 #! /bin/sh
 
-xrdb -q
+# start polkit
+/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
 
+xrdb -q
+1
 desktops=6 # spreads the desktops across available monitors
 
 i=1

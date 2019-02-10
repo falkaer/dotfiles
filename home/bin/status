@@ -1,12 +1,79 @@
 #!/bin/bash
 
-DATE=$(date '+%d/%m-%Y %H:%M:%S')
+# 
 
-if [ -f /sys/class/power_supply/BAT*/uevent ]; then
-    CHARGE=$(acpi -b | awk -F': ' '{print $2}')
-else
-    CHARGE=""
-fi
+# 
+# 
+# 
+# 
+# 
+
+# 
+# 
+# 
+
+# 
+# 
+# 
+
+# ⏻ ⏾
+# 
+
+dat(){
+    
+    DATE=" $(date '+%d/%m-%Y %H:%M:%S')"
+    
+}
+
+#  32% () (02:01:01 remaining)
+pow(){
+    
+    if [ -d /sys/class/power_supply/BAT*/ ]; then
+        
+        cur="$(< /sys/class/power_supply/BAT*/capacity)"
+        sta="$(< /sys/class/power_supply/BAT*/status)"
+        
+        case "$cur" in
+            [0-9]|1[0-9])         POWER="" ;;
+            2[0-9]|3[0-9]|4[0-9]) POWER="" ;;
+            5[0-9]|6[0-9])        POWER="" ;;
+            7[0-9]|8[0-9])        POWER="" ;;
+            *)                    POWER="" ;;
+        esac
+        
+        POWER+="$(acpi -b | awk -F', ' '{print $2" ("$3")"}')\n"
+        [[ "$sta" == "Charging" ]] && POWER+=" Charging\n"
+        
+    else
+        POWER=""
+    fi
+    
+}
+
+net(){
+    
+    net_id="$(< /tmp/net_id)"
+    net_type="$(< /tmp/net_type)"
+    
+    if [[ "$net_type" == wl* ]]; then
+        # wifi connection
+        NET=" $net_id"
+    elif [[ "$net_type" == en* ]]; then
+        # wired connection
+        NET=" $net_id"
+    else
+        # no connection
+        NET=" No connection"
+    fi
+    
+}
+
+dat
+net
+pow
+
+# network connection
+# wl for wireless lan, en for ethernet
 
 #TODO: check calendar? pepega
-notify-send "$DATE" "$CHARGE"
+notify-send "$DATE" "$NET$POWER$CHARGING"

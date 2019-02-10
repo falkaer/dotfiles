@@ -1,7 +1,0 @@
-#!/bin/bash
-
-# start polkit
-/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
-
-# fix cursor in some apps
-xsetroot -cursor_name left_ptr
