@@ -41,7 +41,7 @@ pow(){
             *)                    POWER="" ;;
         esac
         
-        POWER+="$(acpi -b | awk -F', ' '{print $2" ("$3")"}')\n"
+        POWER+=" $(acpi -b | awk -F', ' '{print $2" ("$3")"}')\n"
         [[ "$sta" == "Charging" ]] && POWER+=" Charging\n"
         
     else
@@ -57,23 +57,24 @@ net(){
     
     if [[ "$net_type" == wl* ]]; then
         # wifi connection
-        NET=" $net_id"
+        NET=" $net_id\n"
     elif [[ "$net_type" == en* ]]; then
         # wired connection
-        NET=" $net_id"
+        NET=" $net_id\n"
     else
         # no connection
-        NET=" No connection"
+        NET=" No connection\n"
     fi
     
 }
 
 dat
-net
 pow
+net
+
 
 # network connection
 # wl for wireless lan, en for ethernet
 
 #TODO: check calendar? pepega
-notify-send "$DATE" "$NET$POWER$CHARGING"
+notify-send "$DATE" "$POWER$NET$CHARGING"
