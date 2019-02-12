@@ -1,10 +1,10 @@
-#! /bin/sh
+#!/bin/bash
 
 # start polkit
 /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
 
 xrdb -q
-1
+
 desktops=6 # spreads the desktops across available monitors
 
 i=1
@@ -25,6 +25,10 @@ done
 bspc config ignore_ewmh_focus             true
 bspc config borderless_monocle            true
 bspc config gapless_monocle               true
+
+bspc config focused_border_color          "#89ADAC"
+bspc config normal_border_color           "#4D4D4B"
+bspc config active_border_color           "#4D4D4B"
 
 bspc config border_width                  3
 bspc config window_gap                    36
@@ -61,30 +65,11 @@ bspc rule -a Pamac-manager                state=floating
 bspc rule -a Gcolor3                      state=floating
 bspc rule -a Gnome-calendar               state=floating
 bspc rule -a "Blueberry.py"               state=floating
+bspc rule -a WebTorrent                   state=floating
 bspc rule -a Alacritty:Alacritty_floating state=floating follow=on desktop='^-1'
 
 # fix java assuming reparenting windows with swing
 export _JAVA_AWT_WM_NONREPARENTING=1
-
-# set cursor and background
-xsetroot -cursor_name left_ptr
-feh --no-fehbg --bg-scale ~/.wallpapers/cat.jpg
-
-# start libinput-gestures if its installed
-if [ -x $(which libinput-gestures-setup) ]; then
-    libinput-gestures-setup start &
-fi
-
-# disable screensaver
-xset -dpms
-xset s off
-xset s noblank
-
-# start thunar daemon for quicker launch
-thunar --daemon &
-
-# start compton
-# compton &
 
 # start sxhkd
 killall -9 sxhkd; sxhkd &
@@ -93,3 +78,24 @@ killall -9 sxhkd; sxhkd &
 # but is rebound to start rofi in sxhkdrc
 # important to run this after sxhkd starts apparently
 setxkbmap -option caps:none
+
+# set cursor and background
+xsetroot -cursor_name left_ptr
+feh --no-fehbg --bg-scale ~/.wallpapers/cat.jpg
+
+# start libinput-gestures if its installed
+[[ -x $(which libinput-gestures-setup) ]] && libinput-gestures-setup start &
+
+# start thunar daemon for quicker launch
+thunar --daemon &
+
+# start compton
+# compton &
+
+# start clipboard manager
+parcellite &
+
+# disable screensaver
+xset -dpms
+xset s off
+xset s noblank

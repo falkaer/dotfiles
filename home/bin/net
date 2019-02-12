@@ -1,0 +1,14 @@
+#!/bin/bash
+net_id="$(< /tmp/net_id)"
+net_type="$(< /tmp/net_type)"
+
+if [[ "$net_type" == wl* ]]; then
+    # wifi connection
+    echo " $net_id"
+elif [[ "$net_type" == en* ]]; then
+    # wired connection
+    echo " $net_id"
+else
+    # no connection
+    echo " No connection"
+fi

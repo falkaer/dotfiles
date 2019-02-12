@@ -1,0 +1,16 @@
+#!/bin/bash
+if [ -d /sys/class/bat_supply/BAT*/ ]; then
+    
+    cur="$(< /sys/class/bat_supply/BAT*/capacity)"
+    
+    case "$cur" in
+        [0-9]|1[0-9])         bat="" ;;
+        2[0-9]|3[0-9]|4[0-9]) bat="" ;;
+        5[0-9]|6[0-9])        bat="" ;;
+        7[0-9]|8[0-9])        bat="" ;;
+        *)                    bat="" ;;
+    esac
+    
+    echo "$bat $(acpi -b | awk -F', ' '{print $2" ("$3")"}')"
+    
+fi
