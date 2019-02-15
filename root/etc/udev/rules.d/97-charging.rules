@@ -1,4 +1,0 @@
-# Notify when the battery starts charging
-SUBSYSTEM=="power_supply", \
-ENV{POWER_SUPPLY_ONLINE}=="1", \
-RUN+="notify-send Battery Charging..."

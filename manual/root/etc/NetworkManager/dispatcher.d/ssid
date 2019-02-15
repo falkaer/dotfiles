@@ -1,0 +1,15 @@
+#!/bin/bash
+
+if [[ "$NM_DISPATCHER_ACTION" == "up" ]]; then
+    
+    echo "$CONNECTION_ID" > /tmp/net_id
+    echo "$DEVICE_IP_IFACE" > /tmp/net_type
+
+    #TODO: also notify-send
+    
+elif [[ "$NM_DISPATCHER_ACTION" == "down" ]]; then
+    
+    rm -f /tmp/net_id
+    rm -f /tmp/net_type
+    
+fi

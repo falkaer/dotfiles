@@ -1,0 +1,8 @@
+#!/bin/bash
+
+# for i in {10..1}; do
+#     notify-send "$(~/.scripts/dat)" " Hibernating in $i second(s)..."
+#     sleep 1
+# done
+
+systemctl hibernate

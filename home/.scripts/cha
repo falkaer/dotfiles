@@ -1,0 +1,5 @@
+#!/bin/bash
+if [ -d /sys/class/power_supply/BAT*/ ]; then
+    sta="$(< /sys/class/power_supply/BAT*/status)"
+    [[ "$sta" == "Charging" ]] && echo " Charging"
+fi

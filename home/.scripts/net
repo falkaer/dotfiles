@@ -10,5 +10,5 @@ elif [[ "$net_type" == en* ]]; then
     echo " $net_id"
 else
     # no connection
-    echo " No connection"
+    echo " Internet disconnected"
 fi

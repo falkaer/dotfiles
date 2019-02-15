@@ -1,0 +1,17 @@
+# Charging
+SUBSYSTEM=="power_supply", ENV{POWER_SUPPLY_STATUS}=="Charging", \
+RUN+="/home/falkaer/.scripts/su-run '~/.scripts/notify/charging'"
+
+# Discharging
+SUBSYSTEM=="power_supply", ENV{POWER_SUPPLY_STATUS}=="Discharging", \
+RUN+="/home/falkaer/.scripts/su-run '~/.scripts/notify/discharging'"
+
+# Low power
+
+
+# Critical power
+
+# Hibernate warning
+
+# Force hibernate
+

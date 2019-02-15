@@ -1,0 +1,3 @@
+#!/bin/bash
+
+notify-send -u critical " Critical battery" "$(~/.scripts/pow)"

@@ -1,0 +1,1 @@
+Write a daemon that periodically polls acpi for battery levels and sends notifications about low battery, critical battery, and automatically hibernates laptop when battery falls below 5%. Also replace udev rules about charging/discharging to also use this daemon (keep charging-state file in /tmp and check whether the state has switched?) poll once per second should be enough

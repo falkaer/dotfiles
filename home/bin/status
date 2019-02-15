@@ -27,7 +27,6 @@ join(){
     fi
     
     msg=""
-    shift
     
     while [ $# -ge 1 ]; do
         [ ! -z "$1" ] && msg+="$1\n"
@@ -38,5 +37,5 @@ join(){
     
 }
 
-msg="$(join "$(~/bin/pow)" "$(~/bin/cha)" "$(~/bin/net)")"
-notify-send "$(~/bin/dat)" "$msg"
+msg="$(join "$(~/.scripts/cal)" "$(~/.scripts/pow)" "$(~/.scripts/net)")"
+notify-send "$(~/.scripts/dat)" "$msg"

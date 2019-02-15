@@ -1,7 +1,7 @@
 #!/bin/bash
-if [ -d /sys/class/bat_supply/BAT*/ ]; then
+if [ -d /sys/class/power_supply/BAT*/ ]; then
     
-    cur="$(< /sys/class/bat_supply/BAT*/capacity)"
+    cur="$(< /sys/class/power_supply/BAT*/capacity)"
     
     case "$cur" in
         [0-9]|1[0-9])         bat="" ;;

@@ -1,0 +1,16 @@
+#!/bin/bash
+
+# one second timeout prevents reacting to duplicate events
+timeout=1
+t=$(date '+%s')
+
+if [[ -f /tmp/adapter-timeout ]]; then
+    
+    prev_t=$(< /tmp/adapter-timeout)
+    ((timeout > t - prev_t)) && exit
+    
+fi
+
+notify-send " Charging" "$(~/.scripts/pow)"
+echo "$t" > /tmp/adapter-timeout
+

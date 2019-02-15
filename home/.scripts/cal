@@ -1,0 +1,14 @@
+#!/bin/bash
+
+datesuffix(){
+    case $(date +%d) in
+        1|21|31) echo "st";;
+        2|22) echo "nd";;
+        3|23) echo "rd";;
+        *)  echo "th";;
+    esac
+}
+
+# echo " $(date "+%A %B %d$(datesuffix)")"
+# echo " $(date "+Wednesday Sep 14th (week 53)")"
+echo " $(date "+%A %b %d$(datesuffix) (week $(date '+%V' | sed 's/^0*//'))")"

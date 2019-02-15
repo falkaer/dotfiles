@@ -1,0 +1,5 @@
+#!/bin/bash
+
+notify-send -u critical " System hibernating soon" "$(~/.scripts/pow)
+
+System will hibernate soon to preserve work unless charged."

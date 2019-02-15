@@ -19,6 +19,14 @@ for m in $monitors; do
     
 done
 
+# start sxhkd
+killall -9 sxhkd; sxhkd &
+
+# disable regular caps lock functionality
+# but is rebound to start rofi in sxhkdrc
+# important to run this after sxhkd starts apparently
+setxkbmap -option caps:none
+
 # bspc monitor HDMI-0 -d 1 2 3
 # bspc monitor DP-0 -d 4 5 6
 
@@ -44,11 +52,10 @@ bspc rule -a Firefox                      desktop='^1'
 bspc rule -a Alacritty                    desktop='^2'   follow=on
 
 # 3 > media
-bspc rule -a Spotify                      desktop='^3'
+bspc rule -a Spotify                      desktop='^3' # doesn't work
 bspc rule -a discord                      desktop='^3'
 
 # 4 > code
-bspc rule -a Subl3                        desktop='^4'
 bspc rule -a jetbrains-pycharm            desktop='^4'
 bspc rule -a jetbrains-intellij           desktop='^4'
 bspc rule -a jetbrains-clion              desktop='^4'
@@ -70,14 +77,6 @@ bspc rule -a Alacritty:Alacritty_floating state=floating follow=on desktop='^-1'
 
 # fix java assuming reparenting windows with swing
 export _JAVA_AWT_WM_NONREPARENTING=1
-
-# start sxhkd
-killall -9 sxhkd; sxhkd &
-
-# disable regular caps lock functionality
-# but is rebound to start rofi in sxhkdrc
-# important to run this after sxhkd starts apparently
-setxkbmap -option caps:none
 
 # set cursor and background
 xsetroot -cursor_name left_ptr

@@ -1,3 +1,0 @@
-#!/bin/bash
-echo "$CONNECTION_ID" > /tmp/net_id
-echo "$DEVICE_IP_IFACE" > /tmp/net_type

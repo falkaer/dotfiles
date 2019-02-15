@@ -1,0 +1,12 @@
+#!/bin/bash
+
+# runs $1 as $user with dbus address variable set
+# used to call notify-send with the users current 
+# graphical environment from udev rules
+
+user="falkaer"
+wm="bspwm"
+
+# export dbus bus address
+dbus_address="$(egrep -z DBUS_SESSION_BUS_ADDRESS /proc/$(pgrep -u "$user" "$wm")/environ)"
+/usr/bin/su "$user" -c "$dbus_address $*"

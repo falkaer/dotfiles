@@ -1,4 +1,0 @@
-# Notify when the battery starts discharging
-SUBSYSTEM=="power_supply", \
-ENV{POWER_SUPPLY_ONLINE}=="0", \
-RUN+="notify-send Battery Discharging..."

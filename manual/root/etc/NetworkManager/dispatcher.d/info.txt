@@ -1,0 +1,1 @@
+NetworkManager requires that files in dispatcher.d be owned by root, so copy 'ssid' into /etc/NetworkManager/dispatcher.d and set its ownership to root for this to work
