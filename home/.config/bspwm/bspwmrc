@@ -4,6 +4,7 @@
 /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
 
 xrdb -q
+xrdb -merge ~/.Xresources
 
 desktops=6 # spreads the desktops across available monitors
 
@@ -12,6 +13,7 @@ monitors=$(bspc query -M)
 num_monitors=$(wc -l <<< $monitors)
 dpm=$((desktops/num_monitors))
 
+#TODO: fix keybinds here so alt+1 is first monitor, alt+2 is second monitor etc.
 for m in $monitors; do
     
     seq $i $((i+dpm-1)) | xargs bspc monitor $m -d
@@ -24,7 +26,7 @@ killall -9 sxhkd; sxhkd &
 
 # disable regular caps lock functionality
 # but is rebound to start rofi in sxhkdrc
-# important to run this after sxhkd starts apparently
+# important to run this after sxhkd starts apparently (?)
 setxkbmap -option caps:none
 
 # bspc monitor HDMI-0 -d 1 2 3
@@ -45,11 +47,11 @@ bspc config split_ratio                   0.50
 bspc config top_padding                   0
 
 # 1 > web / misc
-bspc rule -a Google-chrome                desktop='^1'
-bspc rule -a Firefox                      desktop='^1'
+# bspc rule -a Google-chrome                desktop='^1'
+# bspc rule -a Firefox                      desktop='^1'
 
 # 2 > terminal
-bspc rule -a Alacritty                    desktop='^2'   follow=on
+# bspc rule -a Alacritty                    desktop='^2'   follow=on
 
 # 3 > media
 bspc rule -a Spotify                      desktop='^3' # doesn't work
@@ -66,17 +68,18 @@ bspc rule -a Gimp                         state=floating follow=on
 bspc rule -a Screenkey manage=off
 
 # floaty bois
-bspc rule -a feh                          state=floating
-bspc rule -a mpv                          state=floating
+
+# images and video
+bspc rule -a feh                          state=floating follow=on
+bspc rule -a mpv                          state=floating follow=on
+
+# misc
 bspc rule -a Pamac-manager                state=floating
 bspc rule -a Gcolor3                      state=floating
 bspc rule -a Gnome-calendar               state=floating
 bspc rule -a "Blueberry.py"               state=floating
 bspc rule -a WebTorrent                   state=floating
-bspc rule -a Alacritty:Alacritty_floating state=floating follow=on desktop='^-1'
-
-# fix java assuming reparenting windows with swing
-export _JAVA_AWT_WM_NONREPARENTING=1
+bspc rule -a Alacritty:Alacritty_floating state=floating follow=on # desktop='^-1'
 
 # set cursor and background
 xsetroot -cursor_name left_ptr

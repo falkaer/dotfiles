@@ -11,4 +11,6 @@ datesuffix(){
 
 # echo " $(date "+%A %B %d$(datesuffix)")"
 # echo " $(date "+Wednesday Sep 14th (week 53)")"
-echo " $(date "+%A %b %d$(datesuffix) (week $(date '+%V' | sed 's/^0*//'))")"
+# echo " $(date "+%A %b %d$(datesuffix) (week $(date '+%V' | sed 's/^0*//'))")"
+
+echo " $(date "+%A %d %b (week $(date '+%V' | sed 's/^0*//'))")"

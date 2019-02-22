@@ -4,11 +4,11 @@
 
 # terminal emulator
 super + Return
-	alacritty_hidpi
+	alacritty
 
 # floating terminal emulator
 super + shift + Return
-	alacritty_hidpi --class Alacritty_floating
+	alacritty --class Alacritty_floating
 
 super + q
 	~/bin/status

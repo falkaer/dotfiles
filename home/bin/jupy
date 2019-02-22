@@ -3,10 +3,12 @@
 if [ "$1" != "" ]; then
     dir="$1"
 else
-    dir='~/jupyter'
+    dir="$HOME/jupyter"
 fi
 
-jupyter notebook \
+mkdir -p "$dir"
+
+source ~/venv/data/bin/activate && jupyter notebook \
 --NotebookApp.open_browser=False \
 --NotebookApp.token='' \
 --NotebookApp.allow_origin='https://colab.research.google.com' \
