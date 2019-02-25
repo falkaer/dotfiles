@@ -97,6 +97,9 @@ thunar --daemon &
 # start clipboard manager
 parcellite &
 
+# start redshift (night light)
+redshift &
+
 # disable screensaver
 xset -dpms
 xset s off

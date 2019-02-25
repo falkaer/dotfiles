@@ -19,7 +19,7 @@ super + ctrl + alt + l
 # normal caps lock functionality is disabled, 
 # but we can still capture the keystroke
 Caps_Lock
-    rofi -show drun -show-icons
+    rofi -modi drun,emoji:~/.scripts/emoji,run,window,ssh -show drun -show-icons
 
 # volume control
 XF86Audio{RaiseVolume,LowerVolume,Mute}

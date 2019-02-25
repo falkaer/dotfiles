@@ -1,0 +1,70 @@
+#!/bin/bash
+
+# Where to save the emojis file.
+EMOJI_FILE="$HOME/.cache/emojis.txt"
+
+# Urls of emoji to download.
+# You can remove what you don't need.
+URLS=(
+    'https://emojipedia.org/people/'
+    'https://emojipedia.org/nature/'
+    'https://emojipedia.org/food-drink/'
+    'https://emojipedia.org/activity/'
+    'https://emojipedia.org/travel-places/'
+    'https://emojipedia.org/objects/'
+    'https://emojipedia.org/symbols/'
+    'https://emojipedia.org/flags/'
+)
+
+function notify(){
+    
+    [[ "$(command -v notify-send)" ]] && notify-send "$1" "$2"
+    
+}
+
+function download(){
+    
+    notify "Rofi" "Refreshing emoji cache in $EMOJI_FILE..."
+    touch "$EMOJI_FILE"
+    
+    for url in "${URLS[@]}"; do
+        
+        # Download the list of emoji and remove all the junk around it
+        emojis=$(curl -s "$url" | \
+                 xmllint --html \
+                         --xpath '//ul[@class="emoji-list"]' - 2>/dev/null)
+
+        # Get rid of starting/closing ul tags
+        emojis=$(echo "$emojis" | head -n -1 | tail -n +1)
+
+        # Extract the emoji and its description
+        emojis=$(echo "$emojis" | \
+                 sed -rn 's/.*<span class="emoji">(.*)<\/span> (.*)<\/a><\/li>/\1 \2/p')
+
+        echo "$emojis" >> "$EMOJI_FILE"
+        
+    done
+
+    notify "Rofi" "Done"
+    
+}
+
+if [[ -z "$@" ]]; then
+    
+    # download the emojis if not cached
+    [[ ! -f "$EMOJI_FILE" ]] && download
+    
+    # send emojis to rofi
+    cat "$EMOJI_FILE" | grep -v '#' | grep -v '^[[:space:]]*$'
+    
+else
+    
+    # get the emoji from the picked line and put it in the clipboard
+    echo -n "$*" | awk '{print $1;}' | tr -d '\n' | xsel -i -b
+    
+    # pasting it directly doesn't seem to work, rofi holds the focus too long and gobbles the keystroke
+    # communicate with a daemon? seems overkill
+    
+    # echo -n "$*" | awk '{print $1;}' | tr -d '\n' | xdotool type --clearmodifiers --file '-'
+    
+fi
