@@ -21,6 +21,19 @@ super + ctrl + alt + l
 Caps_Lock
     rofi -modi drun,emoji:~/.scripts/emoji,run,ssh,window -show drun -show-icons
 
+# printing
+@Print
+    ~/.scripts/scrotfile
+    
+shift + @Print
+    ~/.scripts/scrotfile -s
+    
+ctrl + @Print
+    ~/.scripts/scrotclip
+    
+ctrl + shift + @Print
+    ~/.scripts/scrotclip -s
+
 # volume control
 XF86Audio{RaiseVolume,LowerVolume,Mute}
 	amixer {-c 0 set PCM 4dB+,-c 0 set PCM 4dB-,set Master toggle}

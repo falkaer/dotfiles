@@ -1,0 +1,5 @@
+#!/bin/bash
+
+# take screenshot and copy it to the clipboard
+cd /tmp
+scrot $@ -q 100 -e 'xclip -selection c -t image/png < "$f" && notify-send " Screenshot taken" " Copied to clipboard"'
