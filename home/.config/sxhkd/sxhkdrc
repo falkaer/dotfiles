@@ -34,6 +34,12 @@ ctrl + @Print
 ctrl + shift + @Print
     ~/.scripts/scrotclip -s
 
+alt + @Print
+	~/.scripts/scrotfile -u -b
+
+ctrl + alt + @Print
+	~/.scripts/scrotclip -u -b
+
 # volume control
 XF86Audio{RaiseVolume,LowerVolume,Mute}
 	amixer {-c 0 set PCM 4dB+,-c 0 set PCM 4dB-,set Master toggle}
