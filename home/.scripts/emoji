@@ -32,7 +32,8 @@ function download(){
         emojis=$(echo "$emojis" | \
                  sed -rn 's/.*<span class="emoji">(.*)<\/span> (.*)<\/a><\/li>/\1 \2/p')
         
-        echo "$emojis" >> "$EMOJI_FILE"
+        # prepend "0 " as frequency count
+        echo "$emojis" | sed 's/^/0 /' >> "$EMOJI_FILE"
         
     done
     
@@ -45,12 +46,18 @@ if [[ -z "$@" ]]; then
     # download the emojis if not cached
     [[ ! -f "$EMOJI_FILE" ]] && download
     
-    # send emojis to rofi
-    cat "$EMOJI_FILE" | grep -v '#' | grep -v '^[[:space:]]*$'
+    # send emojis to rofi (cut the frequencies)
+    cat "$EMOJI_FILE" | cut -d' ' -f 2-
     
 else
     
+    # increment frequency count of selected line 
+    # in cache and sort by frequency ONLY
+    cat "$EMOJI_FILE"                                    | \
+    sed -r "s/([0-9]+) ($*)/echo \"\$((\\1+1)) \\2\"/ge" | \
+    sort -r -s -n -k 1,1 -o "$EMOJI_FILE"
+    
     # get the emoji from the picked line and put it in the clipboard
-    echo -n "$*" | awk '{print $1;}' | tr -d '\n' | xsel -i -b
+    echo "$*" | awk '{print $1}' | tr -d '\n' | xsel -i -b
     
 fi

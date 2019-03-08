@@ -1,0 +1,56 @@
+# zathurarc
+
+# settings
+
+## general
+set window-height 1024
+set window-width 768
+set adjust-open width
+set first-page-column 2
+set recolor-keephue
+set window-title-basename true
+set statusbar-home-tilde true
+
+## clipboard
+set selection-clipboard clipboard
+
+## scrolling
+set scroll-page-aware "true"
+set smooth-scroll "true"
+set scroll-step 100
+# set show-scrollbars true
+
+set guioptions ""
+set recolor-reverse-video true
+
+# key bindings
+
+map w adjust_window width
+map q toggle_index
+
+# hacky fix, wont exit 
+map [index] q abort
+
+map r recolor
+map <C-r> rotate
+map <C-Space> toggle_statusbar
+
+## navigation
+map <Left> navigate previous
+map <Right> navigate next
+map <Button8> navigate previous
+map <Button9> navigate next
+
+# colors
+set recolor-darkcolor  "#FFFFFF"
+set recolor-lightcolor "#333333"
+set statusbar-fg "#000000"
+set statusbar-bg "#C2BFA5"
+set inputbar-fg "#FFFFFF"
+set inputbar-bg "#333333"
+set completion-highlight-fg "#F0E68C"
+set completion-highlight-bg "#6B8E23"
+# set highlight-color "#CD853F"
+# set highlight-active-color "#F0E68C"
+set notification-fg "#FFFFFF"
+set notification-bg "#333333"
