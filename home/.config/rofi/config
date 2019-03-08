@@ -1,25 +1,13 @@
-rofi.padding: 64
-rofi.bw: 2
-rofi.lines: 6
-rofi.width: 32
+rofi.padding: 16
+rofi.lines: 8
+rofi.width: 26
+rofi.bw: 0
 
 rofi.font: Roboto Mono 16
-! rofi.font: Iosevka Medium 16
-! rofi.font: Monospace 12
-! rofi.font: Terminus 12
-
 rofi.hide-scrollbar: true
 
 ! State:           ´bg´,     ´fg´,     ´bgalt´,  ´hlbg´,   ´hlfg´
-rofi.color-normal: #FFFFFF,  #444444,  #FFFFFF,  #444444,  #FFFFFF
-rofi.color-urgent: #FFFFFF,  #444444,  #FFFFFF,  #444444,  #FFFFFF
-rofi.color-active: #FFFFFF,  #444444,  #FFFFFF,  #444444,  #FFFFFF
+rofi.color-normal: #4D4D4B,  #FFFFFF,  #4D4D4B,  #FFFFFF,  #4D4D4B
 
 !                  ´background´, ´border´, ´separator´
-rofi.color-window: #FFFFFF,      #FFFFFF,  #FFFFFF
-
-# Dark wal theme.
-# rofi.theme: ~/.cache/wal/colors-rofi-dark.rasi
-
-# Light wal theme.
-# rofi.theme: ~/.cache/wal/colors-rofi-light.rasit
+rofi.color-window: #4D4D4B,      #4D4D4B,  #4D4D4B

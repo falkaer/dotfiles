@@ -19,7 +19,7 @@ super + ctrl + alt + l
 # normal caps lock functionality is disabled, 
 # but we can still capture the keystroke
 Caps_Lock
-    rofi -modi drun,emoji:~/.scripts/emoji,run,ssh,window -show drun -show-icons
+    rofi -modi drun,emoji:~/.scripts/emoji,window -show drun -show-icons
 
 # printing
 @Print
@@ -40,13 +40,13 @@ alt + @Print
 ctrl + alt + @Print
 	~/.scripts/scrotclip -u -b
 
-# volume control
+# volume control (dont actually know if it works pepega)
 XF86Audio{RaiseVolume,LowerVolume,Mute}
 	amixer {-c 0 set PCM 4dB+,-c 0 set PCM 4dB-,set Master toggle}
-	
+
 # music control, uses spotify control script
 XF86Audio{Next,Prev,Play,Stop}
-	sp {next,prev,play,pause}
+	~/bin/sp {next,prev,play,pause}
 
 # make sxhkd reload its configuration files:
 super + Escape

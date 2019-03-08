@@ -13,16 +13,15 @@ URLS=(
     'https://emojipedia.org/flags/'
 )
 
-function download(){
+download(){
     
     notify-send "Rofi" "Refreshing emoji cache in $EMOJI_FILE..."
-    touch "$EMOJI_FILE"
     
     for url in "${URLS[@]}"; do
         
         # download the list of emoji and remove all the junk around it
         emojis=$(curl -s "$url" | \
-                 xmllint --html \
+                 xmllint --html   \
                          --xpath '//ul[@class="emoji-list"]' - 2>/dev/null)
         
         # get rid of starting/closing ul tags
@@ -32,7 +31,7 @@ function download(){
         emojis=$(echo "$emojis" | \
                  sed -rn 's/.*<span class="emoji">(.*)<\/span> (.*)<\/a><\/li>/\1 \2/p')
         
-        # prepend "0 " as frequency count
+        # prepend zero frequency count
         echo "$emojis" | sed 's/^/0 /' >> "$EMOJI_FILE"
         
     done
@@ -46,16 +45,13 @@ if [[ -z "$@" ]]; then
     # download the emojis if not cached
     [[ ! -f "$EMOJI_FILE" ]] && download
     
-    # send emojis to rofi (cut the frequencies)
-    cat "$EMOJI_FILE" | cut -d' ' -f 2-
+    # remove frequency from all lines and send to stdout
+    cut -d' ' -f 2- "$EMOJI_FILE"
     
 else
     
-    # increment frequency count of selected line 
-    # in cache and sort by frequency ONLY
-    cat "$EMOJI_FILE"                                    | \
-    sed -r "s/([0-9]+) ($*)/echo \"\$((\\1+1)) \\2\"/ge" | \
-    sort -r -s -n -k 1,1 -o "$EMOJI_FILE"
+    # increment frequency count of selected line in cache and sort by frequency ONLY
+    sed -r "s/([0-9]+) ($*)/echo \"\$((\\1+1)) \\2\"/ge" "$EMOJI_FILE" | sort -r -s -n -k 1,1 -o "$EMOJI_FILE"
     
     # get the emoji from the picked line and put it in the clipboard
     echo "$*" | awk '{print $1}' | tr -d '\n' | xsel -i -b
