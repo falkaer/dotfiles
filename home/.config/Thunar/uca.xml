@@ -1,0 +1,30 @@
+<?xml encoding="UTF-8" version="1.0"?>
+<actions>
+<action>
+	<icon>utilities-terminal</icon>
+	<name>Open Terminal Here</name>
+	<unique-id>1551125525090111-1</unique-id>
+	<command>exo-open --working-directory %f --launch TerminalEmulator</command>
+	<description>Example for a custom action</description>
+	<patterns>*</patterns>
+	<startup-notify/>
+	<directories/>
+</action>
+<action>
+	<icon>thunar</icon>
+	<name>Open As Administrator</name>
+	<unique-id>1551454808468973-1</unique-id>
+	<command>pkexec thunar %f</command>
+	<description></description>
+	<patterns>*</patterns>
+	<directories/>
+</action>
+<action>
+	<icon>7zip</icon>
+	<name>Decompress</name>
+	<unique-id>1552246223232760-1</unique-id>
+	<command>ex %F</command>
+	<description></description>
+	<patterns>*.zip,*.rar,*.tar.gz</patterns>
+</action>
+</actions>

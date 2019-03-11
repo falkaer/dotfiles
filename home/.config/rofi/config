@@ -2,12 +2,6 @@ rofi.padding: 16
 rofi.lines: 8
 rofi.width: 26
 rofi.bw: 0
-
+rofi.theme: photon-blue
 rofi.font: Roboto Mono 16
 rofi.hide-scrollbar: true
-
-! State:           ´bg´,     ´fg´,     ´bgalt´,  ´hlbg´,   ´hlfg´
-rofi.color-normal: #4D4D4B,  #FFFFFF,  #4D4D4B,  #FFFFFF,  #4D4D4B
-
-!                  ´background´, ´border´, ´separator´
-rofi.color-window: #4D4D4B,      #4D4D4B,  #4D4D4B

@@ -6,20 +6,7 @@
 xrdb -q
 xrdb -merge ~/.Xresources
 
-desktops=6 # spreads the desktops across available monitors
-
-i=1
-monitors=$(bspc query -M)
-num_monitors=$(wc -l <<< $monitors)
-dpm=$((desktops/num_monitors))
-
-#TODO: fix keybinds here so alt+1 is first monitor, alt+2 is second monitor etc.
-for m in $monitors; do
-    
-    seq $i $((i+dpm-1)) | xargs bspc monitor $m -d
-    ((i+=dpm))
-    
-done
+~/.config/bspwm/desktops
 
 # start sxhkd
 killall -9 sxhkd; sxhkd &
@@ -75,6 +62,7 @@ bspc rule -a mpv                          state=floating follow=on
 
 # misc
 bspc rule -a Pamac-manager                state=floating
+bspc rule -a File-roller                  state=floating
 bspc rule -a Gcolor3                      state=floating
 bspc rule -a Gnome-calendar               state=floating
 bspc rule -a "Blueberry.py"               state=floating
