@@ -1,0 +1,12 @@
+#!/bin/bash
+
+# store moodagent ec2 instance ip
+if [ -z "$@" ]; then
+    
+    cat /tmp/mip
+
+else
+    
+    echo "$*" > /tmp/mip
+    
+fi

@@ -1,0 +1,3 @@
+#!/bin/bash
+
+ssh -q -i ~/Documents/kenny.pem ubuntu@$(mip)
