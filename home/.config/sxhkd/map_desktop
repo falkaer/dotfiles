@@ -1,0 +1,8 @@
+#!/bin/bash
+
+m=$(bspc query -M | wc -l)
+d=10
+x=$(($1 - 1))
+
+# cocaine
+echo $((x / m + x % m * d / m + 1))

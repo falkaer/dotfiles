@@ -1,0 +1,31 @@
+#!/bin/bash
+
+desktops=10
+
+# 2 monitor case
+# (( $n % 2 )) && echo $(($n/2 + 1)) || echo $(($n/2 + $d/2))
+
+# spreads the desktops evenly across available monitors
+configure_desktops(){
+    
+    monitors=$(bspc query -M)
+    num_monitors=$(wc -l <<< $monitors)
+    dpm=$((desktops/num_monitors))
+
+    i=1
+
+    for m in $monitors; do
+        
+        seq $i $((i+dpm-1)) | xargs bspc monitor $m -d
+        ((i+=dpm))
+        
+    done
+    
+}
+
+configure_desktops
+
+# reconfigure desktops if a monitor is added
+bspc subscribe monitor | while read -r line; do
+    [[ $line == monitor_add* ]] && configure_desktops
+done &
