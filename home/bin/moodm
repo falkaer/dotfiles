@@ -1,0 +1,4 @@
+#!/bin/bash
+
+mkdir -p ~/MoodHome
+sshfs -o idmap=user -o IdentityFile=~/Documents/kenny.pem ubuntu@$(mip): ~/MoodHome
