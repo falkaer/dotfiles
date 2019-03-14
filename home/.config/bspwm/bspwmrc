@@ -6,19 +6,14 @@
 xrdb -q
 xrdb -merge ~/.Xresources
 
-~/.config/bspwm/desktops
-
 # start sxhkd
 killall -9 sxhkd; sxhkd &
 
 # disable regular caps lock functionality
 # but is rebound to start rofi in sxhkdrc
-# important to run this after sxhkd starts apparently (?)
 setxkbmap -option caps:none
 
-# bspc monitor HDMI-0 -d 1 2 3
-# bspc monitor DP-0 -d 4 5 6
-
+# top level settings
 bspc config ignore_ewmh_focus             true
 bspc config borderless_monocle            true
 bspc config gapless_monocle               true
@@ -28,50 +23,64 @@ bspc config normal_border_color           "#4D4D4B"
 bspc config active_border_color           "#4D4D4B"
 
 bspc config border_width                  3
-bspc config window_gap                    36
+bspc config window_gap                    30
 
 bspc config split_ratio                   0.50
 bspc config top_padding                   0
 
-# 1 > web / misc
-# bspc rule -a Google-chrome                desktop='^1'
-# bspc rule -a Firefox                      desktop='^1'
+desktops=10
 
-# 2 > terminal
-# bspc rule -a Alacritty                    desktop='^2'   follow=on
+configure_desktops(){
+    
+    monitors=$(bspc query -M)
+    num_monitors=$(wc -l <<< $monitors)
+    dpm=$((desktops/num_monitors))
+    
+    i=1
+    
+    for m in $monitors; do
+        
+        seq $i $((i+dpm-1)) | xargs bspc monitor $m -d
+        ((i+=dpm))
+        
+    done
+    
+    # set wallpaper again
+    feh --no-fehbg --bg-scale ~/.wallpapers/cat.jpg
+    
+    # spotify rule doesn't work, spotifys fault
+    bspc rule -a spotify            desktop="^$(~/.config/bspwm/map_desktop 3)"
+    bspc rule -a discord            desktop="^$(~/.config/bspwm/map_desktop 3)"
+    
+    bspc rule -a jetbrains-pycharm  desktop="^$(~/.config/bspwm/map_desktop 4)"
+    bspc rule -a jetbrains-intellij desktop="^$(~/.config/bspwm/map_desktop 4)"
+    bspc rule -a jetbrains-clion    desktop="^$(~/.config/bspwm/map_desktop 4)"
+    bspc rule -a jetbrains-webstorm desktop="^$(~/.config/bspwm/map_desktop 4)"
+    
+}
 
-# 3 > media
-bspc rule -a Spotify                      desktop='^3' # doesn't work
-bspc rule -a discord                      desktop='^3'
+configure_desktops
 
-# 4 > code
-bspc rule -a jetbrains-pycharm            desktop='^4'
-bspc rule -a jetbrains-intellij           desktop='^4'
-bspc rule -a jetbrains-clion              desktop='^4'
-bspc rule -a jetbrains-webstorm           desktop='^4'
-
-# misc
-bspc rule -a Gimp                         state=floating follow=on
-bspc rule -a Screenkey manage=off
+# TODO: also reconfigure when a monitor is removed (make bspwm remove it as well)
+# reconfigure desktops when the monitor configuration changes
+bspc subscribe monitor | while read -r line; do
+    [[ $line == monitor_add* ]] && configure_desktops
+done &
 
 # floaty bois
-
-# images and video
 bspc rule -a feh                          state=floating follow=on
 bspc rule -a mpv                          state=floating follow=on
-
-# misc
 bspc rule -a Pamac-manager                state=floating
 bspc rule -a File-roller                  state=floating
 bspc rule -a Gcolor3                      state=floating
 bspc rule -a Gnome-calendar               state=floating
 bspc rule -a "Blueberry.py"               state=floating
 bspc rule -a WebTorrent                   state=floating
+bspc rule -a Gimp                         state=floating follow=on
 bspc rule -a Alacritty:Alacritty_floating state=floating follow=on # desktop='^-1'
 
-# set cursor and background
+# set cursor
 xsetroot -cursor_name left_ptr
-feh --no-fehbg --bg-scale ~/.wallpapers/cat.jpg
 
 # start libinput-gestures if its installed
 [[ -x $(which libinput-gestures-setup) ]] && libinput-gestures-setup start &
