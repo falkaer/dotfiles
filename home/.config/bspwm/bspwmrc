@@ -23,12 +23,21 @@ bspc config normal_border_color           "#4D4D4B"
 bspc config active_border_color           "#4D4D4B"
 
 bspc config border_width                  3
-bspc config window_gap                    30
+bspc config window_gap                    26
 
 bspc config split_ratio                   0.50
 bspc config top_padding                   0
 
+bspc config remove_disabled_monitors      true
+bspc config remove_unplugged_monitors     true
+
 desktops=10
+
+# GET ACTIVE OUTPUTS FROM XRANDR
+# xrandr | grep -E " connected (primary )?[1-9]+" | sed -e "s/\([A-Z0-9]\+\) connected.*/\1/"
+
+# GET CONNECTED OUTPUTS FROM XRANDR
+# xrandr | grep " connected" | sed -e "s/\([A-Z0-9]\+\) connected.*/\1/"
 
 configure_desktops(){
     
@@ -61,10 +70,9 @@ configure_desktops(){
 
 configure_desktops
 
-# TODO: also reconfigure when a monitor is removed (make bspwm remove it as well)
 # reconfigure desktops when the monitor configuration changes
 bspc subscribe monitor | while read -r line; do
-    [[ $line == monitor_add* ]] && configure_desktops
+    ([[ $line == monitor_add* ]] || [[ $line == monitor_remove* ]]) && configure_desktops
 done &
 
 # floaty bois
