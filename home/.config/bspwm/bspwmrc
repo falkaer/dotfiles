@@ -49,6 +49,10 @@ configure_desktops(){
     
     for m in $monitors; do
         
+        #TODO: if the monitor is 21:9, configure two desktops by default
+        #TODO: if its 32:9 configure three desktops
+        #TOOD: add keybind to select how many desktops there should be per monitor
+        
         seq $i $((i+dpm-1)) | xargs bspc monitor $m -d
         ((i+=dpm))
         
