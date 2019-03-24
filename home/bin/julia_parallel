@@ -1,0 +1,4 @@
+#!/bin/bash
+
+export JULIA_NUM_THREADS=$(grep -c ^processor /proc/cpuinfo)
+julia $*
