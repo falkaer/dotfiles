@@ -1,0 +1,8 @@
+#!/bin/bash
+
+# take screenshot and place it in ~/Pictures folder
+# cd ~/Pictures
+# scrot $@ -q 100 -e 'notify-send " Screenshot taken" " Saved as $n"' "Screenshot from $(date '+%F_%T').png"
+
+name="$HOME/Pictures/$(date '+%F_%T').png"
+maim $@ -m 10 -b 2 "$name" && notify-send " Screenshot taken" " Saved as $name"

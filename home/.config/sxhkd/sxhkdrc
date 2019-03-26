@@ -23,22 +23,16 @@ Caps_Lock
 
 # printing
 @Print
-    ~/.scripts/scrotfile
-    
+    ~/.scripts/screenfile
+
 shift + @Print
-    ~/.scripts/scrotfile -s
-    
+    ~/.scripts/screenfile -s
+
 ctrl + @Print
-    ~/.scripts/scrotclip
-    
+    ~/.scripts/screenclip
+
 ctrl + shift + @Print
-    ~/.scripts/scrotclip -s
-
-alt + @Print
-	~/.scripts/scrotfile -u -b
-
-ctrl + alt + @Print
-	~/.scripts/scrotclip -u -b
+    ~/.scripts/screenclip -s
 
 # volume control (dont actually know if it works pepega)
 XF86Audio{RaiseVolume,LowerVolume,Mute}
