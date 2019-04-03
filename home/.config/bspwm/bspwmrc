@@ -59,7 +59,7 @@ configure_desktops(){
     done
     
     # set wallpaper again
-    feh --no-fehbg --bg-scale ~/.wallpapers/cat.jpg
+    feh --no-fehbg --bg-scale --no-xinerama ~/.wallpapers/cotton-candy.jpg
     
     # spotify rule doesn't work, spotifys fault
     bspc rule -a spotify            desktop="^$(~/.config/bspwm/map_desktop 3)"
