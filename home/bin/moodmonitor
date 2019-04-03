@@ -1,0 +1,15 @@
+#!/bin/bash
+
+if [ "$1" == "-on" ]; then
+    
+    xrandr --output HDMI2 --auto --primary --output eDP1 --auto --pos 760x1440
+
+elif [ "$1" == "-off" ]; then
+    
+    xrandr --output eDP1 --auto --primary --output HDMI2 --off
+    
+else
+    
+    echo "-on or -off"
+    
+fi
