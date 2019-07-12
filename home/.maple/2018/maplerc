@@ -1,6 +1,6 @@
 [Debugger]
 [Options]
-Automatic Maple Last Update=737403
+Automatic Maple Last Update=737583
 Save Options=false
 SearchBoxCloudGroup=MathApps
 HelpLanguages=en
@@ -36,7 +36,7 @@ AutoCompleteEnabled=true
 Space to Dot Operator=true
 Default Document Type=1
 PlotBGColor=default
-Length of Startup in ms=2615
+Length of Startup in ms=4515
 Translate Typefaces=true
 SyntaxCheckLevel=2
 Use Two Math Fonts Size=18
@@ -68,17 +68,24 @@ URLMRU11=
 Use System Default=false
 Browser=
 [Help]
+Same Window=false
+Browser Percent=26
+HelpLibrariesCustom=/home/falkaer/.maple/2018/tasks.help
+HelpIMRU8=Definition,arg
+HelpIMRU9=using_parameters
 AutoSearch=true
 Show Goodness=false
-HelpSearch2=Arg
-Same Window=false
-HelpSearch1=arg
-HelpIMRU4=using_parameters
-Browser Percent=26
-HelpIMRU2=Definition,argument
-HelpIMRU3=Definition,arg
-HelpIMRU1=argument
-HelpLibrariesCustom=/home/falkaer/.maple/2018/tasks.help
+HelpSearch2=combine
+HelpIMRU6=argument
+HelpSearch1=plot
+HelpIMRU7=Definition,argument
+HelpIMRU4=worksheet,reference,PlottingGuide
+HelpSearch4=Arg
+HelpSearch3=arg
+HelpIMRU5=TimeSeriesAnalysis,SeasonalSubseriesPlot
+HelpIMRU2=combine
+HelpIMRU3=plots,pointplot
+HelpIMRU1=plot
 [Tasks]
 [Tools]
 Preferred Icons=Small_Icons
@@ -171,6 +178,7 @@ dock.workbook.palettelist=Explorer WorkbookVariableManager
 palette.expanded.MathFenced=false
 palette.expanded.AlphaCyrillic=false
 palette.expanded.MathArrows=false
+palette.expanded.UnitsSI=true
 palette.expanded.MathMiscellaneous=false
 dock.location.West=200
 palette.expanded.Matrix=false
@@ -185,45 +193,49 @@ palette.expanded.MathRelationalStandard=false
 palette.expanded.Calculus=false
 palette.expanded.AlphaScript=false
 [Find-Replace]
-findText=impuls
+findText=pair
 replaceText=
 [Language]
 [Version]
 [Size-Position]
 WksMaximizedState=false
-HelpPosX=0
-HelpMaximizedState=true
+HelpPosX=1440
+HelpMaximizedState=false
 ContextPanelWidth=250
-HelpPosY=0
+HelpPosY=288
 WKsWidth=
-HelpWidth=1920
-HelpHeight=1080
-WksPosY=175
-WksPosX=2256
-WksWidth=539
-WksHeight=658
+HelpWidth=474
+HelpHeight=786
+WksPosY=0
+WksPosX=0
+WksWidth=1914
+WksHeight=1074
 [Dialog]
 LastLicenseWarning=364
 File.Open=true
 [Files]
 Export As=
-FileMRU3=/home/falkaer/Downloads/Cheatsheet.mw
-FileMRU2=/home/falkaer/Documents/10020 (Fysik 1)/eksamen/Cheatsheet.mw
-BackupList=
-FileMRU1=/home/falkaer/Documents/convolutions.mw
+FileMRU3=/home/falkaer/Documents/chem/26028-Chemistry.mw
+BackupSave4=/home/falkaer/untitled4_MAS.bak
+FileMRU2=/home/falkaer/Documents/chem/SKABELONER-grundlæggende-kemi.mw
+BackupList=,4
+FileMRU1=/home/falkaer/Documents/chem/Kemi-Cheat-Sheet.mw
 HTMLFrames=true
 XMLCheck=true
 Insert=
-Save As=/home/falkaer/Documents/
+Save As=/home/falkaer/Documents/chem/
 HyperLink=
 Open=
 Template=
+FileMRU9=/home/falkaer/Documents/10020 (Fysik 1)/eksamen/Cheatsheet.mw
 BackupSave=
-FileMRU7=
-FileMRU6=
+FileMRU8=/home/falkaer/Documents/convolutions.mw
+FileMRU7=/home/falkaer/Downloads/SKABELONER-grundlæggende-kemi.mw
+FileMRU10=/home/falkaer/Downloads/Cheatsheet.mw
+FileMRU6=/home/falkaer/Downloads/26028-Chemistry.mw
 CleanSave=true
-FileMRU5=
-FileMRU4=
+FileMRU5=/home/falkaer/Downloads/Kemi-Cheat-Sheet.mw
+FileMRU4=/home/falkaer/Downloads/Opgaver.mw
 [Debug]
 Test Mode=false
 Debug Level=0

@@ -11,7 +11,7 @@ killall -9 sxhkd; sxhkd &
 
 # disable regular caps lock functionality
 # but is rebound to start rofi in sxhkdrc
-setxkbmap -option caps:none
+setxkbmap -symbols 'pc+dk+capsoff'
 
 # top level settings
 bspc config ignore_ewmh_focus             true

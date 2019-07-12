@@ -5,6 +5,7 @@
 alias sudo='sudo '
 alias fuck='sudo $(fc -ln -1) '
 alias person='man ' # more inclusive
+
 alias bin='xdg-open ~/bin'
 alias bashrc='xdg-open ~/.bashrc'
 alias bspwmrc='xdg-open ~/.config/bspwm/bspwmrc'

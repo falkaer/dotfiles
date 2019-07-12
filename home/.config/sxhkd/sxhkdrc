@@ -4,11 +4,11 @@
 
 # terminal emulator
 super + Return
-	alacritty
+	alacritty_hidpi
 
 # floating terminal emulator
 super + shift + Return
-	alacritty --class Alacritty_floating
+	alacritty_hidpi --class Alacritty_floating
 
 super + q
 	~/bin/status
@@ -41,6 +41,9 @@ XF86Audio{RaiseVolume,LowerVolume,Mute}
 # music control, uses spotify control script
 XF86Audio{Next,Prev,Play,Stop}
 	~/bin/sp {next,prev,play,pause}
+
+XF86MonBrightness{Up,Down}
+    xbacklight {-inc,-dec} 10
 
 # make sxhkd reload its configuration files:
 super + Escape
