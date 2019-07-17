@@ -1,0 +1,41 @@
+* {
+background-color:      #1b1d1e00;
+text-color:            #ffffff;
+font:                  "Fira Mono Medium 11";
+border-radius:         3px;
+}
+
+#window {
+anchor:     north;
+location:   north;
+width:      2200px;
+max-width:  100%;
+padding:    9px 48px 0 170px;
+children:   [ horibox ];
+}
+
+#horibox {
+orientation: horizontal;
+children:   [ prompt, entry, listview ];
+}
+
+#listview {
+layout:     horizontal;
+spacing:    4px;
+lines:      100;
+}
+
+#entry {
+padding:    0px 4px;
+expand:     false;
+width:      6em;
+}
+
+#element {
+padding: 2px 4px;
+}
+
+#element selected {
+background-color: #313131d4;
+color: #ffffff;
+}

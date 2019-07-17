@@ -1,7 +1,0 @@
-rofi.padding: 16
-rofi.lines: 8
-rofi.width: 26
-rofi.bw: 0
-rofi.theme: photon-blue
-rofi.font: Roboto Mono 16
-rofi.hide-scrollbar: true

@@ -4,11 +4,11 @@
 
 # terminal emulator
 super + Return
-	alacritty_hidpi
+	kitty
 
 # floating terminal emulator
 super + shift + Return
-	alacritty_hidpi --class Alacritty_floating
+	kitty --class term_floating
 
 super + q
 	~/bin/status
