@@ -18,15 +18,17 @@ bspc config ignore_ewmh_focus             true
 bspc config borderless_monocle            true
 bspc config gapless_monocle               true
 
-bspc config focused_border_color          "#89ADAC"
+# bspc config focused_border_color          "#89ADAC"
+bspc config focused_border_color          "#e8e4c9"
 bspc config normal_border_color           "#4D4D4B"
 bspc config active_border_color           "#4D4D4B"
 
-bspc config border_width                  3
-bspc config window_gap                    26
+bspc config border_width                  2
+bspc config window_gap                    30
+bspc config top_padding                   12
+bspc config bottom_padding                12
 
 bspc config split_ratio                   0.50
-bspc config top_padding                   0
 
 bspc config remove_disabled_monitors      true
 bspc config remove_unplugged_monitors     true
@@ -49,17 +51,13 @@ configure_desktops(){
     
     for m in $monitors; do
         
-        #TODO: if the monitor is 21:9, configure two desktops by default
-        #TODO: if its 32:9 configure three desktops
-        #TOOD: add keybind to select how many desktops there should be per monitor
-        
         seq $i $((i+dpm-1)) | xargs bspc monitor $m -d
         ((i+=dpm))
         
     done
     
-    # set wallpaper again
-    feh --no-fehbg --bg-scale --no-xinerama ~/.wallpapers/cotton-candy.jpg
+    # set wallpaper
+    feh --no-fehbg --bg-scale --no-xinerama ~/.wallpapers/cesar329.jpg
     
     # spotify rule doesn't work, spotifys fault
     bspc rule -a spotify            desktop="^$(~/.config/bspwm/map_desktop 3)"
@@ -75,6 +73,7 @@ configure_desktops(){
 configure_desktops
 
 # reconfigure desktops when the monitor configuration changes
+# TODO: send desktops to correct new map_desktop locations!
 bspc subscribe monitor | while read -r line; do
     ([[ $line == monitor_add* ]] || [[ $line == monitor_remove* ]]) && configure_desktops
 done &
@@ -89,7 +88,7 @@ bspc rule -a Gnome-calendar               state=floating
 bspc rule -a "Blueberry.py"               state=floating
 bspc rule -a WebTorrent                   state=floating
 bspc rule -a Gimp                         state=floating follow=on
-bspc rule -a Alacritty:Alacritty_floating state=floating follow=on # desktop='^-1'
+bspc rule -a term_floating                state=floating follow=on
 
 # set cursor
 xsetroot -cursor_name left_ptr
@@ -101,7 +100,7 @@ xsetroot -cursor_name left_ptr
 thunar --daemon &
 
 # start compton
-# compton &
+compton &
 
 # start clipboard manager
 parcellite &
