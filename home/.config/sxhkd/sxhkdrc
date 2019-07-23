@@ -19,7 +19,7 @@ super + ctrl + alt + l
 # normal caps lock functionality is disabled, 
 # but we can still capture the keystroke
 Caps_Lock
-    rofi -modi drun,emoji:~/.scripts/emoji,window -show drun -show-icons
+    rofi -modi drun,emoji:~/.scripts/emoji,run -show drun -show-icons
 
 # printing
 @Print
@@ -117,7 +117,7 @@ super + {o,i}
 
 # focus or send to the given desktop
 super + {_,shift + }{1-9,0}
-	bspc {desktop -f,node -d} "^$(~/.config/bspwm/map_desktop '{1-9,10}')"
+	bspc {desktop -f,node -d} "^$(~/.config/bspwm/map_desktop $(bspc query -M | wc -l) '{1-9,10}')"
 
 #
 # preselect

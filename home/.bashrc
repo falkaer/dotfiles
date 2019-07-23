@@ -12,6 +12,8 @@ alias bspwmrc='xdg-open ~/.config/bspwm/bspwmrc'
 alias sxhkdrc='xdg-open ~/.config/sxhkd/sxhkdrc'
 alias config='xdg-open ~/.config'
 
+export JULIA_NUM_THREADS=$(grep -c ^processor /proc/cpuinfo)
+
 [[ $- != *i* ]] && return
 
 [ -r /usr/share/bash-completion/bash_completion ] && . /usr/share/bash-completion/bash_completion
@@ -65,7 +67,7 @@ unset use_color safe_term match_lhs sh
 
 alias cp="cp -i"                          # confirm before overwriting something
 alias df='df -h'                          # human-readable sizes
-alias free='free -m'                      # show sizes in MB
+alias free='free -h'                      # also human readable
 alias more=less
 
 xhost +local:root > /dev/null 2>&1

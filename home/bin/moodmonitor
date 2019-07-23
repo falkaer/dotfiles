@@ -3,7 +3,7 @@
 if [ "$1" == "-on" ]; then
     
     xrandr --output HDMI2 --auto --primary --output eDP1 --auto --pos 760x1440
-    feh --no-fehbg --bg-scale ~/.wallpapers/cotton-candy.jpg
+    feh --no-fehbg --bg-scale --no-xinerama ~/.wallpapers/cesar329.jpg
     
 elif [ "$1" == "-off" ]; then
     

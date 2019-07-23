@@ -2,16 +2,14 @@
 background-color:      #1b1d1e00;
 text-color:            #ffffff;
 font:                  "Fira Mono Medium 11";
-border-radius:         3px;
 }
 
 #window {
-anchor:     north;
-location:   north;
-width:      2200px;
-max-width:  100%;
-padding:    9px 48px 0 170px;
-children:   [ horibox ];
+anchor:          north;
+location:        north;
+width:           1920px;
+padding:         9px 48px 0 125px;
+children:        [ horibox ];
 }
 
 #horibox {
@@ -33,9 +31,9 @@ width:      6em;
 
 #element {
 padding: 2px 4px;
+border-radius:    3px;
 }
 
 #element selected {
 background-color: #313131d4;
-color: #ffffff;
 }

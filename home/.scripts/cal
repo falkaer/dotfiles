@@ -1,13 +1,13 @@
 #!/bin/bash
 
-datesuffix(){
-    case $(date +%d) in
-        1|21|31) echo "st";;
-        2|22) echo "nd";;
-        3|23) echo "rd";;
-        *)  echo "th";;
-    esac
-}
+# datesuffix(){
+#     case $(date +%d) in
+#         1|21|31) echo "st";;
+#         2|22) echo "nd";;
+#         3|23) echo "rd";;
+#         *)  echo "th";;
+#     esac
+# }
 
 # echo " $(date "+%A %B %d$(datesuffix)")"
 # echo " $(date "+Wednesday Sep 14th (week 53)")"
