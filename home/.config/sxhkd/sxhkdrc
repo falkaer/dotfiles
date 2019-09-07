@@ -34,13 +34,15 @@ ctrl + @Print
 ctrl + shift + @Print
     ~/.scripts/screenclip -s -u
 
-# volume control (dont actually know if it works pepega)
-XF86Audio{RaiseVolume,LowerVolume,Mute}
-	amixer {-c 0 set PCM 4dB+,-c 0 set PCM 4dB-,set Master toggle}
-
 # music control, uses spotify control script
 XF86Audio{Next,Prev,Play,Stop}
 	~/bin/sp {next,prev,play,pause}
+
+XF86Audio{Raise,Lower}Volume
+	pactl set-sink-volume 0 {+5%,-5%}
+	
+XF86AudioMute
+	pactl set-sink-mute 0 toggle
 
 XF86MonBrightness{Up,Down}
     xbacklight {-inc,-dec} 10

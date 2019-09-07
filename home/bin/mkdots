@@ -18,5 +18,11 @@ function mksym(){
     
 }
 
-mksym "$HOME/dotfiles/home" "$HOME"
-sudo bash -c "$(declare -f mksym); mksym "$HOME/dotfiles/root" """
+commondir="$HOME/dotfiles"
+hostdir="$commondir/$(hostname)"
+
+[ -d "$commondir/home" ] && mksym "$HOME/dotfiles/home" "$HOME"
+[ -d "$commondir/root" ] && sudo bash -c "$(declare -f mksym); mksym "$commondir/root" """
+
+[ -d "$hostdir/home" ] && mksym "$hostdir/home" "$HOME"
+[ -d "$hostdir/root" ] && sudo bash -c "$(declare -f mksym); mksym "$hostdir/root" """
