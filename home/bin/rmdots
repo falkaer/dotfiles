@@ -1,19 +1,10 @@
 #!/bin/bash
 
-# remove dotfile symlinks before renaming/deleting dotfiles
-function rmsym(){
-    
-    find "$1" -type f | while read file; do 
-        
-        # remove prefix
-        name="${file#"$1/"}"
-        target="$2/$name"
-        
-        rm "$target"
-        
-    done
-    
-}
+commondir="$HOME/dotfiles"
+hostdir="$commondir/$(hostname)"
 
-mksym "$HOME/dotfiles/home" "$HOME"
-sudo bash -c "$(declare -f mksym); mksym "$HOME/dotfiles/root" """
+[ -d "$commondir/home" ] && $HOME/.scripts/dotsym/rmsym "$HOME/dotfiles/home" "$HOME"
+[ -d "$commondir/root" ] && sudo bash -c "$HOME/.scripts/dotsym/rmsym "$commondir/root" """
+
+[ -d "$hostdir/home" ] && $HOME/.scripts/dotsym/rmsym "$hostdir/home" "$HOME"
+[ -d "$hostdir/root" ] && sudo bash -c "$HOME/.scripts/dotsym/rmsym "$hostdir/root" """

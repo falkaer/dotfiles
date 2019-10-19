@@ -1,0 +1,17 @@
+#!/bin/bash
+
+pamixer $@
+
+volume=$(pamixer --get-volume)
+
+if (( $volume <= 33 )); then
+    symbol=""
+elif (( "$volume" <= 66 )); then
+    symbol=""
+else
+    symbol=""
+fi
+
+[[ $(pamixer --get-mute) == "true" ]] && muted=" (Muted)"
+
+dunstify "$symbol Volume control" "Volume at $volume%$muted" -r 463473424

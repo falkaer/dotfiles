@@ -1,0 +1,14 @@
+#!/bin/bash
+
+# $1 is folder to search in, $2 is folder to place in
+# overrrides symlink with the actual file, safely removing the link
+find "$1" -type f | while read file; do 
+    
+    # remove prefix
+    name="${file#"$1/"}"
+    target="$2/$name"
+    
+    mkdir -p "$(dirname "$target")"
+    \cp --remove-destination "$file" "$target"
+    
+done

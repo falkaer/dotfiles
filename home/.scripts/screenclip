@@ -5,4 +5,4 @@
 # scrot $@ -q 100 -e 'xclip -selection c -t image/png < "$f" && notify-send " Screenshot taken" " Copied to clipboard"'
 
 set -o pipefail
-maim $@ -m 10 -b 2 | xclip -selection c -t image/png && notify-send " Screenshot taken" " Copied to clipboard"
+maim $@ -m 10 -b 2 -l --color=0.9098,0.8941,0.7882,0.75 | xclip -selection c -t image/png && notify-send " Screenshot taken" " Copied to clipboard"

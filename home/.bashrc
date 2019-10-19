@@ -12,8 +12,6 @@ alias bspwmrc='xdg-open ~/.config/bspwm/bspwmrc'
 alias sxhkdrc='xdg-open ~/.config/sxhkd/sxhkdrc'
 alias config='xdg-open ~/.config'
 
-export JULIA_NUM_THREADS=$(grep -c ^processor /proc/cpuinfo)
-
 [[ $- != *i* ]] && return
 
 [ -r /usr/share/bash-completion/bash_completion ] && . /usr/share/bash-completion/bash_completion

@@ -3,6 +3,9 @@
 # start polkit
 /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
 
+eval $(/usr/bin/gnome-keyring-daemon --start)
+export SSH_AUTH_SOCK
+
 xrdb -q
 xrdb -merge ~/.Xresources
 

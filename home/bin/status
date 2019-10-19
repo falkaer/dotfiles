@@ -38,4 +38,4 @@ join(){
 }
 
 msg="$(join "$(~/.scripts/cal)" "$(~/.scripts/pow)" "$(~/.scripts/net)")"
-notify-send "$(~/.scripts/dat)" "$msg"
+dunstify "$(~/.scripts/dat)" "$msg" -r 543273473

@@ -1,4 +1,5 @@
 #!/bin/bash
 
-xrandr --output HDMI-1 --mode 3840x2160 --left-of HDMI-0
+xrandr --output HDMI-0 --mode 3840x2160 --left-of DP-2
 killall redshift
+l -b 1

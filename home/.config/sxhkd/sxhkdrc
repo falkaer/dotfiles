@@ -10,6 +10,9 @@ super + Return
 super + shift + Return
 	kitty --class term_floating
 
+super + x
+	;~/.scripts/togglebar
+
 super + q
 	~/bin/status
 
@@ -39,10 +42,10 @@ XF86Audio{Next,Prev,Play,Stop}
 	~/bin/sp {next,prev,play,pause}
 
 XF86Audio{Raise,Lower}Volume
-	pactl set-sink-volume 0 {+5%,-5%}
-	
+	~/.scripts/vol {-i 5,-d 5}
+
 XF86AudioMute
-	pactl set-sink-mute 0 toggle
+	~/.scripts/vol -t
 
 XF86MonBrightness{Up,Down}
     xbacklight {-inc,-dec} 10
