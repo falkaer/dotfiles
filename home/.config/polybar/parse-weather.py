@@ -46,6 +46,7 @@ def get_weather(forecast):
 # TODO: format uncertainty on temperature in forecast?
 # TODO: format wind speed (and possibly direction?) in forecast?
 def format_message(d):
+    print(d)
     
     temp = d['main']['temp']
     icon = icons.get(d['weather'][0]['icon'], '')
