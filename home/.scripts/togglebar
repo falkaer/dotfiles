@@ -1,3 +1,11 @@
 #!/bin/bash
 
-ps -C polybar >/dev/null && killall polybar || polybar bottom &
+launch(){
+    
+    polybar utilities &
+    polybar status &
+    polybar resources &
+    
+}
+
+ps -C polybar >/dev/null && killall polybar || launch

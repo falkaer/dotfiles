@@ -4,12 +4,14 @@ pamixer $@
 
 volume=$(pamixer --get-volume)
 
-if (( $volume <= 33 )); then
-    symbol=""
-elif (( "$volume" <= 66 )); then
-    symbol=""
+if (( $volume <= 25 )); then
+    symbol=""
+elif (( "$volume" <= 50 )); then
+    symbol=""
+elif (( "$volume" <= 75 )); then
+    symbol=""
 else
-    symbol=""
+    symbol=""
 fi
 
 [[ $(pamixer --get-mute) == "true" ]] && muted=" (Muted)"

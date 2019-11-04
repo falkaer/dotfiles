@@ -1,0 +1,172 @@
+[section/base]
+override-redirect = true
+fixed-center = true
+
+background = #00000000
+foreground = #E8E4C9
+
+height = 30
+
+font-0 = Fira Mono Medium:size=11;1
+font-1 = Font Awesome:size=12;1
+font-2 = unifont:size=6;0
+font-3 = Weather Icons:size=12;2
+
+padding = 5
+module-margin = 2
+
+; POTENTIAL SEPARATOR --> │
+
+; BARS
+
+
+[bar/utilities]
+inherit = section/base
+top = true
+
+modules-right = weather-forecast
+
+
+
+[bar/status]
+inherit = section/base
+bottom = true
+
+modules-right = weather-current date time
+
+
+
+[bar/resources]
+inherit = section/base
+bottom = true
+
+modules-left = cpu memory gpu
+
+
+; MODULES
+
+
+
+[module/weather-forecast]
+type = custom/script
+interval = 600
+
+exec = ~/.config/polybar/parse-weather.py forecast
+
+
+
+[module/weather-current]
+type = custom/script
+interval = 600
+
+exec = ~/.config/polybar/parse-weather.py current
+
+
+
+[module/date]
+type = internal/date
+interval = 1
+
+date = %a %d/%m-%Y
+label =  %date%
+
+
+
+[module/time]
+type = internal/date
+interval = 1
+
+time = %H:%M:%S
+label =  %time%
+
+
+
+[module/gpu]
+type = custom/script
+interval = 10000
+
+label = GPU %output%
+
+; only execute if nvidia-smi is installed
+exec-if = command -v nvidia-smi
+exec = ~/.config/polybar/gpu-format.py
+tail = true
+
+
+
+[module/cpu]
+type = internal/cpu
+interval = 1
+
+label = CPU %percentage:2%%
+format = <label> <ramp-coreload>
+
+ramp-coreload-font = 3
+ramp-coreload-spacing = 0
+ramp-coreload-0 = ▁
+ramp-coreload-1 = ▂
+ramp-coreload-2 = ▃
+ramp-coreload-3 = ▄
+ramp-coreload-4 = ▅
+ramp-coreload-5 = ▆
+ramp-coreload-6 = ▇
+ramp-coreload-7 = █
+
+
+
+[module/memory]
+type = internal/memory
+interval = 1
+
+label = RAM
+format = <label> <bar-used>
+
+bar-used-width = 10
+bar-used-foreground-0 = #aaff77
+bar-used-foreground-1 = #aaff77
+bar-used-foreground-2 = #fba922
+bar-used-foreground-3 = #ff5555
+bar-used-indicator = |
+bar-used-fill = ─
+bar-used-empty = ─
+bar-used-empty-foreground = #444444
+
+
+
+[module/battery]
+type = internal/battery
+battery = BAT1
+adapter = ADP1
+poll-interval = 0
+
+format-discharging = <label-discharging>  <ramp-capacity>
+format-full = <label-full>  <ramp-capacity>
+format-charging = <label-charging>  <ramp-capacity>  
+
+ramp-capacity-0 = 
+ramp-capacity-1 = 
+ramp-capacity-2 = 
+ramp-capacity-3 = 
+ramp-capacity-4 = 
+
+
+
+[module/wlan]
+type = internal/network
+interface = wlan0
+interval = 5
+label-connected = %essid%  
+
+; format-muted = 0%  
+; ramp-volume-0 = 
+; ramp-volume-1 = 
+; ramp-volume-2 = 
+; %essid%  
+; %percentage%%  
+;   %date%     %time%
+; format-charging = <label-charging>  <ramp-capacity>  
+; ramp-capacity-0 = 
+; ramp-capacity-1 = 
+; ramp-capacity-2 = 
+; ramp-capacity-3 = 
+; ramp-capacity-4 = 
