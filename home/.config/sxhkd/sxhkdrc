@@ -58,6 +58,9 @@ super + Escape
 ##  BSPWM HOTKEYS  ##
 #####################
 
+super + a; {1-9}
+    ~/.scripts/focuspad {1-9}
+
 # quit bspwm normally
 super + alt + Escape
 	bspc quit
@@ -96,11 +99,14 @@ super + ctrl + {m,x,y,z}
 
 # focus the node in the given direction
 super + {_,shift + }{h,j,k,l}
-	bspc node -{f,s} {west,south,north,east}
+    bspc node -{f,s} {west,south,north,east}
+
+super + b
+    bspc node "@/" -B
 
 # focus the node for the given path jump
-super + {p,b,comma,period}
-	bspc node -f @{parent,brother,first,second}
+# super + {p,b,comma,period}
+#     bspc node -f @{parent,brother,first,second}
 
 # focus the next/previous node in the current desktop
 super + {_,shift + }c

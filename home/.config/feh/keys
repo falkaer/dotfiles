@@ -1,0 +1,10 @@
+# unbind keys
+next_img
+prev_img
+reload_image
+save_image
+# rebind
+next_img Right 
+prev_img Left
+orient_1 r
+orient_3 C-r

@@ -3,7 +3,7 @@ override-redirect = true
 fixed-center = true
 
 background = #00000000
-foreground = #E8E4C9
+foreground = #FCE3BD
 
 height = 30
 
@@ -20,17 +20,17 @@ module-margin = 2
 ; BARS
 
 
-[bar/utilities]
-inherit = section/base
-top = true
-
-modules-right = weather-forecast
+; [bar/utilities]
+; inherit = section/base
+; top = true
+; 
+; modules-right = weather-forecast
 
 
 
 [bar/status]
 inherit = section/base
-bottom = true
+top = true
 
 modules-right = weather-current date time
 
@@ -38,7 +38,7 @@ modules-right = weather-current date time
 
 [bar/resources]
 inherit = section/base
-bottom = true
+top = true
 
 modules-left = cpu memory gpu
 
@@ -49,7 +49,7 @@ modules-left = cpu memory gpu
 
 [module/weather-forecast]
 type = custom/script
-interval = 600
+interval = 300
 
 exec = ~/.config/polybar/parse-weather.py forecast
 
@@ -57,7 +57,7 @@ exec = ~/.config/polybar/parse-weather.py forecast
 
 [module/weather-current]
 type = custom/script
-interval = 600
+interval = 300
 
 exec = ~/.config/polybar/parse-weather.py current
 

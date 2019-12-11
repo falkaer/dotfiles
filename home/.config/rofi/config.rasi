@@ -35,5 +35,7 @@ border-radius:    3px;
 }
 
 #element selected {
-background-color: #313131d4;
+background-color: #31313170;
+/* background-color: #313131d4; */
+/* background-color: #ffffff30; */
 }

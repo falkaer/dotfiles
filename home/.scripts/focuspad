@@ -1,0 +1,26 @@
+#!/bin/bash
+
+desktop="$(bspc query -D -d focused --names)"
+
+if [ "$@" -eq 1 ]; then
+    
+    bspc config -d "$desktop" right_padding 0
+    bspc config -d "$desktop" left_padding 0
+    bspc config -d "$desktop" right_monocle_padding 0
+    bspc config -d "$desktop" left_monocle_padding 0
+    
+    exit
+    
+fi
+
+desktop="$(bspc query -D -d focused --names)"
+monitor="$(bspc query -M -d focused --names)"
+
+width="$(xrandr | grep "$monitor" | awk -F'[^0-9]*' '{ print $3 }')"
+pad="$(("$width" / "$@" / 2))"
+
+bspc config -d "$desktop" right_padding "$pad"
+bspc config -d "$desktop" left_padding "$pad"
+
+bspc config -d "$desktop" right_monocle_padding -"$pad"
+bspc config -d "$desktop" left_monocle_padding -"$pad"
