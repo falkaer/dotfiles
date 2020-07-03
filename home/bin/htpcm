@@ -1,0 +1,8 @@
+#!/bin/bash
+
+mkdir -p ~/htpc
+mkdir -p ~/htpchdd
+
+sshfs -o idmap=user,reconnect,ServerAliveInterval=120 falkaer@falkaer.ddns.net:           ~/htpc
+sshfs -o idmap=user,reconnect,ServerAliveInterval=120 falkaer@falkaer.ddns.net:/media/hdd ~/htpchdd
+sshfs -o idmap=user,reconnect,ServerAliveInterval=120 falkaer@falkaer.ddns.net:/          ~/htpcroot

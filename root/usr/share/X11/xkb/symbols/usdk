@@ -1,0 +1,13 @@
+default partial alphanumeric_keys modifier_keys
+xkb_symbols "dkextra" {
+    
+    include "us(basic)"
+    include "eurosign(e)"
+    
+    key <AC01> { [           a,         A,  aring,    Aring ] };
+    key <AD03> { [           e,         E,     ae,       AE ] };
+    key <AD09> { [           o,         O, oslash, Ooblique ] };
+    
+    include "level3(ralt_switch)"
+    
+};

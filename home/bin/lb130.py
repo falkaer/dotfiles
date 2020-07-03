@@ -30,7 +30,7 @@ class LB130(CloudTPLinkDevice):
                                mode: str = None, ignore_default: bool = None) -> Any:
         
         # copy all given argument name-value pairs as a dict
-        d = {k: v for k, v in locals().items() if k is not 'self' and v is not None}
+        d = {k: v for k, v in locals().items() if k != 'self' and v is not None}
         
         r = self.send({
             'smartlife.iot.smartbulb.lightingservice': {

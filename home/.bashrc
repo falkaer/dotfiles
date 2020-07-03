@@ -12,6 +12,8 @@ alias bspwmrc='xdg-open ~/.config/bspwm/bspwmrc'
 alias sxhkdrc='xdg-open ~/.config/sxhkd/sxhkdrc'
 alias config='xdg-open ~/.config'
 
+alias venvdata='source ~/venv/data/bin/activate'
+
 [[ $- != *i* ]] && return
 
 [ -r /usr/share/bash-completion/bash_completion ] && . /usr/share/bash-completion/bash_completion
@@ -32,6 +34,14 @@ match_lhs=""
 	&& match_lhs=$(dircolors --print-database)
 [[ $'\n'${match_lhs} == *$'\n'"TERM "${safe_term}* ]] && use_color=true
 
+if [ -n "$SSH_CLIENT" ] || [ -n "$SSH_TTY" ]; then
+  SESSION_TYPE=remote/ssh
+else
+  case $(ps -o comm= -p $PPID) in
+    sshd|*/sshd) SESSION_TYPE=remote/ssh;;
+  esac
+fi
+
 if ${use_color} ; then
 	# Enable colors for ls, etc.  Prefer ~/.dir_colors #64489
 	if type -P dircolors >/dev/null ; then
@@ -42,12 +52,12 @@ if ${use_color} ; then
 		fi
 	fi
     
-	if [[ ${EUID} == 0 ]] ; then
-		PS1='\[\033[01;33m\]Ω  \W  \[\033[00m\]'
+    if [[ $SESSION_TYPE == remote/ssh ]] ; then
+		PS1='\[\e[01;31m\]λ @ \h  \W  \[\e[0m\]'
 	else
-		PS1='\[\033[01;33m\]λ  \W  \[\033[00m\]'
+		PS1='\[\e[01;33m\]λ  \W  \[\e[0m\]'
 	fi
-
+	
 	alias ls='ls --color=auto'
 	alias grep='grep --colour=auto'
 	alias egrep='egrep --colour=auto'
@@ -64,9 +74,9 @@ if ${use_color} ; then
 else
 	if [[ ${EUID} == 0 ]] ; then
 		# show root@ when we don't have colors
-		PS1='\u@\h \W \$ '
+		PS1='\u @ \h  \W  \$ '
 	else
-		PS1='\u@\h \w \$ '
+		PS1='\u @ \h  \w  \$ '
 	fi
 fi
 
@@ -93,6 +103,9 @@ shopt -s expand_aliases
 
 # Enable history appending instead of overwriting.  #139609
 shopt -s histappend
+
+# use fish/zsh style missing line feed indicator
+export PROMPT_COMMAND='printf "⏎%$((COLUMNS-1))s\\r"'
 
 # better yaourt colors
 export YAOURT_COLORS="nb=1:pkg=1:ver=1;32:lver=1;45:installed=1;42:grp=1;34:od=1;41;5:votes=1;44:dsc=0:other=1;35"

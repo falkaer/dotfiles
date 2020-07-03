@@ -6,7 +6,7 @@
 set window-height 1024
 set window-width 768
 set adjust-open width
-set first-page-column 2
+set first-page-column 1:1
 set recolor-keephue
 set window-title-basename true
 set statusbar-home-tilde true

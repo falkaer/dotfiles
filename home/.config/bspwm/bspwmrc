@@ -1,8 +1,5 @@
 #!/bin/bash
 
-# resets every reboot, cba doing a real fix rn
-xdg-settings set default-web-browser brave.desktop
-
 # start polkit
 /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
 
@@ -17,7 +14,7 @@ killall -9 sxhkd; sxhkd &
 
 # disable regular caps lock functionality
 # but is rebound to start rofi in sxhkdrc
-setxkbmap -symbols 'pc+dk+capsoff'
+# setxkbmap -symbols 'pc+dk+capsoff'
 
 # top level settings
 bspc config ignore_ewmh_focus             true
@@ -71,7 +68,8 @@ configure_desktops(){
     # set wallpaper
     # feh --no-fehbg --bg-scale --no-xinerama ~/.wallpapers/cesar329.jpg
     # feh --no-fehbg --bg-scale --no-xinerama ~/.wallpapers/block_333333.png
-    feh --no-fehbg --bg-scale --no-xinerama ~/.wallpapers/block_c79081.png 
+    # feh --no-fehbg --bg-scale --no-xinerama ~/.wallpapers/block_c79081.png 
+    feh --no-fehbg --bg-scale --no-xinerama ~/.wallpapers/vertigo.png 
     
     # spotify rule doesn't work, spotifys fault
     bspc rule -a spotify            desktop="^$(~/.config/bspwm/map_desktop $num_monitors 3)"

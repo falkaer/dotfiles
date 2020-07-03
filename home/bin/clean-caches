@@ -1,0 +1,13 @@
+#!/bin/bash
+
+# clear pacman cache
+sudo pacman -Scc
+
+# clear logs
+sudo find /var/log -type f -delete
+
+# clear spotify cache
+rm -rf $HOME/.cache/spotify/Data/*
+
+# clear pip cache
+rm -rf $HOME/.cache/pip/*

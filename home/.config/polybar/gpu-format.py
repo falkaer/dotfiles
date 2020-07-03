@@ -50,15 +50,14 @@ def make_bar(frac, width=10):
 if __name__ == '__main__':
     
     proc = subprocess.Popen(['nvidia-smi', '-l', '1', '--format=csv,noheader,nounits',
-                             '--query-gpu=memory.used,memory.total,power.draw,power.limit,utilization.gpu,utilization.memory'],
+                             '--query-gpu=memory.used,memory.total,utilization.gpu,utilization.memory'],
                             stdout=subprocess.PIPE)
     
     while True:
         strs = proc.stdout.readline().decode('utf-8').split(', ')
-        mem_usage, max_mem, tdp_usage, max_tdp, gpu_util, mem_util = tuple(map(float, strs))
+        mem_usage, max_mem, gpu_util, mem_util = tuple(map(float, strs))
         
         mem_frac = mem_usage / max_mem * 100
-        tdp_frac = tdp_usage / max_tdp * 100
         
         sys.stdout.write('{} {} {}\n'.format(make_ramp(gpu_util), make_ramp(mem_util), make_bar(mem_frac)))
         sys.stdout.flush()
