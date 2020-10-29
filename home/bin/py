@@ -1,3 +1,3 @@
 #!/bin/bash
 
-source ~/venv/data/bin/activate && python3 "$@" -i -c "import numpy as np; import pandas as pd; import torch; import torch.nn as nn; import torch.nn.functional as F;"
+source /opt/intelpython3/bin/activate ~/venv/data && python3 "$@" -i -c "import numpy as np; import pandas as pd; import torch; import torch.nn as nn; import torch.nn.functional as F;"

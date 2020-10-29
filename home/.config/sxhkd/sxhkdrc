@@ -10,9 +10,6 @@ super + Return
 super + shift + Return
 	kitty --class term_floating
 
-super + p
-    set
-
 super + x
 	;~/.scripts/togglebar
 

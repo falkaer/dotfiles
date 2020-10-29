@@ -13,7 +13,6 @@ conky.config = {
   update_interval = 1,
 
   cpu_avg_samples = 2,
-  net_avg_samples = 2,
   temperature_unit = 'celsius',
 
   double_buffer = true,
@@ -26,7 +25,7 @@ conky.config = {
   -- gap_x = 29,
   -- gap_y = 29,
   -- latest xorg requires offset from 0x0 of primary monitor
-  gap_x = 3224,
+  gap_x = 5120-190,
   gap_y = -355,
   minimum_width = 190, minimum_height = 1440,
   maximum_width = 190,

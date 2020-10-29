@@ -1,4 +1,4 @@
 #!/bin/bash
 
-source ~/venv/data/bin/activate
+source /opt/intelpython3/bin/activate ~/venv/data
 tensorboard "$@"

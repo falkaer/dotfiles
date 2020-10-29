@@ -8,7 +8,7 @@ fi
 
 mkdir -p "$dir"
 
-source ~/venv/data/bin/activate && jupyter notebook \
+source /opt/intelpython3/bin/activate ~/venv/data && jupyter notebook \
 --NotebookApp.open_browser=False \
 --NotebookApp.token='' \
 --NotebookApp.allow_origin='https://colab.research.google.com' \

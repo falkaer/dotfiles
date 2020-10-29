@@ -49,6 +49,7 @@ text/x-scheme=sublime_text_3.desktop
 application/x-desktop=sublime_text_3.desktop
 inode/symlink=sublime_text_3.desktop
 application/x-shellscript=sublime_text_3.desktop
+text/x-shellscript=sublime_text_3.desktop
 text/html=brave-browser.desktop
 x-scheme-handler/about=brave-browser.desktop
 x-scheme-handler/unknown=brave-browser.desktop

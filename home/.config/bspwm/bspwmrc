@@ -10,6 +10,7 @@ xrdb -q
 xrdb -merge ~/.Xresources
 
 # start sxhkd
+export SXHKD_SHELL='/bin/bash'
 killall -9 sxhkd; sxhkd &
 
 # disable regular caps lock functionality
@@ -69,7 +70,7 @@ configure_desktops(){
     # feh --no-fehbg --bg-scale --no-xinerama ~/.wallpapers/cesar329.jpg
     # feh --no-fehbg --bg-scale --no-xinerama ~/.wallpapers/block_333333.png
     # feh --no-fehbg --bg-scale --no-xinerama ~/.wallpapers/block_c79081.png 
-    feh --no-fehbg --bg-scale --no-xinerama ~/.wallpapers/vertigo.png 
+    feh --no-fehbg --bg-scale --no-xinerama ~/.wallpapers/crit.png 
     
     # spotify rule doesn't work, spotifys fault
     bspc rule -a spotify            desktop="^$(~/.config/bspwm/map_desktop $num_monitors 3)"

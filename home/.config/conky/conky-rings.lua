@@ -574,7 +574,7 @@ end
 
 -------------------------------------------------------------------------------
 --                                                                         MAIN
-function conky_main()
+function conky_main()                            
     if conky_window == nil then
         return
     end
