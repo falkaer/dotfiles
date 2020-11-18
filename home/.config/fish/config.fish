@@ -22,7 +22,6 @@ bind \e\[3\;5~ kill-word
 set -x PATH ~/bin $PATH
 
 function venvdata
-    source /opt/intelpython3/etc/fish/conf.d/conda.fish
     conda activate ~/venv/data
 end
 
@@ -30,4 +29,9 @@ end
 function fuck
     eval command sudo $history[1]
 end
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+eval /home/falkaer/miniconda3/bin/conda "shell.fish" "hook" $argv | source
+# <<< conda initialize <<<
 
