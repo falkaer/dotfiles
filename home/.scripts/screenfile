@@ -5,4 +5,4 @@
 # scrot $@ -q 100 -e 'notify-send " Screenshot taken" " Saved as $n"' "Screenshot from $(date '+%F_%T').png"
 
 name="$HOME/Pictures/$(date '+%F_%T').png"
-maim $@ -m 10 -b 2  -l --color=0.9098,0.8941,0.7882,0.75 "$name" && notify-send " Screenshot taken" " Saved as $name"
+maim $@ -m 10 -b 2 -l --color=0.9098,0.8941,0.7882,0.75 "$name" && notify-send " Screenshot taken" " Saved as $name"

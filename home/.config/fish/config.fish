@@ -19,6 +19,10 @@ set -x LESS_TERMCAP_us \e\[1\x3B4\x3B35m
 # delete next word with ctrl+delete
 bind \e\[3\;5~ kill-word
 
+if set -q SSH_TTY
+  set -g fish_color_host brred
+end
+
 set -x PATH ~/bin $PATH
 
 function venvdata
@@ -29,9 +33,3 @@ end
 function fuck
     eval command sudo $history[1]
 end
-
-# >>> conda initialize >>>
-# !! Contents within this block are managed by 'conda init' !!
-eval /home/falkaer/miniconda3/bin/conda "shell.fish" "hook" $argv | source
-# <<< conda initialize <<<
-

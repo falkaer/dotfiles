@@ -1,0 +1,10 @@
+[Unit]
+Description=MiScale notifications
+
+[Service]
+ExecStart=/usr/bin/python3 /home/falkaer/.local/share/miscale/main.py
+Restart=always
+RestartSec=12
+
+[Install]
+WantedBy=default.target

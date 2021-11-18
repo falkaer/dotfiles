@@ -16,4 +16,4 @@ fi
 
 [[ $(pamixer --get-mute) == "true" ]] && muted=" (Muted)"
 
-dunstify "$symbol Volume control" "Volume at $volume%$muted" -r 463473424
+dunstify -h string:x-dunst-stack-tag:volume "$symbol Volume control" "Volume at $volume%$muted"

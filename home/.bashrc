@@ -12,7 +12,7 @@ alias bspwmrc='xdg-open ~/.config/bspwm/bspwmrc'
 alias sxhkdrc='xdg-open ~/.config/sxhkd/sxhkdrc'
 alias config='xdg-open ~/.config'
 
-alias venvdata='source /opt/intelpython3/bin/activate ~/venv/data'
+alias venvdata='conda activate ~/venv/data'
 
 [[ $- != *i* ]] && return
 
@@ -115,10 +115,10 @@ if [ -d "$HOME/bin" ] ; then
     PATH="$HOME/bin:$PATH"
 fi
 
-
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
 __conda_setup="$('/home/falkaer/miniconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
+export LD_LIBRARY_PATH="/home/falkaer/miniconda3/lib:$LD_LIBRARY_PATH"
 if [ $? -eq 0 ]; then
     eval "$__conda_setup"
 else

@@ -1,0 +1,1 @@
+ATTRS{idVendor}=="0c70",ATTRS{idProduct}=="f00d",MODE="0660",GROUP="quadro"

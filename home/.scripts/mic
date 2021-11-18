@@ -1,0 +1,9 @@
+#!/bin/bash
+
+pamixer --default-source -t
+
+if [ $(pamixer --default-source --get-mute) == "true" ]; then
+    dunstify -h string:x-dunst-stack-tag:mic "Microphone control" "Microphone muted"
+else
+    dunstify -h string:x-dunst-stack-tag:mic "Microphone control" "Microphone unmuted"
+fi

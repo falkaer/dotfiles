@@ -1,5 +1,4 @@
 #!/bin/bash
 
 usage() { echo "usage: color <color name>"; exit 1; }
-
 [ $1 ] && grep "$1 " ~/.colors | tr -s ' ' | cut -d ' ' -f2 || usage

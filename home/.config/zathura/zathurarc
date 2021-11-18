@@ -34,6 +34,7 @@ map [index] q abort
 map r recolor
 map <C-r> rotate
 map <C-Space> toggle_statusbar
+map <C-e> exec 'zathura "%"' # reopen current file
 
 ## navigation
 map <Left> navigate previous

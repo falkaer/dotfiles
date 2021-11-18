@@ -1,4 +1,4 @@
 #!/bin/bash
 
 mkdir -p ~/MoodHome
-sshfs -o idmap=user,reconnect,ServerAliveInterval=120 -o IdentityFile=~/Documents/kenny.pem ubuntu@$(mip): ~/MoodHome
+sshfs -o idmap=user,reconnect,ServerAliveInterval=120,ServerAliveCountMax=3,StrictHostKeyChecking=no,UserKnownHostsFile=/dev/null,IdentityFile=~/Documents/kenny.pem ubuntu@$(mip): ~/MoodHome

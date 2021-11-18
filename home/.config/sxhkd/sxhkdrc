@@ -13,16 +13,18 @@ super + shift + Return
 super + x
 	;~/.scripts/togglebar
 
+super + shift+ x
+    ;~/.scripts/togglepanel
+
 super + q
 	~/bin/status
 
 super + ctrl + alt + l
 	i3lock-next
 
-# normal caps lock functionality is disabled, 
-# but we can still capture the keystroke
+# normal caps lock functionality is disabled, but we can still capture the keystroke
 Caps_Lock
-    rofi -modi drun,emoji:~/.scripts/emoji,run -show drun -show-icons
+    rofi -show drun
 
 # printing
 @Print
@@ -46,6 +48,9 @@ XF86Audio{Raise,Lower}Volume
 
 XF86AudioMute
 	~/.scripts/vol -t
+
+Pause
+    ~/.scripts/mic
 
 XF86MonBrightness{Up,Down}
     xbacklight {-inc,-dec} 10

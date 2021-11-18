@@ -4,6 +4,6 @@ mkdir -p ~/htpc
 mkdir -p ~/htpchdd
 mkdir -p ~/htpcroot
 
-sshfs -o idmap=user,reconnect,ServerAliveInterval=120 falkaer@falkaer.ddns.net:           ~/htpc
-sshfs -o idmap=user,reconnect,ServerAliveInterval=120 falkaer@falkaer.ddns.net:/media/hdd ~/htpchdd
-sshfs -o idmap=user,reconnect,ServerAliveInterval=120 falkaer@falkaer.ddns.net:/          ~/htpcroot
+sshfs -o idmap=user,reconnect,ServerAliveInterval=120,ServerAliveCountMax=3 falkaer@falkaer.xyz:           ~/htpc
+sshfs -o idmap=user,reconnect,ServerAliveInterval=120,ServerAliveCountMax=3 falkaer@falkaer.xyz:/media/hdd ~/htpchdd
+sshfs -o idmap=user,reconnect,ServerAliveInterval=120,ServerAliveCountMax=3 falkaer@falkaer.xyz:/          ~/htpcroot

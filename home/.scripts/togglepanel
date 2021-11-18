@@ -1,0 +1,9 @@
+#!/bin/bash
+
+launch(){
+    
+    conky &
+    
+}
+
+ps -C conky >/dev/null && killall conky || launch

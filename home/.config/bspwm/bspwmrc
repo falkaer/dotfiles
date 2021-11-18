@@ -30,7 +30,7 @@ bspc config active_border_color           "#4D4D4B"
 # bspc config active_border_color           "#303131"
 
 # bspc config border_width                  2
-bspc config border_width                  0
+bspc config border_width                  2
 bspc config window_gap                    21
 
 bspc config top_padding                   8
@@ -42,6 +42,8 @@ bspc config split_ratio                   0.50
 
 bspc config remove_disabled_monitors      true
 bspc config remove_unplugged_monitors     true
+
+bspc config pointer_motion_interval 20
 
 desktops=10
 
@@ -60,21 +62,19 @@ configure_desktops(){
     i=1
     
     for m in $monitors; do
-        
         seq $i $((i+dpm-1)) | xargs bspc monitor $m -d
         ((i+=dpm))
-        
     done
     
     # set wallpaper
     # feh --no-fehbg --bg-scale --no-xinerama ~/.wallpapers/cesar329.jpg
     # feh --no-fehbg --bg-scale --no-xinerama ~/.wallpapers/block_333333.png
     # feh --no-fehbg --bg-scale --no-xinerama ~/.wallpapers/block_c79081.png 
-    feh --no-fehbg --bg-scale --no-xinerama ~/.wallpapers/crit.png 
+    feh --no-fehbg --bg-fill --no-xinerama ~/.wallpapers/wannabigsur.png
     
     # spotify rule doesn't work, spotifys fault
-    bspc rule -a spotify            desktop="^$(~/.config/bspwm/map_desktop $num_monitors 3)"
-    bspc rule -a discord            desktop="^$(~/.config/bspwm/map_desktop $num_monitors 3)"
+    # bspc rule -a spotify            desktop="^$(~/.config/bspwm/map_desktop $num_monitors 3)"
+    # bspc rule -a discord            desktop="^$(~/.config/bspwm/map_desktop $num_monitors 3)"
     
     # bspc rule -a jetbrains-pycharm  desktop="^$(~/.config/bspwm/map_desktop $num_monitors 4)"
     # bspc rule -a jetbrains-idea     desktop="^$(~/.config/bspwm/map_desktop $num_monitors 4)"
@@ -92,17 +92,18 @@ bspc subscribe monitor | while read -r line; do
 done &
 
 # floaty bois
-bspc rule -a feh                          state=floating follow=on
-bspc rule -a mpv                          state=floating follow=on
-bspc rule -a Pamac-manager                state=floating
-bspc rule -a File-roller                  state=floating
-bspc rule -a Gcolor3                      state=floating
-bspc rule -a Gnome-calendar               state=floating
-bspc rule -a Baobab                       state=floating
-bspc rule -a "Blueberry.py"               state=floating follow=on
-bspc rule -a WebTorrent                   state=floating follow=on
-bspc rule -a Gimp                         state=floating follow=on
-bspc rule -a term_floating                state=floating follow=on
+bspc rule -a feh            state=floating follow=on
+bspc rule -a mpv            state=floating follow=on
+bspc rule -a Pamac-manager  state=floating
+bspc rule -a File-roller    state=floating
+bspc rule -a Gcolor3        state=floating
+bspc rule -a Gnome-calendar state=floating
+bspc rule -a Baobab         state=floating
+bspc rule -a "Blueberry.py" state=floating follow=on
+bspc rule -a WebTorrent     state=floating follow=on
+bspc rule -a Gimp           state=floating follow=on
+bspc rule -a term_floating  state=floating follow=on
+bspc rule -a Zathura        state=floating follow=on center=true rectangle=850x1200+0+0
 
 # set cursor
 xsetroot -cursor_name left_ptr
@@ -113,8 +114,8 @@ type 'libinput-gestures-setup' && libinput-gestures-setup start &
 # start thunar daemon for quicker launch
 thunar --daemon &
 
-# start compton
-compton &
+# start picom
+nice -n -20 picom -b
 
 # start polybar
 polybar simplebar &
@@ -124,6 +125,9 @@ parcellite &
 
 # start redshift (night light)
 redshift &
+
+# start dunst
+dunst &
 
 # disable screensaver
 xset -dpms
