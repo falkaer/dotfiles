@@ -1,7 +1,7 @@
 version: "3"
 services:
   wireguard:
-    image: cmulk/wireguard-docker:alpine
+    image: ghcr.io/linuxserver/wireguard
     container_name: wireguard
     privileged: true
     cap_add:
@@ -9,13 +9,14 @@ services:
       - SYS_MODULE
     environment:
       - PUID=1000
-      - PGID=1000
+      - PGID=1001
       - TZ=Europe/Copenhagen
     volumes:
-      - ./config:/etc/wireguard
+      - /home/falkaer/.config/docker/wireguard/config:/config
       - /usr/lib/modules:/lib/modules
     ports:
       - 51820:51820/udp
     sysctls:
+      - net.ipv4.conf.all.src_valid_mark=1
       - net.ipv6.conf.all.disable_ipv6=0
     restart: unless-stopped

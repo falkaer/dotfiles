@@ -52,6 +52,9 @@ XF86AudioMute
 Pause
     ~/.scripts/mic
 
+XF86AudioMicMute
+    ~/.scripts/mic
+
 XF86MonBrightness{Up,Down}
     xbacklight {-inc,-dec} 10
 
@@ -62,6 +65,10 @@ super + Escape
 #####################
 ##  BSPWM HOTKEYS  ##
 #####################
+
+super + g
+	rofi -show window -window-thumbnail -show-icons -window-format '\{t\}' ; \ 
+          bspc node focused.\!above --layer normal
 
 super + a; {1-9}
     ~/.scripts/focuspad {1-9}
@@ -81,10 +88,6 @@ super + m
 # send the focused node to the newest preselected node
 super + y
 	bspc node focused -n newest.!automatic.local
-
-# swap the current node and the biggest node
-super + g
-	bspc node -s biggest
 
 #
 # state/flags

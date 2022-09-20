@@ -10,6 +10,9 @@ set first-page-column 1:1
 set recolor-keephue
 set window-title-basename true
 set statusbar-home-tilde true
+set render-loading "false"
+set zoom-min 10
+set guioptions ""
 
 ## clipboard
 set selection-clipboard clipboard
@@ -17,10 +20,10 @@ set selection-clipboard clipboard
 ## scrolling
 set scroll-page-aware "true"
 set smooth-scroll "true"
+set scroll-full-overlap 0.01
 set scroll-step 100
 # set show-scrollbars true
 
-set guioptions ""
 set recolor-reverse-video true
 
 # key bindings
@@ -44,17 +47,17 @@ map <Button9> navigate next
 
 # colors
 # set recolor-darkcolor  "#FFFFFF"
-set recolor-darkcolor  "#fbf1c7"
+set recolor-darkcolor  "#eceae1"
 set recolor-lightcolor "#2E2E2E"
 set statusbar-fg "#000000"
 set statusbar-bg "#C2BFA5"
 # set inputbar-fg "#FFFFFF"
-set inputbar-fg "#fbf1c7"
+set inputbar-fg "#eceae1"
 set inputbar-bg "#2E2E2E"
 set completion-highlight-fg "#F0E68C"
 set completion-highlight-bg "#6B8E23"
 # set highlight-color "#CD853F"
 # set highlight-active-color "#F0E68C"
 # set notification-fg "#FFFFFF"
-set notification-fg  "#fbf1c7"
+set notification-fg  "#eceae1"
 set notification-bg "#2E2E2E"

@@ -1,4 +1,4 @@
 #!/bin/bash
 
 mkdir -p ~/DTUHome
-sshfs -o idmap=user,reconnect,ServerAliveInterval=120,ServerAliveCountMax=3 s164396@transfer.gbar.dtu.dk: ~/DTUHome
+sshfs -o idmap=user,reconnect,ServerAliveInterval=120,ServerAliveCountMax=3,ssh_command='sshpass -f /home/falkaer/.dtupass ssh' s164396@transfer.gbar.dtu.dk: ~/DTUHome

@@ -4,7 +4,6 @@
 
 alias sudo='sudo '
 alias fuck='sudo $(fc -ln -1) '
-alias person='man ' # more inclusive
 
 alias bin='xdg-open ~/bin'
 alias bashrc='xdg-open ~/.bashrc'
@@ -13,6 +12,7 @@ alias sxhkdrc='xdg-open ~/.config/sxhkd/sxhkdrc'
 alias config='xdg-open ~/.config'
 
 alias venvdata='conda activate ~/venv/data'
+alias discord='discord --no-sandbox'
 
 [[ $- != *i* ]] && return
 
