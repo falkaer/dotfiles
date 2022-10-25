@@ -1,0 +1,5 @@
+# Save all videos in Downloads
+-o ~/Downloads/%(title)s.%(ext)s
+
+# Do not copy the mtime
+--no-mtime
