@@ -83,17 +83,11 @@ _git_status_prompt() {
   elif [[ -n "$unstaged" ]]; then
       message_color="%F{$PROMPT_COLORS_GIT_STATUS_UNSTAGED}"
   fi
-
-  local branch=$(git rev-parse --abbrev-ref HEAD 2>/dev/null)
-  if [[ -n "$branch" ]]; then
-      message+="%{$message_color%}$branch"
-  fi
-
-  echo -n "$message"
+  echo -n "%{$message_color%}$(git_current_branch) "
 }
 
 _bg_jobs_prompt() {
-  bg_status="%(1j.$BG_JOBS_STATUS%(2j.%j.) .)"
+  local bg_status="%(1j.$BG_JOBS_STATUS%(2j.%j.) .)"
   echo -n "$bg_status"
 }
 
