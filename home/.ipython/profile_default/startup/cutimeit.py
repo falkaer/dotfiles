@@ -38,7 +38,7 @@ def cutimeit(
     warmup: int = 100,
     rep: int = 300,
     device: Optional["torch.device"] = None,
-    quantiles: tuple[float] = (0.2, 0.8),
+    quantiles: tuple[float, ...] = (0.2, 0.8),
 ) -> ProfilingResult:
     """
     Utility for accurately timing a function that runs asynchronously on the GPU.
@@ -107,10 +107,10 @@ def cutimeit(
 
 # SYNTAX: %cutimeit (...)
 # (same as the builtin %timeit IPython magic)
-def _register_ipython_magic():
+def _register_ipython_magic() -> None:
     @needs_local_scope
     @register_line_magic
-    def cutimeit(line, local_ns):
+    def cutimeit(line: str, local_ns: dict[str, Any]) -> ProfilingResult:
         fn = lambda: exec(line, globals(), local_ns)
         return _cutimeit(fn)
 
