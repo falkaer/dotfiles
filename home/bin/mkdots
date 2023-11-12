@@ -1,37 +1,41 @@
 #!/bin/bash
 
-# # make dotfiles symlinks
-
-# # $1 is folder to search in, $2 is folder to place in
-# function mksym(){
+rmsymlink() {
+  find "$1" -type f | while read file; do 
     
-#     find "$1" -type f | while read file; do 
-        
-#         # remove prefix
-#         name="${file#"$1/"}"
-#         target="$2/$name"
-        
-#         mkdir -p "$(dirname "$target")"
-#         ln -sf "$file" "$target"
-        
-#     done
+    # remove prefix
+    name="${file#"$1/"}"
+    target="$2/$name"
+    rm -f "$target"
     
-# }
+  done
+}
 
-# commondir="$HOME/dotfiles"
-# hostdir="$commondir/$(hostname)"
 
-# [ -d "$commondir/home" ] && mksym "$HOME/dotfiles/home" "$HOME"
-# [ -d "$commondir/root" ] && sudo bash -c "$(declare -f mksym); mksym "$commondir/root" """
+symlink() {
 
-# [ -d "$hostdir/home" ] && mksym "$hostdir/home" "$HOME"
-# [ -d "$hostdir/root" ] && sudo bash -c "$(declare -f mksym); mksym "$hostdir/root" """
+  rmsymlink "$1" "$2"
 
-commondir="$HOME/dotfiles"
-hostdir="$commondir/$(hostname)"
+  find "$1" -type f | while read file; do 
+    
+    # remove prefix
+    name="${file#"$1/"}"
+    target="$2/$name"
+    
+    mkdir -p "$(dirname "$target")"
+    ln -sf "$file" "$target"
+    
+  done
 
-[ -d "$commondir/home" ] && $HOME/.scripts/dotsym/mksym "$HOME/dotfiles/home" "$HOME"
-[ -d "$commondir/root" ] && sudo bash -c "$HOME/.scripts/dotsym/mksym "$commondir/root" """
+}
 
-[ -d "$hostdir/home" ] && $HOME/.scripts/dotsym/mksym "$hostdir/home" "$HOME"
-[ -d "$hostdir/root" ] && sudo bash -c "$HOME/.scripts/dotsym/mksym "$hostdir/root" """
+
+dots="$HOME/dotfiles"
+host="$(uname -n)"
+
+[ -d "$dots/home" ] && symlink "$dots/home" "$HOME"
+[ -d "$dots/root" ] && symlink "$dots/root" "/"
+
+[ -d "$dots/$host/home" ] && symlink "$dots/$hots/home" "$HOME"
+[ -d "$dots/$host/root" ] && symlink "$dots/$host/root" "/"
+
