@@ -1,9 +1,6 @@
 # If you come from bash you might have to change your $PATH.
 export PATH="$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH"
 
-# Eval homebrew related stuff
-eval $(/opt/homebrew/bin/brew shellenv)
-
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 
@@ -29,7 +26,6 @@ DISABLE_UNTRACKED_FILES_DIRTY="true"
 
 plugins=(git zsh-history-substring-search zsh-autosuggestions zsh-syntax-highlighting)
 
-source "$ZSH/oh-my-zsh.sh"
-
-alias vim="nvim"
+. "$ZSH/oh-my-zsh.sh"
+. "$HOME/.aliases"
 

@@ -1,6 +1,6 @@
 [user]
 	name = falkaer
-	email = kfomosegaard@live.dk
+	email = kenny@falkaer.io
 [credential "https://github.com"]
 	helper = 
 	helper = !/usr/bin/gh auth git-credential

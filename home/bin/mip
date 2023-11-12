@@ -1,3 +1,0 @@
-#!/bin/bash
-
-[ -z "$@" ] && cat /tmp/mip || echo "$*" > /tmp/mip

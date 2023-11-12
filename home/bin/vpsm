@@ -1,4 +1,0 @@
-#!/bin/bash
-
-mkdir -p ~/VPSHome
-sshfs root@45.76.42.190: ~/VPSHome

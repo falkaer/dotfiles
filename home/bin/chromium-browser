@@ -1,4 +1,0 @@
-#!/bin/bash
-
-# google assistant calls chromium-browser, just do it chrome instead c|:^)
-google-chrome-stable $*

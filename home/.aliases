@@ -1,0 +1,18 @@
+alias source=.
+
+alias sudo='sudo '
+alias fuck='sudo $(fc -ln -1) '
+
+alias cp='cp -i'
+alias free='free -h'
+alias df='df -h'
+
+alias ls='ls --color=auto'
+alias grep='grep --colour=auto'
+alias egrep='egrep --colour=auto'
+alias fgrep='fgrep --colour=auto'
+alias ll='ls -alF'
+
+alias lat='cd "$PROJECTS_DIR/latent-features"'
+alias venvdata='poetry shell -C "$PROJECTS_DIR/latent-features"'
+
