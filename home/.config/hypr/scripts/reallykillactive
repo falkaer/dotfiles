@@ -1,0 +1,4 @@
+#!/bin/bash
+
+kill -SIGKILL "$(hyprctl activewindow -j | jq -r '.pid')"
+

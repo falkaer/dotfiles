@@ -16,6 +16,6 @@ shopt -s checkwinsize
 shopt -s expand_aliases
 shopt -s histappend
 
-. "HOME/.aliases"
+. "$HOME/.aliases"
 export PATH="$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH"
 

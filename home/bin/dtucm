@@ -1,0 +1,4 @@
+#!/bin/bash
+
+~/.scripts/dtumount "$COMPUTE_DIR" "$COMPUTE_DIR"
+

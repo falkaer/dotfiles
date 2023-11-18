@@ -29,13 +29,13 @@ symlink() {
 
 }
 
-
+HOME="/home/falkaer"
 dots="$HOME/dotfiles"
 host="$(uname -n)"
 
 [ -d "$dots/home" ] && symlink "$dots/home" "$HOME"
-[ -d "$dots/root" ] && symlink "$dots/root" "/"
+[ -d "$dots/root" ] && symlink "$dots/root" ""
 
-[ -d "$dots/$host/home" ] && symlink "$dots/$hots/home" "$HOME"
-[ -d "$dots/$host/root" ] && symlink "$dots/$host/root" "/"
+[ -d "$dots/$host/home" ] && symlink "$dots/$host/home" "$HOME"
+[ -d "$dots/$host/root" ] && symlink "$dots/$host/root" ""
 

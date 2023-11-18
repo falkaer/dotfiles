@@ -1,0 +1,12 @@
+#!/bin/bash
+
+# move active window to scratch if not already there, otherwise move to
+# the active workspace under the scratch workspace
+
+workspace="$(hyprctl activewindow -j | jq -r '.workspace.name')"
+if [[ "$workspace" = special* ]]; then
+    hyprctl dispatch movetoworkspacesilent "$(hyprctl activeworkspace -j | jq -r '.name')"
+else
+    hyprctl dispatch movetoworkspacesilent special:scratch
+fi
+

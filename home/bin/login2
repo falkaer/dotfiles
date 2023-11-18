@@ -1,3 +1,4 @@
 #!/bin/bash
 
-sshpass -f ~/.dtupass ssh s164396@login2.hpc.dtu.dk
+sshpass -f ~/.dtupass ssh kfaol@login2.hpc.dtu.dk
+

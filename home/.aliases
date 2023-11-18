@@ -15,4 +15,7 @@ alias fgrep='fgrep --color=auto'
 
 alias lat='cd "$PROJECTS_DIR/latent-features"'
 alias venvdata='poetry shell -C "$PROJECTS_DIR/latent-features"'
+alias latshell='lat && venvdata'
+
+alias vim=nvim
 

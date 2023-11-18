@@ -1,8 +1,0 @@
-#!/bin/bash
-
-rmdots
-
-cd "$HOME/dotfiles"
-git pull
-
-mkdots

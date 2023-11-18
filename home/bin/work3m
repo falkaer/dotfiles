@@ -1,4 +1,4 @@
 #!/bin/bash
 
-mkdir -p ~/work3
-sshfs -o idmap=user,reconnect,ServerAliveInterval=120,ServerAliveCountMax=3,ssh_command='sshpass -f /home/falkaer/.dtupass ssh' s164396@transfer.gbar.dtu.dk:/work3/s164396 ~/work3
+~/.scripts/dtumount "$WORK3_DIR" "$WORK3_DIR" 
+

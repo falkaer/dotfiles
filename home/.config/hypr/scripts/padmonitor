@@ -1,0 +1,15 @@
+#!/bin/bash
+
+# find focused monitor
+mon="$(hyprctl monitors -j | jq -r 'first(.[] | select(.focused == true))')"
+width="$(echo "$mon" | jq -r '.width')"
+name="$(echo "$mon" | jq -r '.name')"
+
+if [[ "$1" == 1 ]]; then
+    pad=0
+else
+    pad="$(( "$width/$1/2" ))"
+fi
+
+hyprctl keyword monitor "$name,addreserved,0,0,$pad,$pad"
+

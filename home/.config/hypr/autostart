@@ -1,0 +1,20 @@
+#!/bin/bash
+
+# Set wallpaper
+{ swww init --no-cache && sleep 1 && ~/.scripts/wallchange ~/.wallpapers/wannabigsur.png; } &
+
+# Start authentication and notification daemons
+dbus-update-activation-environment --all
+/usr/bin/gnome-keyring-daemon --start --components=secrets &
+/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
+
+# Night light
+gammastep &
+
+# Thunar daemon
+thunar --daemon &
+
+# Export wayland envs (???)
+dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
+systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
+

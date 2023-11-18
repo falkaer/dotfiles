@@ -24,8 +24,23 @@ zstyle ':omz:update' frequency 7
 # much, much faster.
 DISABLE_UNTRACKED_FILES_DIRTY="true"
 
-plugins=(git zsh-history-substring-search zsh-autosuggestions zsh-syntax-highlighting)
+plugins=(git zsh-history-substring-search zsh-autosuggestions zsh-syntax-highlighting colored-man-pages)
 
-. "$ZSH/oh-my-zsh.sh"
+if [ -f "$ZSH/oh-my-zsh.sh" ]; then
+  . "$ZSH/oh-my-zsh.sh"
+fi
+
+# customize termcap colors (for less, must be sourced after OMZ)
+# bold and blinking modes
+less_termcap[mb]="${fg_bold[red]}"
+less_termcap[md]="${fg_bold[green]}" 
+less_termcap[me]="${reset_color}"
+# standout mode
+less_termcap[so]="${fg_bold[black]}${bg[white]}"
+less_termcap[se]="${reset_color}"
+# underlining
+less_termcap[us]="${fg_bold[cyan]}"
+less_termcap[ue]="${reset_color}"
+
 . "$HOME/.aliases"
 

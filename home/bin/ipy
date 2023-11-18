@@ -1,5 +1,4 @@
 #!/bin/bash
 
-export XLA_PYTHON_CLIENT_PREALLOCATE=false
-py -m IPython "$@"
+py -m IPython $@
 

@@ -3,7 +3,7 @@
 pamixer --default-source -t
 
 if [ $(pamixer --default-source --get-mute) == "true" ]; then
-    dunstify -h string:x-dunst-stack-tag:mic "Microphone control" "Microphone muted"
+    notify-send -h string:x-dunst-stack-tag:mic "Microphone" "Microphone muted"
 else
-    dunstify -h string:x-dunst-stack-tag:mic "Microphone control" "Microphone unmuted"
+    notify-send -h string:x-dunst-stack-tag:mic "Microphone" "Microphone unmuted"
 fi

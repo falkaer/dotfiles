@@ -1,0 +1,7 @@
+#!/bin/bash
+
+export SWWW_TRANSITION_STEP=4
+export SWWW_TRANSITION_FPS=120
+
+swww img -t simple "$@"
+
