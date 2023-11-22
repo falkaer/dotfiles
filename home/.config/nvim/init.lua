@@ -415,7 +415,6 @@ local on_attach = function(_, bufnr)
   nmap('<leader>wl', function()
     print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
   end, '[W]orkspace [L]ist Folders')
-  nmap('<leader>f', vim.lsp.buf.format, '[F]ormat buffer')
 end
 
 -- document existing key chains
