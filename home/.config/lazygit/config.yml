@@ -1,0 +1,6 @@
+os:
+  edit:              'helix -- {{filename}}'
+  editAtLine:        'helix -- {{filename}}:{{line}}'
+  editAtLineAndWait: 'helix -- {{filename}}:{{line}}'
+  openDirInEditor:   'helix -- {{dir}}'
+  editInTerminal:    true

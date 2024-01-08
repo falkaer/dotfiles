@@ -1,0 +1,84 @@
+theme = "falkaer"
+
+[editor]
+line-number = "relative"
+cursorline = false
+color-modes = true
+auto-format = false
+text-width = 88
+scroll-lines = 5
+
+# show completions immediately
+idle-timeout = 0
+completion-trigger-len = 1
+
+shell = ["zsh", "-c"]
+
+[editor.statusline]
+left = [
+  # "mode", 
+  "file-name",
+  "read-only-indicator",
+  "file-modification-indicator",
+]
+
+right = ["spinner", "diagnostics", "position-percentage"]
+
+# TODO: use icons?
+# [editor.statusline.mode]
+# normal = "N"
+# insert = "I"
+# select = "V"
+
+[editor.gutters]
+layout = ["diagnostics", "line-numbers", "spacer", "diff"]
+
+[editor.file-picker]
+hidden = false # show hidden files
+
+[editor.soft-wrap]
+enable = false
+wrap-at-text-width = true
+
+[editor.cursor-shape]
+normal = "block"
+insert = "bar"
+select = "underline"
+
+# keybinds
+
+[keys.normal]
+a = ["append_mode", "collapse_selection"]
+i = ["insert_mode", "collapse_selection"]
+V = ["goto_first_nonwhitespace", "extend_to_line_end"]
+D = ["ensure_selections_forward", "extend_to_line_end"]
+
+# movement
+"C-h" = "goto_first_nonwhitespace"
+"C-l" = "goto_line_end"
+"C-j" = [
+  "move_line_down",
+  "move_line_down",
+  "move_line_down",
+  "move_line_down",
+  "move_line_down",
+]
+"C-k" = [
+  "move_line_up",
+  "move_line_up",
+  "move_line_up",
+  "move_line_up",
+  "move_line_up",
+]
+
+# lsp
+"C-space" = "signature_help"
+
+[keys.normal.space]
+# TODO: toggle diagnostics in gutter
+"space" = ":format"
+"e" = ":toggle-option soft-wrap.enable"
+"q" = ":quit"
+
+[keys.insert]
+"C-space" = "signature_help"

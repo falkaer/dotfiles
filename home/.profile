@@ -1,7 +1,8 @@
 export QT_QPA_PLATFORMTHEME="qt5ct"
 export _JAVA_AWT_WM_NONREPARENTING=1
 
-export VISUAL=vim
+export TERMINAL=kitty
+export VISUAL=helix
 export EDITOR="$VISUAL"
 export PAGER=less
 export LESS=-asrRix8
@@ -20,7 +21,6 @@ export CLEARML_ROOT="$HOME/clearml"
 export JULIA_NUM_THREADS="$(grep -c ^processor /proc/cpuinfo)"
 
 # https://github.com/python-poetry/poetry/issues/5250
-# export PYTHON_KEYRING_BACKEND=keyring.backends.null.Keyring
 export PYTHON_KEYRING_BACKEND=keyring.backends.null.Keyring
 
 # https://stackoverflow.com/questions/53979362/you-dont-have-path-in-your-path-gem-executables-will-not-run-while-using
@@ -28,3 +28,4 @@ if [ -x "$(command -v ruby)" ]; then
   export GEM_HOME="$(ruby -e 'puts Gem.user_dir')"
 fi
 
+export PATH="$HOME/bin:$HOME/.local/bin:$HOME/.cargo/bin:/usr/local/bin:$PATH"

@@ -1,0 +1,147 @@
+# --- CODE ---
+attribute = "white"
+variable = "white"
+constant = "white"
+namespace = "white"
+punctuation = "white"
+operator = "white"
+
+# types, keywords, etc.
+function = "yellow"
+type = "lightblue"
+constructor = "lightblue"
+keyword = "darkorange"
+"function.macro" = "darkred"
+"function.special" = "darkred"
+"keyword.directive" = "darkred" # -- preprocessor comments (#if in C)
+
+# strings and numerics
+string = "green"
+"string.regexp" = "darkorange"
+"string.special.path" = "darkorange"
+"string.special.url" = { modifiers = ["underlined"] }
+"string.special.symbol" = "darkred"
+"constant.numeric" = "lightgreen"
+"constant.character.escape" = "darkorange"
+
+# comments
+comment = { fg = "lightgrey", modifiers = ["italic"] }
+"comment.block.documentation" = { modifiers = ["italic"] }
+
+# builtins
+# "type.builtin" = "darkred"
+"variable.builtin" = "darkred"
+"constant.builtin" = "darkred"
+"function.builtin" = "darkred"
+label = "wine"                 # used for lifetimes
+
+# extras
+tag = "yellow"
+special = "darkred"
+
+# markup
+"markup.heading" = "lilac"
+"markup.bold" = { modifiers = ["bold"] }
+"markup.italic" = { modifiers = ["italic"] }
+"markup.strikethrough" = { modifiers = ["crossed_out"] }
+"markup.link.url" = { fg = "silver", modifiers = ["underlined"] }
+"markup.link.text" = "almond"
+"markup.raw" = "almond"
+
+# git gutter
+"diff.plus" = "vcs-green"
+"diff.minus" = "vcs-red"
+"diff.delta" = "vcs-blue"
+
+# --- EDITOR UI ---
+"ui.background" = { bg = "midnight" }
+"ui.background.separator" = { fg = "darkred" }
+"ui.window" = { fg = "darkgrey" }
+
+"ui.text" = { fg = "white" }
+"ui.text.focus" = { modifiers = ["reversed"] }
+"ui.text.inactive" = "lightgrey"
+# "ui.text.info" = "wine"
+
+"ui.selection" = { bg = "paleblue" }
+"ui.selection.primary" = { bg = "paleblue" }
+"ui.virtual" = { fg = "white" }              # TODO: customize suboptions here
+
+# cursors
+"ui.cursor.select" = { bg = "delta" }
+"ui.cursor.insert" = { bg = "white" }
+"ui.cursor.match" = { fg = "#212121", bg = "#6C6999" }
+"ui.cursor" = { modifiers = ["reversed"] }
+"ui.cursorline.primary" = { bg = "bossanova" }
+
+# lines
+"ui.linenr" = { fg = "darkgrey" }
+"ui.linenr.selected" = { fg = "white", modifiers = ["bold"] }
+"ui.statusline" = { fg = "lilac", bg = "revolver" }
+"ui.statusline.inactive" = { fg = "lavender", bg = "revolver" }
+
+# menus
+"ui.menu" = { fg = "white", bg = "revolver" }
+"ui.menu.selected" = { modifiers = ["reversed"] }
+"ui.menu.scroll" = { fg = "darkred", bg = "yellow" }
+
+# popups
+"ui.popup" = { bg = "revolver" }
+"ui.help" = { bg = "#7958DC", fg = "#171452" }
+
+"ui.highlight" = { bg = "paleblue" }
+"ui.highlight.frameline" = { bg = "paleblue" }
+"ui.debug" = { fg = "#634450" }
+"ui.debug.breakpoint" = { fg = "apricot" }
+
+"diagnostic.hint" = { underline = { color = "silver", style = "curl" } }
+"diagnostic.info" = { underline = { color = "delta", style = "curl" } }
+"diagnostic.warning" = { underline = { color = "lightning", style = "curl" } }
+"diagnostic.error" = { underline = { color = "apricot", style = "curl" } }
+
+warning = "lightning"
+error = "apricot"
+info = "delta"
+hint = "silver"
+
+
+[palette]
+white = "#ebecef"
+paleblue = "#444b5f"
+darkorange = "#cc6432"
+darkred = "#cc4f32"
+yellow = "#ffc66d"
+lightgrey = "#787878"
+lightblue = "#4eade5"
+darkgrey = "#514e52"   # TODO: could be a little darker
+
+darkwhite = "#eff0ee"
+lightpurple = "#987f91"
+darkpurple = "#39223b"
+washedred = "#ba5a63"
+
+wine = "#a1617a"
+lightgreen = "#b4c973"
+green = "#77b767"
+
+vcs-green = "#384c38"
+vcs-red = "#45302b"
+vcs-blue = "#374752"
+
+# DEFAULT COLORS
+lilac = "#dbbfef"
+lavender = "#a4a0e8"
+bossanova = "#452859"
+midnight = "#161616"
+revolver = "#281733"
+
+silver = "#cccccc"
+sirocco = "#697C81"
+mint = "#9ff28f"
+almond = "#eccdba"
+chamois = "#E8DCA0"
+honey = "#efba5d"
+
+apricot = "#f47868"
+lightning = "#ffcd1c"
+delta = "#6F44F0"

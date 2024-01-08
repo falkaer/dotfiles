@@ -16,6 +16,7 @@ shopt -s checkwinsize
 shopt -s expand_aliases
 shopt -s histappend
 
-. "$HOME/.aliases"
-export PATH="$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH"
+# broot cd workaround
+source "$HOME/.config/broot/launcher/bash/br"
 
+. "$HOME/.aliases"

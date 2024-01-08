@@ -1,4 +1,4 @@
 #!/bin/bash
 
-sshfs -o idmap=user,reconnect,ServerAliveInterval=120,ServerAliveCountMax=3,ssh_command="sshpass -f $HOME/.dtupass ssh" kfaol@transfer.gbar.dtu.dk:"$1" "$2"
+sshfs -o idmap=user,reconnect,ServerAliveInterval=15,ServerAliveCountMax=3,ssh_command="sshpass -f $HOME/.dtupass ssh" kfaol@transfer.gbar.dtu.dk:"$1" "$2"
 

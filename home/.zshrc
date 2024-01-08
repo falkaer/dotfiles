@@ -1,6 +1,3 @@
-# If you come from bash you might have to change your $PATH.
-export PATH="$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH"
-
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 
@@ -30,6 +27,9 @@ if [ -f "$ZSH/oh-my-zsh.sh" ]; then
   . "$ZSH/oh-my-zsh.sh"
 fi
 
+# broot cd workaround
+source "$HOME/.config/broot/launcher/bash/br"
+
 # customize termcap colors (for less, must be sourced after OMZ)
 # bold and blinking modes
 less_termcap[mb]="${fg_bold[red]}"
@@ -44,3 +44,4 @@ less_termcap[ue]="${reset_color}"
 
 . "$HOME/.aliases"
 
+source "$HOME/.config/broot/launcher/bash/br"

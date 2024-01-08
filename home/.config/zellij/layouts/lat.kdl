@@ -1,0 +1,65 @@
+layout {
+	cwd "$PROJECTS_DIR/latent-features"
+
+	pane_template name="latshell" {
+		command "poetry"
+		args "shell"
+		close_on_exit true
+	}
+
+	pane_template name="status" {
+		pane command="btm" close_on_exit=true
+		pane command="nvtop" close_on_exit=true
+		stacked true
+	}
+	
+	tab_template name="workspace" {
+		pane split_direction="vertical" {
+			latshell {
+				focus true
+				size "70%"
+			}
+			pane split_direction="horizontal" {
+				status {
+					size "30%"
+				}
+				children
+			}
+		}
+	}
+
+	workspace {
+		latshell
+	}
+	
+	swap_tiled_layout {
+		workspace max_panes=2 {
+		}
+		workspace max_panes=3 {
+			pane
+		}
+	}
+
+    swap_floating_layout {
+        floating_panes {
+            pane x="10%" y="10%" width="80%" height="80%"
+        }
+    }
+}
+
+keybinds {
+	shared {
+		bind "Alt g" { 
+			Run "lazygit" {
+				floating true
+				close_on_exit true
+			}
+		}
+		bind "Alt f" {
+			Run "broot" "-gI" {
+				floating true
+				close_on_exit true
+			}
+		}
+	}
+}
