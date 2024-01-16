@@ -22,4 +22,3 @@ alias venvdata='poetry shell -C "$PROJECTS_DIR/latent-features"'
 alias latshell='lat && venvdata'
 
 alias vim='nvim'
-alias hx='helix'
