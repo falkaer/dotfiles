@@ -2,7 +2,7 @@ export QT_QPA_PLATFORMTHEME="qt5ct"
 export _JAVA_AWT_WM_NONREPARENTING=1
 
 export TERMINAL=kitty
-export VISUAL=helix
+export VISUAL=hx
 export EDITOR="$VISUAL"
 export PAGER=less
 export LESS=-asrRix8

@@ -32,7 +32,7 @@ verbs: [
             e
         ]
         apply_to: text_file
-        execution: "helix {file}:{line}"
+        execution: "hx {file}:{line}"
         leave_broot: false
     }
 
