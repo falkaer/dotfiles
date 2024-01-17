@@ -1,6 +1,6 @@
 os:
-  edit:              'helix -- {{filename}}'
-  editAtLine:        'helix -- {{filename}}:{{line}}'
-  editAtLineAndWait: 'helix -- {{filename}}:{{line}}'
-  openDirInEditor:   'helix -- {{dir}}'
+  edit:              'hx -- {{filename}}'
+  editAtLine:        'hx -- {{filename}}:{{line}}'
+  editAtLineAndWait: 'hx -- {{filename}}:{{line}}'
+  openDirInEditor:   'hx -- {{dir}}'
   editInTerminal:    true

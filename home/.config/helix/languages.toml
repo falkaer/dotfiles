@@ -28,9 +28,9 @@ name = "toml"
 command = "taplo"
 args = ["format", "-"]
 
-# [[language]]
-# name = "typst"
-# formatter = { command = "typstfmt", args = ["--output", "-"] }
+[[language]]
+name = "typst"
+formatter = { command = "typstfmt", args = ["--output", "-"] }
 
 [[language]]
 name = "kdl"

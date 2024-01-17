@@ -7,6 +7,10 @@ export EDITOR="$VISUAL"
 export PAGER=less
 export LESS=-asrRix8
 
+# use bat as man pager
+export MANPAGER="sh -c 'col -bx | bat -l man -p'"
+export MANOFFOPT="-c"
+
 # DTU-specific storage directories
 export DTU_HOME="/zhome/98/d/117538"
 export COMPUTE_DIR="/dtu-compute/kfaol"
@@ -28,4 +32,4 @@ if [ -x "$(command -v ruby)" ]; then
   export GEM_HOME="$(ruby -e 'puts Gem.user_dir')"
 fi
 
-export PATH="$HOME/bin:$HOME/.local/bin:$HOME/.cargo/bin:/usr/local/bin:$PATH"
+export PATH="$HOME/bin:$HOME/.local/bin:$HOME/.cargo/bin:$HOME/go/bin:/usr/local/bin:$PATH"

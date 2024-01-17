@@ -44,4 +44,10 @@ less_termcap[ue]="${reset_color}"
 
 . "$HOME/.aliases"
 
+export LS_COLORS="$(vivid generate lava)"
+
+# carapace completions
+zstyle ':completion:*' format $'\e[2;37mCompleting %d\e[m'
+source <(carapace _carapace)
+
 source "$HOME/.config/broot/launcher/bash/br"
