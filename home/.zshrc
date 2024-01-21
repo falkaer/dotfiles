@@ -50,4 +50,7 @@ export LS_COLORS="$(vivid generate lava)"
 zstyle ':completion:*' format $'\e[2;37mCompleting %d\e[m'
 source <(carapace _carapace)
 
+# starship prompt
+eval "$(starship init zsh)"
+
 source "$HOME/.config/broot/launcher/bash/br"

@@ -10,6 +10,7 @@ alias zj='zellij'
 alias zjl='zellij --layout lat'
 alias lg='lazygit'
 
+alias cat='bat --style="changes,grid" --paging=never'
 alias ls='eza -ah'
 alias ll='ls -l'
 

@@ -9,7 +9,10 @@ export LESS=-asrRix8
 
 # use bat as man pager
 export MANPAGER="sh -c 'col -bx | bat -l man -p'"
-export MANOFFOPT="-c"
+export MANROFFOPT="-c"
+
+# nice LS_COLORS
+export LS_COLORS="$(vivid generate lava)"
 
 # DTU-specific storage directories
 export DTU_HOME="/zhome/98/d/117538"
