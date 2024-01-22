@@ -136,10 +136,28 @@ let light_theme = {
     shape_vardecl: purple
 }
 
-# External completer example
-# let carapace_completer = {|spans|
-#     carapace $spans.0 nushell $spans | from json
-# }
+let carapace_completer = { |spans|
+    carapace $spans.0 nushell ...$spans
+    | from json
+    | if ($in | default [] | where value =~ '^-.*ERR$' | is-empty) { $in } else { null }
+}
+
+# https://www.nushell.sh/cookbook/external_completers.html#putting-it-all-together
+let external_completer = { |spans|
+    let expanded_alias = scope aliases
+    | where name == $spans.0
+    | get -i 0.expansion
+
+    let spans = if $expanded_alias != null {
+        $spans
+        | skip 1
+        | prepend ($expanded_alias | split row ' ' | take 1)
+    } else {
+        $spans
+    }
+
+    carapace_completer ...$spans
+}
 
 # The default config record. This is where much of your global configuration is setup.
 $env.config = {
@@ -210,7 +228,7 @@ $env.config = {
         external: {
             enable: true # set to false to prevent nushell looking into $env.PATH to find more suggestions, `false` recommended for WSL users as this look up may be very slow
             max_results: 100 # setting it lower can improve completion performance at the cost of omitting some options
-            completer: null # check 'carapace_completer' above as an example
+            completer: $external_completer
         }
     }
 
@@ -235,7 +253,7 @@ $env.config = {
     edit_mode: emacs # emacs, vi
     shell_integration: false # enables terminal shell integration. Off by default, as some terminals have issues with this.
     render_right_prompt_on_last_line: false # true or false to enable or disable right prompt to be rendered on last line of the prompt.
-    use_kitty_protocol: false # enables keyboard enhancement protocol implemented by kitty console, only if your terminal support this.
+    use_kitty_protocol: true # enables keyboard enhancement protocol implemented by kitty console, only if your terminal support this.
     highlight_resolved_externals: false # true enables highlighting of external commands in the repl resolved by which.
 
     hooks: {
@@ -761,5 +779,24 @@ $env.config = {
     ]
 }
 
-source ~/.cache/carapace/init.nu
+def latpath [] {
+    $env.PROJECTS_DIR | append "latent-features" | path join
+}
+
+def latshell [] {
+    cd (latpath)
+    poetry shell
+}
+
+# aliases
+alias fuck = sudo (history | last | get command)
+alias zj = zellij
+alias zjl = zellij --layout lat
+alias lg = lazygit
+alias cat = bat --style="changes,grid" --paging=never
+alias ll = ls -l
+alias lat = cd (latpath)
+alias venvdata = poetry shell -C (latpath)
+
+# starship prompt
 use ~/.cache/starship/init.nu

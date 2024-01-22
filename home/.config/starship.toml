@@ -4,6 +4,14 @@
 # Inserts a blank line between shell prompts
 add_newline = false
 
+right_format = "$time"
+
+[time]
+disabled = false
+time_format = "%R"
+style = "bg:color_bg1"
+format = '[[  $time ](fg:color_fg0 bg:color_bg1)]($style)'
+
 # Disable the package module, hiding it from the prompt completely
 [package]
 disabled = true
