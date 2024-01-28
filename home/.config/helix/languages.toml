@@ -35,3 +35,11 @@ formatter = { command = "typstfmt", args = ["--output", "-"] }
 [[language]]
 name = "kdl"
 indent = { tab-width = 4, unit = "    " }
+
+[[language]]
+name = "yaml"
+language-servers = ["yaml-language-server"]
+
+[language.formatter]
+command = "prettier"
+args = ["--parser", "yaml"]
