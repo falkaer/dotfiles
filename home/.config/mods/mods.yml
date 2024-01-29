@@ -23,9 +23,9 @@ max-retries: 5
 # Your desired level of fanciness.
 fanciness: 10
 # Text to show while generating.
-status-text: Generating
+status-text: Stirring the pile ...
 # Default character limit on input to model.
-max-input-chars: 12250
+max-input-chars: 128000
 # Maximum number of tokens in response.
 # max-tokens: 100
 # Aliases and endpoints for OpenAI compatible REST API.

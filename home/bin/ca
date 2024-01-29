@@ -1,0 +1,15 @@
+#!/bin/bash
+
+set -euo pipefail
+
+function next_prompt() {
+	# pipe /dev/null to gum to stop it grabbing stdin
+	prompt="$(gum input --char-limit=0 --width=0 --placeholder="..." < /dev/null)"
+	mods "$@" -p "$prompt"
+}
+
+next_prompt "$@"
+
+while true; do
+	next_prompt -C
+done

@@ -19,7 +19,12 @@ command = "ruff-lsp"
 [language-server.ruff.config.settings]
 args = ["--ignore", "E501"]
 
-# TODO: shfmt as shell formatter
+[[language]]
+name = "bash"
+
+[language.formatter]
+command = "shfmt"
+args = ["-s", "-ci", "-sr", "-kp"]
 
 [[language]]
 name = "toml"
