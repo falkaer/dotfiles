@@ -2,14 +2,27 @@
 
 set -euo pipefail
 
+status_texts=(
+  "Stirring the pile"
+  "Evaluating the eigens"
+)
+
+function rand_status() {
+  echo "${status_texts[RANDOM % ${#status_texts[@]}]}"
+}
+
 function next_prompt() {
-	# pipe /dev/null to gum to stop it grabbing stdin
-	prompt="$(gum input --char-limit=0 --width=0 --placeholder="..." < /dev/null)"
-	mods "$@" -p "$prompt"
+  # pipe /dev/null to gum to stop it grabbing stdin
+  prompt="$(gum input \
+    --char-limit=0 \
+    --width=0 \
+    --placeholder="Ask the machine" \
+    < /dev/null)"
+  mods "$@" -p --status-text="$(rand_status)" "$prompt"
 }
 
 next_prompt "$@"
 
 while true; do
-	next_prompt -C
+  next_prompt -C
 done
