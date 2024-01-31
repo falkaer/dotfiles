@@ -24,7 +24,7 @@ name = "bash"
 
 [language.formatter]
 command = "shfmt"
-args = ["-s", "-ci", "-sr", "-kp"]
+args = ["-s", "-ci", "-sr", "-kp", "-bn", "-i", "2"]
 
 [[language]]
 name = "toml"
