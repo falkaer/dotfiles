@@ -70,7 +70,7 @@ special = "darkred"
 # cursors
 "ui.cursor.select" = { bg = "delta" }
 "ui.cursor.insert" = { bg = "white" }
-"ui.cursor.match" = { fg = "#212121", bg = "#6C6999" }
+"ui.cursor.match" = { fg = "#212121", bg = "#6c6999" }
 "ui.cursor" = { modifiers = ["reversed"] }
 "ui.cursorline.primary" = { bg = "bossanova" }
 
@@ -78,7 +78,7 @@ special = "darkred"
 "ui.linenr" = { fg = "darkgrey" }
 "ui.linenr.selected" = { fg = "white", modifiers = ["bold"] }
 "ui.statusline" = { fg = "lilac", bg = "revolver" }
-"ui.statusline.inactive" = { fg = "lavender", bg = "revolver" }
+# "ui.statusline.inactive" = { fg = "white", bg = "revolver" }
 
 # menus
 "ui.menu" = { fg = "white", bg = "revolver" }
@@ -87,22 +87,22 @@ special = "darkred"
 
 # popups
 "ui.popup" = { bg = "revolver" }
-"ui.help" = { bg = "#7958DC", fg = "#171452" }
+"ui.help" = { bg = "#7958dc", fg = "#171452" }
 
 "ui.highlight" = { bg = "paleblue" }
 "ui.highlight.frameline" = { bg = "paleblue" }
 "ui.debug" = { fg = "#634450" }
 "ui.debug.breakpoint" = { fg = "apricot" }
 
-"diagnostic.hint" = { underline = { color = "silver", style = "curl" } }
+"diagnostic.hint" = { underline = { color = "white", style = "curl" } }
 "diagnostic.info" = { underline = { color = "delta", style = "curl" } }
-"diagnostic.warning" = { underline = { color = "lightning", style = "curl" } }
-"diagnostic.error" = { underline = { color = "apricot", style = "curl" } }
+"diagnostic.warning" = { underline = { color = "yellow", style = "curl" } }
+"diagnostic.error" = { underline = { color = "darkred", style = "curl" } }
 
-warning = "lightning"
-error = "apricot"
+warning = "yellow"
+error = "darkred"
 info = "delta"
-hint = "silver"
+hint = "white"
 
 
 [palette]

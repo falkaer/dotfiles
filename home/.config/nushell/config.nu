@@ -709,11 +709,13 @@ def --env ya [...args] {
 # aliases
 # TODO: make commandline keybind instead
 alias fuck = sudo nu -n -c (history | last | get command)
+alias core-ls = ls
+alias ls = ls -a
+alias ll = ls -l
 alias zj = zellij
 alias zjl = zellij --layout lat
 alias lg = lazygit
 alias cat = bat --style="changes,grid" --paging=never
-alias ll = ls -l
 alias lat = cd (latpath)
 alias venvdata = poetry shell -C (latpath)
 
