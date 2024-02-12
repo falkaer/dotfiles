@@ -1,0 +1,7 @@
+#!/bin/bash
+
+if [[ -z $WAYLAND_DISPLAY   ]]; then
+    /usr/bin/discord "$@"
+else
+    /usr/bin/discord --enable-features=UseOzonePlatform --ozone-platform=wayland "$@"
+fi

@@ -19,7 +19,6 @@ set selection-clipboard clipboard
 
 ## scrolling
 set scroll-page-aware "true"
-set smooth-scroll "true"
 set scroll-full-overlap 0.01
 set scroll-step 100
 # set show-scrollbars true
@@ -37,13 +36,15 @@ map [index] q abort
 map r recolor
 map <C-r> rotate
 map <C-Space> toggle_statusbar
-map <C-e> exec 'zathura "%"' # reopen current file
+map <C-e> exec 'zathura --page=$PAGE $FILE' # reopen current file
 
 ## navigation
 map <Left> navigate previous
 map <Right> navigate next
 map <Button8> navigate previous
 map <Button9> navigate next
+map <C-j> navigate next
+map <C-k> navigate previous
 
 # colors
 # set recolor-darkcolor  "#FFFFFF"
