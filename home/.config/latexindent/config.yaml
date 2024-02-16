@@ -1,0 +1,7 @@
+defaultIndent: "    "
+
+modifyLineBreaks:
+  textWrapOptions:
+    columns: 88
+    comments:
+      wrap: 1
