@@ -50,7 +50,19 @@ modifyLineBreaks = true
 [language-server.texlab.config.texlab.build]
 onSave = true
 executable = "tectonic"
-args = ["-X", "compile", "%f", "--synctex"]
+args = [
+  "-X",
+  "compile",
+  "%f",
+  "-o",
+  "out",
+  "--synctex",
+  "--keep-logs",
+  "--keep-intermediates",
+]
+auxDirectory = "out"
+logDirectory = "out"
+pdfDirectory = "out"
 forwardSearchAfter = true
 
 [language-server.texlab.config.texlab.forwardSearch]
