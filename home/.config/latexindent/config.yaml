@@ -5,3 +5,6 @@ modifyLineBreaks:
     columns: 88
     comments:
       wrap: 1
+    blocksBeginWith:
+      # \Gls, \gls, \Cref, \text..., inline math, etc. can start sentence blocks
+      other: '(\\(g|Gls)|(Cref)|(text))|(\$)'
