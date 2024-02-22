@@ -1,8 +1,7 @@
 #!/bin/bash
 
-if [[ -z "$WAYLAND_DISPLAY" ]]; then
+if [[ -z $WAYLAND_DISPLAY ]]; then
     /usr/bin/spotify "$@"
 else
     /usr/bin/spotify --enable-features=UseOzonePlatform --ozone-platform=wayland "$@"
 fi
-

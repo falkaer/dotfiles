@@ -1,6 +1,6 @@
 #!/bin/bash
 
-if [[ -z $WAYLAND_DISPLAY   ]]; then
+if [[ -z $WAYLAND_DISPLAY ]]; then
     /usr/bin/obsidian "$@"
 else
     /usr/bin/obsidian --enable-features=UseOzonePlatform --ozone-platform=wayland "$@"

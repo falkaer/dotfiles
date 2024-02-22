@@ -1,0 +1,7 @@
+#!/bin/bash
+
+if [[ -z $WAYLAND_DISPLAY ]]; then
+    /usr/bin/signal-desktop "$@"
+else
+    /usr/bin/signal-desktop --enable-features=UseOzonePlatform --ozone-platform=wayland "$@"
+fi
