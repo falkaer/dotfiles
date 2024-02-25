@@ -10,6 +10,7 @@ services:
       - TZ=Europe/Copenhagen
     volumes:
       - /home/falkaer/.config/syncthing/config:/config
+      - /home/falkaer/sync:/data/sync
       - /home/falkaer/Zotero:/data/Zotero
     ports:
       - 127.0.0.1:8384:8384
