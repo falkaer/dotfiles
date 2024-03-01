@@ -35,7 +35,19 @@ args = ["format", "-"]
 
 [[language]]
 name = "typst"
-formatter = { command = "typstfmt", args = ["--output", "-"] }
+
+# [language.formatter]
+# command = "typstfmt"
+# args = ["--output", "-"]
+
+[language.formatter]
+command = "prettypst"
+args = [
+  "--file-location",
+  "~/.config/prettypst.toml",
+  "--use-std-in",
+  "--use-std-out",
+]
 
 [[language]]
 name = "latex"
