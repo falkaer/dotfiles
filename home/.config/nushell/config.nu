@@ -443,30 +443,6 @@ $env.config = {
             event: {edit: movetolineend}
         }
         {
-            name: move_up
-            modifier: control
-            keycode: char_p
-            mode: [emacs, vi_normal, vi_insert]
-            event: {
-                until: [
-                    {send: menuup}
-                    {send: up}
-                ]
-            }
-        }
-        {
-            name: move_down
-            modifier: control
-            keycode: char_t
-            mode: [emacs, vi_normal, vi_insert]
-            event: {
-                until: [
-                    {send: menudown}
-                    {send: down}
-                ]
-            }
-        }
-        {
             name: delete_one_character_backward
             modifier: none
             keycode: backspace
@@ -531,19 +507,6 @@ $env.config = {
                 until: [
                     {send: menuleft}
                     {send: left}
-                ]
-            }
-        }
-        {
-            name: move_right_or_take_history_hint
-            modifier: control
-            keycode: char_f
-            mode: emacs
-            event: {
-                until: [
-                    {send: historyhintcomplete}
-                    {send: menuright}
-                    {send: right}
                 ]
             }
         }
@@ -663,36 +626,31 @@ $env.config = {
             event: {edit: cutwordright}
         }
         {
-            name: upper_case_word
-            modifier: alt
-            keycode: char_u
-            mode: emacs
-            event: {edit: uppercaseword}
+          name: sudo_last
+          modifier: shift_alt
+          keycode: char_s
+          mode: [emacs vi_insert]
+          event:[
+              { edit: Clear }
+              {
+                send: executehostcommand, 
+                cmd: 'commandline edit -r $"sudo (history | last | get command)"'
+              }
+            ]
         }
         {
-            name: lower_case_word
-            modifier: alt
-            keycode: char_l
-            mode: emacs
-            event: {edit: lowercaseword}
-        }
-        {
-            name: capitalize_char
-            modifier: alt
-            keycode: char_c
-            mode: emacs
-            event: {edit: capitalizechar}
+          name: activate_venv
+          modifier: shift_alt
+          keycode: char_l
+          mode: [emacs vi_normal]
+          event: [
+            {
+              send: executehostcommand, 
+              cmd: 'overlay use .venv/bin/activate.nu'
+            }
+          ]
         }
     ]
-}
-
-def latpath [] {
-    $env.PROJECTS_DIR | path join "latent-features"
-}
-
-def latshell [] {
-    cd (latpath)
-    poetry shell
 }
 
 # yazi cd workaround
@@ -706,19 +664,29 @@ def --env ya [...args] {
     rm -fp $tmp
 }
 
+def latpath [] {
+    $env.PROJECTS_DIR | path join "latent-features"
+}
+
 # aliases
-# TODO: make commandline keybind instead
-alias fuck = sudo nu -n -c (history | last | get command)
 alias core-ls = ls
+alias core-cat = cat
 alias ls = ls -a
 alias ll = ls -l
 alias zj = zellij
 alias zjl = zellij --layout lat
-alias pt = ptw --runner "pytest --testmon"
+alias pt = ptw --runner "pytest" . --testmon
 alias lg = lazygit
 alias cat = bat --style="changes,grid" --paging=never
 alias lat = cd (latpath)
-alias venvdata = poetry shell -C (latpath)
+
+# poetry aliases
+# alias pyshell = poetry shell -C
+# alias venvdata = pyshell (latpath)
+# def latshell [] {
+#     cd (latpath)
+#     pyshell .
+# }
 
 # starship prompt
 use ~/.cache/starship/init.nu
