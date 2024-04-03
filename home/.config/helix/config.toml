@@ -54,8 +54,15 @@ V = ["goto_first_nonwhitespace", "extend_to_line_end"]
 D = ["ensure_selections_forward", "extend_to_line_end"]
 
 # movement
-"C-h" = "goto_first_nonwhitespace"
-"C-l" = "goto_line_end"
+# "C-h" = "goto_first_nonwhitespace"
+# "C-l" = "goto_line_end"
+"C-h" = [
+  "move_char_left",
+  "move_char_left",
+  "move_char_left",
+  "move_char_left",
+  "move_char_left",
+]
 "C-j" = [
   "move_line_down",
   "move_line_down",
@@ -69,6 +76,13 @@ D = ["ensure_selections_forward", "extend_to_line_end"]
   "move_line_up",
   "move_line_up",
   "move_line_up",
+]
+"C-l" = [
+  "move_char_right",
+  "move_char_right",
+  "move_char_right",
+  "move_char_right",
+  "move_char_right",
 ]
 
 # lsp

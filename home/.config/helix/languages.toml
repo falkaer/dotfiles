@@ -27,11 +27,25 @@ command = "shfmt"
 args = ["-s", "-ci", "-sr", "-kp", "-bn", "-i", "2"]
 
 [[language]]
+name = "markdown"
+
+[language.formatter]
+command = "mdformat"
+args = ["--wrap", "88", "-"]
+
+[[language]]
 name = "toml"
 
 [language.formatter]
 command = "taplo"
 args = ["format", "-"]
+
+[[language]]
+name = "go"
+
+[language.formatter]
+command = "golines"
+args = ["--base-formatter", "goimports", "--max-len", "88", "--chain-split-dots"]
 
 [[language]]
 name = "typst"
