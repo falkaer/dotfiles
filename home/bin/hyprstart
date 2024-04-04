@@ -8,9 +8,11 @@ if [ -x "$(command -v nvidia-smi)" ]; then
   export __GLX_VENDOR_LIBRARY_NAME=nvidia
   export WLR_NO_HARDWARE_CURSORS=1
   export NVD_BACKEND=direct
+else
+  # fix multi-display output on intel graphics
+  export WLR_DRM_NO_MODIFIERS=1
 fi
 
-export WLR_DRM_NO_MODIFIERS=1
 export MOZ_ENABLE_WAYLAND=1
 export XCURSOR_SIZE=16
 
