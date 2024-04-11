@@ -50,18 +50,18 @@ args = ["--base-formatter", "goimports", "--max-len", "88", "--chain-split-dots"
 [[language]]
 name = "typst"
 
-# [language.formatter]
-# command = "typstfmt"
-# args = ["--output", "-"]
-
 [language.formatter]
-command = "prettypst"
-args = [
-  "--file-location",
-  "~/.config/prettypst.toml",
-  "--use-std-in",
-  "--use-std-out",
-]
+command = "typstfmt"
+args = ["--output", "-"]
+
+# [language.formatter]
+# command = "prettypst"
+# args = [
+#   "--file-location",
+#   "~/.config/prettypst.toml",
+#   "--use-std-in",
+#   "--use-std-out",
+# ]
 
 [[language]]
 name = "latex"
