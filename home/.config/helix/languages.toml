@@ -45,14 +45,27 @@ name = "go"
 
 [language.formatter]
 command = "golines"
-args = ["--base-formatter", "goimports", "--max-len", "88", "--chain-split-dots"]
+args = [
+  "--base-formatter",
+  "goimports",
+  "--max-len",
+  "88",
+  "--chain-split-dots",
+]
 
 [[language]]
 name = "typst"
 
 [language.formatter]
-command = "typstfmt"
-args = ["--output", "-"]
+command = "bash"
+args = [
+  "-c",
+  "typstfmt --output - | prettypst --file-location ~/.config/prettypst.toml --use-std-in --use-std-out",
+]
+
+# [language.formatter]
+# command = "typstfmt"
+# args = ["--output", "-"]
 
 # [language.formatter]
 # command = "prettypst"
