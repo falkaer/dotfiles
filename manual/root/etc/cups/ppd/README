@@ -1,0 +1,1 @@
+cups will install the ppd file to this location, but it will silently error if the file is already there. Also requires the cnrdrvcups-lb(-bin) package for the UFR2 filters.
