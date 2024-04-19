@@ -17,7 +17,7 @@ $env.LS_COLORS = (vivid generate lava)
 # DTU-specific storage directories
 $env.DTU_HOME = '/zhome/98/d/117538'
 $env.COMPUTE_DIR = '/dtu-compute/kfaol'
-$env.WORK3_DIR = '/work3/s164396'
+$env.WORK3_DIR = '/work3/kfaol'
 
 $env.PROJECTS_DIR = $"($env.HOME)/projects"
 $env.SCRATCH_DIR = $"($env.HOME)/scratch"

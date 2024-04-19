@@ -17,7 +17,7 @@ export LS_COLORS="$(vivid generate lava)"
 # DTU-specific storage directories
 export DTU_HOME="/zhome/98/d/117538"
 export COMPUTE_DIR="/dtu-compute/kfaol"
-export WORK3_DIR="/work3/s164396"
+export WORK3_DIR="/work3/kfaol"
 
 export PROJECTS_DIR="$HOME/projects"
 export SCRATCH_DIR="$HOME/scratch"
