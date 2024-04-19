@@ -29,7 +29,7 @@
 *cupsManualCopies: False
 *cupsModelNumber: 8068
 *cupsFilter: "application/vnd.cups-raster 0 rastertoufr2"
-*ModelName: "Canon LBP621C UFR II"
+*ModelName: "Canon LBP621C UFR II (USE THIS DRIVER)"
 *ShortNickName: "LBP621C"
 *NickName: "Canon LBP621C UFR II"
 *PSVersion: "(3010.000) 550"
@@ -221,7 +221,7 @@
 *CloseUI: *PageSize
 
 *OpenUI *PageRegion: PickOne
-*DefaultPageRegion: Letter
+*DefaultPageRegion: A4
 *PageRegion Letter: "<</PageSize[612 792]/ImagingBBox null>>setpagedevice"
 *PageRegion Legal: "<</PageSize[612 1008]/ImagingBBox null>>setpagedevice"
 *PageRegion Statement: "<</PageSize[396 612]/ImagingBBox null>>setpagedevice"
@@ -246,7 +246,7 @@
 *PageRegion 16K: "<</PageSize[552.7 765.4]/ImagingBBox null>>setpagedevice"
 *CloseUI: *PageRegion
 
-*DefaultImageableArea: Letter
+*DefaultImageableArea: A4
 *ImageableArea Letter: "14.173 14.173 597.827 777.827"
 *ImageableArea Legal: "14.173 14.173 597.827 993.827"
 *ImageableArea Statement: "14.173 14.173 381.827 597.827"
@@ -270,7 +270,7 @@
 *ImageableArea F4A: "14.173 14.173 598.027 958.027"
 *ImageableArea 16K: "14.173 14.173 538.527 751.227"
 
-*DefaultPaperDimension: Letter
+*DefaultPaperDimension: A4
 *PaperDimension Letter: "612 792"
 *PaperDimension Legal: "612 1008"
 *PaperDimension Statement: "396 612"
