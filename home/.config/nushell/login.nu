@@ -26,6 +26,7 @@ $env.CLEARML_ROOT  = $"($env.HOME)/clearml"
 
 # Start Julia with all threads
 $env.JULIA_NUM_THREADS = (grep -c ^processor /proc/cpuinfo)
+$env.CUDA_HOME = "/opt/cuda"
 
 # https://github.com/python-poetry/poetry/issues/5250
 $env.PYTHON_KEYRING_BACKEND = 'keyring.backends.null.Keyring'
@@ -38,5 +39,6 @@ if not (which ruby | is-empty) {
 $env.PATH = ([$"($env.HOME)/bin", 
               $"($env.HOME)/.local/bin",
               $"($env.HOME)/.cargo/bin",
+              $"($env.CUDA_HOME)/bin",
               $"($env.HOME)/go/bin"]
              | append ($env.PATH | split row (char esep)))
