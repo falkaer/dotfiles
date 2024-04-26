@@ -1,5 +1,0 @@
-#!/bin/bash
-
-# take screenshot and copy it to the clipboard
-set -o pipefail
-slurp | grim -g - - | wl-copy --type image/png && notify-send " Screenshot taken" " Copied to clipboard"

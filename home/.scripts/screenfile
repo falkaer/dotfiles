@@ -1,6 +1,0 @@
-#!/bin/bash
-
-# take screenshot and place it in ~/Pictures folder
-fname="$HOME/Pictures/$(date '+%F_%T').png"
-set -o pipefail
-slurp | grim -g - "$fname" && notify-send " Screenshot taken" " Saved as $fname"

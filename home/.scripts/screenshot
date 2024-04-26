@@ -1,0 +1,9 @@
+#!/bin/bash
+
+set -o pipefail
+
+if [ "$1" == "--select" ]; then
+  slurp | grim -g - - | wl-copy --type image/png && notify-send " Screenshot taken" " Copied to clipboard"
+else
+  grim - | wl-copy --type image/png && notify-send " Screenshot taken" " Copied to clipboard"
+fi
