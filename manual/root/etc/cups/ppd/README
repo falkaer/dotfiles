@@ -1,1 +1,3 @@
-cups will install the ppd file to this location, but it will silently error if the file is already there. Also requires the cnrdrvcups-lb(-bin) package for the UFR2 filters.
+Install the cnrdrvcups-lb(-bin) package and set up printer with UFR II, and point it to the .ppd file in this directory.
+
+CUPS overwrites the .ppd file when setting up so it will break symlinks, have to do it manually.
