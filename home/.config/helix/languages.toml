@@ -53,6 +53,49 @@ args = ["-s", "-ci", "-sr", "-kp", "-bn", "-i", "2"]
 
 # TODO: add C/C++/CUDA stuff explicitly
 
+# typescript, javascript, json formatter
+[language-server.biome]
+command = "biome"
+args = ["lsp-proxy", "--config-path", ".config/biome.json"]
+
+# typescript-language-server, biome
+[[language]]
+name = "javascript"
+language-servers = [
+  { name = "typescript-language-server", except-features = [
+    "format",
+  ] },
+  "biome",
+]
+
+# https://github.com/helix-editor/helix/discussions/8987
+# biome lsp-proxy doesn't work properly, this workaround works for now
+[language.formatter]
+command = "bash"
+args = [
+  "-c",
+  "biome format --config-path ~/.config/biome.json --stdin-file-path a.js",
+]
+
+# typescript-language-server, biome
+[[language]]
+name = "typescript"
+language-servers = [
+  { name = "typescript-language-server", except-features = [
+    "format",
+  ] },
+  "biome",
+]
+
+# https://github.com/helix-editor/helix/discussions/8987
+# biome lsp-proxy doesn't work properly, this workaround works for now
+[language.formatter]
+command = "bash"
+args = [
+  "-c",
+  "biome format --config-path ~/.config/biome.json --stdin-file-path a.ts",
+]
+
 # WORD PROCESSORS (LATEX / TYPST) 
 
 # texlab, tectonic, latexindent, typos-lsp
@@ -64,7 +107,7 @@ language-servers = ["texlab", "typos"]
 diagnosticsDelay = 0
 
 [language-server.texlab.config.texlab.latexindent]
-# config is at .config/latexindent/config.yaml
+# config is at ~/.config/latexindent/config.yaml
 modifyLineBreaks = true
 
 # NB: this won't compile unless the out directory already exists
@@ -137,6 +180,26 @@ language-servers = ["yaml-language-server", "typos"]
 [language.formatter]
 command = "prettier"
 args = ["--parser", "yaml"]
+
+# vscode-json-language-server, biome
+[[language]]
+name = "json"
+language-servers = [
+  { name = "vscode-json-language-server", except-features = [
+    "format",
+  ] },
+  "biome",
+]
+auto-format = false
+
+# https://github.com/helix-editor/helix/discussions/8987
+# biome lsp-proxy doesn't work properly, this workaround works for now
+[language.formatter]
+command = "bash"
+args = [
+  "-c",
+  "biome format --config-path ~/.config/biome.json --stdin-file-path a.json",
+]
 
 [[language]]
 name = "kdl"
