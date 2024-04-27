@@ -1,3 +1,11 @@
+# SPELL CHECKER
+[language-server.typos]
+command = "typos-lsp"
+config.diagnosticSeverity = "Warning"
+
+# PROGRAMMING LANGUAGES
+
+# pyright, ruff-lsp
 [[language]]
 name = "python"
 language-servers = ["pyright", "ruff"]
@@ -19,29 +27,10 @@ command = "ruff-lsp"
 [language-server.ruff.config.settings]
 args = ["--ignore", "E501"]
 
-[[language]]
-name = "bash"
-
-[language.formatter]
-command = "shfmt"
-args = ["-s", "-ci", "-sr", "-kp", "-bn", "-i", "2"]
-
-[[language]]
-name = "markdown"
-
-[language.formatter]
-command = "mdformat"
-args = ["--wrap", "88", "-"]
-
-[[language]]
-name = "toml"
-
-[language.formatter]
-command = "taplo"
-args = ["format", "-"]
-
+# golines, goimports, gopls, golangci-lint-lsp
 [[language]]
 name = "go"
+language-servers = ["gopls", "golangci-lint-lsp"]
 
 [language.formatter]
 command = "golines"
@@ -53,39 +42,32 @@ args = [
   "--chain-split-dots",
 ]
 
+# bash-language-server, shfmt
 [[language]]
-name = "typst"
+name = "bash"
+language-servers = ["bash-language-server"]
 
 [language.formatter]
-command = "bash"
-args = [
-  "-c",
-  "typstfmt --output - | prettypst --file-location ~/.config/prettypst.toml --use-std-in --use-std-out",
-]
+command = "shfmt"
+args = ["-s", "-ci", "-sr", "-kp", "-bn", "-i", "2"]
 
-# [language.formatter]
-# command = "typstfmt"
-# args = ["--output", "-"]
+# TODO: add C/C++/CUDA stuff explicitly
 
-# [language.formatter]
-# command = "prettypst"
-# args = [
-#   "--file-location",
-#   "~/.config/prettypst.toml",
-#   "--use-std-in",
-#   "--use-std-out",
-# ]
+# WORD PROCESSORS (LATEX / TYPST) 
 
+# texlab, tectonic, latexindent, typos-lsp
 [[language]]
 name = "latex"
-language-servers = ["texlab"]
+language-servers = ["texlab", "typos"]
 
 [language-server.texlab.config.texlab]
 diagnosticsDelay = 0
 
 [language-server.texlab.config.texlab.latexindent]
+# config is at .config/latexindent/config.yaml
 modifyLineBreaks = true
 
+# NB: this won't compile unless the out directory already exists
 [language-server.texlab.config.texlab.build]
 onSave = true
 executable = "tectonic"
@@ -111,14 +93,51 @@ args = ["--synctex-forward", "%l:1:%f", "%p"]
 [language-server.texlab.config.texlab.chktex]
 onEdit = true
 
+# tinymist, typstfmt, prettypst, typos-lsp
 [[language]]
-name = "kdl"
-indent = { tab-width = 4, unit = "    " }
+name = "typst"
+language-servers = ["tinymist", "typos"]
 
+[language-server.tinymist]
+command = "tinymist"
+config = { exportPdf = "onSave" }
+
+[language.formatter]
+command = "bash"
+args = [
+  "-c",
+  "typstfmt --output - | prettypst --file-location ~/.config/prettypst.toml --use-std-in --use-std-out",
+]
+
+# PLAINTEXT / CONFIG LANGUAGES
+
+# marksman, markdown-oxide, mdformat, typos-lsp
+[[language]]
+name = "markdown"
+language-servers = ["marksman", "markdown-oxide", "typos"]
+
+[language.formatter]
+command = "mdformat"
+args = ["--wrap", "88", "-"]
+
+# taplo, typos
+[[language]]
+name = "toml"
+language-servers = ["taplo", "typos"]
+
+[language.formatter]
+command = "taplo"
+args = ["format", "-"]
+
+# yaml-language-server, prettier, typos-lsp
 [[language]]
 name = "yaml"
-language-servers = ["yaml-language-server"]
+language-servers = ["yaml-language-server", "typos"]
 
 [language.formatter]
 command = "prettier"
 args = ["--parser", "yaml"]
+
+[[language]]
+name = "kdl"
+indent = { tab-width = 4, unit = "    " }
