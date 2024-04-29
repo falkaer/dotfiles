@@ -55,8 +55,8 @@ args = ["-s", "-ci", "-sr", "-kp", "-bn", "-i", "2"]
 
 # typescript, javascript, json formatter
 [language-server.biome]
-command = "biome"
-args = ["lsp-proxy", "--config-path", ".config/biome.json"]
+command = "bash"
+args = ["-c", "lsp-proxy --config-path ~/.config/biome.json"]
 
 # typescript-language-server, biome
 [[language]]
