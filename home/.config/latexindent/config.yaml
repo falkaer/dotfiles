@@ -22,35 +22,12 @@ modifyLineBreaks:
       wrap: 0
     when: after
     blocksFollow:
-      other: |-
-        \\\]
-        |
-        \\item(?:\h|\[)
-        |
-        \\begin\{.+\}
-        |
-        \\end\{.+\}
-        |
-        \\caption\h*(?:\[\])?\h*\{
+      other: '\\\]|\\item(?:\h|\[)|\\begin\{.+\}|\\end\{.+\}|\\caption\h*(?:\[\])?\h*\{'
     blocksBeginWith:
       0-9: 1
       # in general we can't say if a command counts as part of a sentence block,
       # so it has to be a whitelist
       # \Gls, \gls, \Cref, \text..., inline math, etc. can start sentence blocks
-      other: |-
-        \\Gls
-        |
-        \\gls
-        |
-        \\Cref
-        |
-        \\text
-        |
-        \$
+      other: '\\Gls|\\gls|\\Cref|\\text|\\noindent|\\footnote|\$'
     blocksEndBefore:
-      other: |-
-        \\\[
-        |
-        \\begin\{
-        |
-        \\end\{
+      other: '\\\[|\\begin\{|\\end\{'
