@@ -54,9 +54,9 @@ args = ["-s", "-ci", "-sr", "-kp", "-bn", "-i", "2"]
 # TODO: add C/C++/CUDA stuff explicitly
 
 # typescript, javascript, json formatter
-[language-server.biome]
-command = "bash"
-args = ["-c", "lsp-proxy --config-path ~/.config/biome.json"]
+# [language-server.biome]
+# command = "bash"
+# args = ["-c", "biome lsp-proxy --config-path ~/.config/biome.json"]
 
 # typescript-language-server, biome
 [[language]]
@@ -65,7 +65,7 @@ language-servers = [
   { name = "typescript-language-server", except-features = [
     "format",
   ] },
-  "biome",
+  # "biome",
 ]
 
 # https://github.com/helix-editor/helix/discussions/8987
@@ -84,7 +84,7 @@ language-servers = [
   { name = "typescript-language-server", except-features = [
     "format",
   ] },
-  "biome",
+  # "biome",
 ]
 
 # https://github.com/helix-editor/helix/discussions/8987
@@ -188,7 +188,7 @@ language-servers = [
   { name = "vscode-json-language-server", except-features = [
     "format",
   ] },
-  "biome",
+  # "biome",
 ]
 auto-format = false
 
