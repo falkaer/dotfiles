@@ -62,9 +62,7 @@ args = ["-s", "-ci", "-sr", "-kp", "-bn", "-i", "2"]
 [[language]]
 name = "javascript"
 language-servers = [
-  { name = "typescript-language-server", except-features = [
-    "format",
-  ] },
+  { name = "typescript-language-server", except-features = ["format"] },
   # "biome",
 ]
 
@@ -81,9 +79,7 @@ args = [
 [[language]]
 name = "typescript"
 language-servers = [
-  { name = "typescript-language-server", except-features = [
-    "format",
-  ] },
+  { name = "typescript-language-server", except-features = ["format"] },
   # "biome",
 ]
 
@@ -136,6 +132,26 @@ args = ["--synctex-forward", "%l:1:%f", "%p"]
 [language-server.texlab.config.texlab.chktex]
 onEdit = true
 
+# texlab, bibtex-tidy, typos-lsp
+[[language]]
+name = "bibtex"
+language-servers = ["texlab", "typos"]
+
+[language.formatter]
+command = "bibtex-tidy"
+args = [
+  "-",
+  "--curly",
+  "--drop-all-caps",
+  "--remove-empty-fields",
+  "--sort-fields",
+  "--sort=year,author,id",
+  "--strip-enclosing-braces",
+  "--trailing-commas",
+  "--blank-lines",
+  "--remove-braces=title,shorttitle,journal",
+]
+
 # tinymist, typstfmt, prettypst, typos-lsp
 [[language]]
 name = "typst"
@@ -185,9 +201,7 @@ args = ["--parser", "yaml"]
 [[language]]
 name = "json"
 language-servers = [
-  { name = "vscode-json-language-server", except-features = [
-    "format",
-  ] },
+  { name = "vscode-json-language-server", except-features = ["format"] },
   # "biome",
 ]
 auto-format = false
