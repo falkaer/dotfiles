@@ -4,6 +4,7 @@ const mpris = await Service.import("mpris");
 const audio = await Service.import("audio");
 const battery = await Service.import("battery");
 const systemtray = await Service.import("systemtray");
+import Notifications from "./js/notifications.js";
 
 const date = Variable("", {
     poll: [1000, 'date "+%H:%M:%S %b %e."'],
@@ -170,7 +171,7 @@ function Left() {
 function Center() {
     return Widget.Box({
         spacing: 8,
-        children: [Media(), Notification()],
+        children: [Media(), Notifications()],
     });
 }
 
@@ -197,15 +198,13 @@ function Bar(monitor = 0) {
     });
 }
 
-App.config({
-    style: "./style.css",
-    windows: [
-        Bar(),
+const scss = `${App.configDir}/style.scss`;
+const css = `/tmp/my-style.css`;
+Utils.exec(`sassc ${scss} ${css}`);
 
-        // you can call it, for each monitor
-        // Bar(0),
-        // Bar(1)
-    ],
+App.config({
+    style: css,
+    windows: [Bar()],
 });
 
 export {};

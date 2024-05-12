@@ -1,0 +1,68 @@
+$white: #ebecef;
+$black: #161616;
+$red: #cc4f32;
+
+$fg-color: $white;
+$bg-color: $black;
+
+$widget-bg: #4d4d4d;
+
+$accent: $red;
+$hover: $widget-bg;
+$active-gradient: $accent;
+$hover-fg: $accent;
+
+$radii: 10px;
+$widget-radii: $radii*2.5;
+$spacing: 3px;
+$border: solid 2px;
+$widget-margin: $spacing*4;
+$widget-padding: $spacing*3;
+
+$border-color: #fce3bd;
+$border-width: 3px;
+
+window.bar {
+  background-color: $bg-color;
+  color: $fg-color;
+  font-family: SF Mono;
+}
+
+button {
+  min-width: 0;
+  padding-top: 0;
+  padding-bottom: 0;
+  background-color: transparent;
+}
+
+button:active {
+  background-color: $bg-color;
+}
+
+button:hover {
+  border-bottom: 3px solid $fg-color;
+}
+
+label {
+  font-weight: bold;
+}
+
+.workspaces button.focused {
+  border-bottom: 3px solid $bg-color;
+}
+
+.client-title {
+  color: $bg-color;
+}
+
+levelbar block,
+highlight {
+  min-height: 10px;
+}
+
+@import './scss/common/unset';
+@import './scss/common/spacing';
+@import './scss/common/button';
+@import './scss/common/floating-widget';
+
+@import './scss/widgets/notification';
