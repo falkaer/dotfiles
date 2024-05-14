@@ -12,18 +12,14 @@ function rand_status() {
 }
 
 function next_prompt() {
-  # pipe /dev/null to gum to stop it grabbing stdin
-  prompt="$(gum write \
-    --char-limit=0 \
-    --width=0 \
-    --height=8 \
-    --placeholder="Ask the machine" \
-    < /dev/null)"
-  mods "$@" -p --status-text="$(rand_status)" "$prompt"
+  tempfile="$(mktemp --suffix='.md')"
+  trap 'rm -f "$tempfile"' EXIT SIGINT
+  ${EDITOR:-nano} "$tempfile"
+  mods "$@" -p --status-text="$(rand_status)" "$(cat "$tempfile")"
 }
 
 next_prompt "$@"
 
-while true; do
+while gum choose "Continue?"; do
   next_prompt -C
 done
