@@ -92,6 +92,15 @@ args = [
   "biome format --config-path ~/.config/biome.json --stdin-file-path a.ts",
 ]
 
+[[language]]
+name = "julia"
+language-servers = ["julia"]
+
+# https://github.com/julia-vscode/LanguageServer.jl/wiki/Helix/
+[language-server.julia]
+command = "julia-lsp" # see ~/bin/julia-lsp
+timeout = 60
+
 # WORD PROCESSORS (LATEX / TYPST) 
 
 # texlab, tectonic, latexindent, typos-lsp
