@@ -183,6 +183,7 @@ args = [
 [[language]]
 name = "markdown"
 language-servers = ["marksman", "markdown-oxide", "typos"]
+soft-wrap.enable = true
 
 [language.formatter]
 command = "mdformat"
