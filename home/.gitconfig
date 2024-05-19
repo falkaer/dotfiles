@@ -1,14 +1,78 @@
 [user]
 	name = falkaer
 	email = kenny@falkaer.io
+
 [credential "https://github.com"]
 	helper = 
 	helper = !/usr/bin/gh auth git-credential
+
 [credential "https://gist.github.com"]
 	helper = 
 	helper = !/usr/bin/gh auth git-credential
+
 [filter "lfs"]
 	required = true
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f
 	process = git-lfs filter-process
+
+[core]
+	pager = delta
+
+[delta]
+	navigate = true
+	true-color = always
+	features = falkaer
+
+[interactive]
+	diffFilter = delta --color-only
+
+[merge]
+	conflictstyle = diff3
+
+[diff]
+	colorMoved = default
+
+[delta "falkaer"]
+	# author: https://github.com/pablospe
+	# Based on woolly-mammoth: https://github.com/Kr1ss-XD.
+	dark = true
+	commit-decoration-style = 130 box
+	file-decoration-style = "#606018" overline
+	file-added-label = [●]
+	file-copied-label = [C]
+	file-modified-label = [+]
+	file-removed-label = [⛌]
+	file-renamed-label = [→]
+	file-style = normal box
+	hunk-header-style = syntax
+
+	line-numbers = true
+	line-numbers-minus-style = bold darkred
+	line-numbers-plus-style = bold darkgreen
+	line-numbers-zero-style = "#514e52"
+
+	line-numbers-left-format = "{nm:>3} "
+	line-numbers-left-style = bold darkred
+	line-numbers-right-format = "{np:>3} "
+	line-numbers-right-style = bold darkgreen
+
+	minus-emph-style = dim normal darkred
+	minus-style = dim normal "#3d0c0c"
+	plus-emph-style = syntax darkgreen
+	plus-style = syntax "#0c3d0c"
+
+	# TODO: custom bat theme that looks like helix
+	# syntax-theme = falkaer
+	whitespace-error-style = "#80002a" reverse
+	zero-style = syntax
+	blame-format = "{author:<18} ({commit:>7}) {timestamp:^16} "
+
+[delta "compact"]
+	file-style = omit
+
+	# TODO: some helix colors?
+	hunk-header-decoration-style = ul "#022b45"
+	hunk-header-file-style = "#858dff"
+	hunk-header-line-number-style = bold "#7536ff"
+	hunk-header-style = file line-number syntax

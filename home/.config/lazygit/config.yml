@@ -4,3 +4,8 @@ os:
   editAtLineAndWait: 'hx -- {{filename}}:{{line}}'
   openDirInEditor:   'hx -- {{dir}}'
   editInTerminal:    true
+
+git:
+  paging:
+    colorArg: always
+    pager: delta --paging=never --features="falkaer compact"
