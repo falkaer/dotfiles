@@ -72,7 +72,7 @@
 	file-style = omit
 
 	# TODO: some helix colors?
-	hunk-header-decoration-style = ul "#022b45"
-	hunk-header-file-style = "#858dff"
-	hunk-header-line-number-style = bold "#7536ff"
+	hunk-header-decoration-style = ul yellow
+	hunk-header-file-style = yellow
+	hunk-header-line-number-style = bold
 	hunk-header-style = file line-number syntax

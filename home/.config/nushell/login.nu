@@ -22,7 +22,7 @@ $env.WORK3_DIR = '/work3/kfaol'
 $env.PROJECTS_DIR = $"($env.HOME)/projects"
 $env.SCRATCH_DIR = $"($env.HOME)/scratch"
 $env.DATA_STORAGE_ROOT = $"($env.HOME)/data"
-$env.CLEARML_ROOT  = $"($env.HOME)/clearml"
+$env.CLEARML_ROOT  = $"($env.COMPUTE_DIR)/clearml"
 
 # Start Julia with all threads
 $env.JULIA_NUM_THREADS = (grep -c ^processor /proc/cpuinfo)
