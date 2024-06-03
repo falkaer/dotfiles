@@ -22,7 +22,7 @@ modifyLineBreaks:
       wrap: 0
     when: after
     blocksFollow:
-      other: '\\\]|\\item(?:\h|\[)|\\begin\{.+\}|\\end\{.+\}|\\caption\h*(?:\[\])?\h*\{'
+      other: '\\\]|\\item(?:\h|\[)|\\caption\h*(?:\[\])?\h*\{'
     blocksBeginWith:
       0-9: 1
       # in general we can't say if a command counts as part of a sentence block,
