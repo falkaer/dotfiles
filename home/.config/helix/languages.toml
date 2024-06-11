@@ -186,8 +186,11 @@ args = [
 # marksman, markdown-oxide, mdformat, typos-lsp
 [[language]]
 name = "markdown"
-language-servers = ["marksman", "markdown-oxide", "typos"]
+language-servers = ["markdown-oxide", "typos"]
 soft-wrap.enable = true
+
+[language-server.markdown-oxide]
+command = "markdown-oxide"
 
 [language.formatter]
 command = "mdformat"
