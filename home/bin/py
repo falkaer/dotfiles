@@ -1,3 +1,5 @@
 #!/bin/bash
 
-. "$PROJECTS_DIR/latent-features/.venv/bin/activate" && python3 "$@" -i -c 'import numpy as np; import pandas as pd; import torch; import torch.nn as nn; import torch.nn.functional as F;'
+source "$PROJECTS_DIR/latent-features/.venv/bin/activate"
+cd "$PROJECTS_DIR/latent-features/src"
+python3 "$@" -i -c 'import numpy as np; import pandas as pd; import torch; import torch.nn as nn; import torch.nn.functional as F;'
