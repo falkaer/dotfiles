@@ -1,5 +1,5 @@
 # Default model (gpt-3.5-turbo, gpt-4, ggml-gpt4all-j...).
-default-model: gpt-4-turbo
+default-model: gpt-4-1106
 # Text to append when using the -f flag.
 format-text: Format the response as markdown without enclosing backticks.
 # Ask for the response to be formatted as markdown unless otherwise set.
@@ -32,17 +32,14 @@ max-input-chars: 128000
 # https://platform.openai.com/docs/models/gpt-4-and-gpt-4-turbo
 apis:
   azure:
-    base-url: https://cba-openai.openai.azure.com
-    api-key-env: AZURE_OPENAI_KEY
+    base-url: https://litellm.falkaer.io
+    api-key-env: LITELLM_MASTER_KEY
     models:
-      dev-gpt4-turbo:
-        aliases: ["gpt-4-turbo"]
+      gpt-4-1106:
         max-input-chars: 128000
-        fallback: gpt-4-32k
-      dev-large:
-        aliases: ["gpt-4-32k"]
+        fallback: gpt-4-0613
+      gpt-4-0613:
         max-input-chars: 32768
-        fallback: gpt-35-turbo
-      dev-gpt35-turbo:
-        aliases: ["gpt-35-turbo"]
+        fallback: gpt-35-0613
+      gpt-35-0613:
         max-input-chars: 32768
