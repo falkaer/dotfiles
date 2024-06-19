@@ -684,7 +684,7 @@ alias zj = zellij
 alias zjl = zellij --layout lat
 alias pt = ptw --runner "pytest" . --testmon
 alias lg = lazygit
-alias cat = bat --style="changes,grid" --paging=never
+alias cat = bat --style="rule" --paging=never
 alias lat = cd (latpath)
 
 # poetry aliases
