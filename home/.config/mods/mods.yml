@@ -35,6 +35,9 @@ apis:
     base-url: https://litellm.falkaer.io
     api-key-env: LITELLM_MASTER_KEY
     models:
+      gpt-4o-2024-05-13:
+        max-input-chars: 128000
+        fallback: gpt-4-1106
       gpt-4-1106:
         max-input-chars: 128000
         fallback: gpt-4-0613
