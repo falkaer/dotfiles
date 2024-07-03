@@ -28,6 +28,28 @@ args = ["server", "--preview"]
 [language-server.ruff.config.settings]
 args = ["--ignore", "E501"]
 
+# clangd
+[[language]]
+name = "cpp"
+language-servers = ["clangd"]
+roots = [".git", "CMakeLists.txt"]
+
+[language-server.clangd]
+command = "clangd"
+args = ["--enable-config"]
+
+[[language]]
+name = "cmake"
+language-servers = ["neocmake"]
+
+[language.formatter]
+command = "cmake-format"
+args = ["-"]
+
+[language-server.neocmake]
+command = "neocmakelsp"
+args = ["--stdio"]
+
 # golines, goimports, gopls, golangci-lint-lsp
 [[language]]
 name = "go"
