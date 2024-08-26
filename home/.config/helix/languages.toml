@@ -187,13 +187,21 @@ args = [
 # tinymist, typstfmt, prettypst, typos-lsp
 [[language]]
 name = "typst"
-language-servers = ["tinymist", "typos"]
+language-servers = ["tinymist", "typst-lsp", "typos"]
 
+# tinymist provides stuff like rename, etc
 [language-server.tinymist]
 command = "tinymist"
 
 [language-server.tinymist.config]
-typstExtraArgs = ["main.typ"]
+formatterMode = "disable"
+exportPdf = "never"
+
+# typst-lsp can compile individual files and find project root automatically
+[language-server.typst-lsp]
+command = "typst-lsp"
+
+[language-server.typst-lsp.config]
 exportPdf = "onSave"
 
 [language.formatter]
