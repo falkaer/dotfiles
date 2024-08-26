@@ -3,5 +3,27 @@
 export SWWW_TRANSITION_STEP=4
 export SWWW_TRANSITION_FPS=120
 
-swww img -t simple "$@"
+function start_swww() {
+  if ! swww query; then
+    swww-daemon --no-cache &
+    avail=false
+  else
+    avail=true
+  fi
 
+  while ! $avail; do
+    if swww query; then
+      avail=true
+    else
+      sleep 1
+    fi
+  done
+}
+
+function change_swww() {
+  # swww currently wont render anything unless set twice
+  swww img -t simple "$@"
+  swww img -t simple "$@"
+}
+
+start_swww && change_swww "$@"
