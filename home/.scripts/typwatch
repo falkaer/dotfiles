@@ -1,0 +1,43 @@
+#!/bin/bash
+
+PDF_VIEWER=zathura
+
+if [ $# -ne 1 ]; then
+    echo "Usage: $0 /path/to/notes"
+    exit 1
+fi
+
+if ! command -v $PDF_VIEWER &> /dev/null; then
+  echo "Error: $PDF_VIEWER is not installed."
+  exit 1
+fi
+
+if ! command -v inotifywait &> /dev/null; then
+  echo "Error: inotify-tools is not installed."
+  exit 1
+fi
+
+compile() {
+  local typ_file="$1"
+  local pdf_file="${typ_file%.typ}.pdf"
+
+  if typst compile "$typ_file" "$pdf_file"; then
+    if ! pgrep -af "$PDF_VIEWER $pdf_file" > /dev/null; then
+      $PDF_VIEWER "$pdf_file" &
+    fi
+  fi
+}
+
+watch_dir() {
+  local dir="$1"
+  echo "Watching $dir for changes..."
+  inotifywait -m -r -e close_write --format '%w%f' "$dir" | while read -r file; do
+    if [[ $file == *.typ ]]; then
+      echo "Detected change in $file"
+      compile "$file"
+    fi
+  done
+}
+
+export TYPST_ROOT="$1"
+watch_dir "$1"
