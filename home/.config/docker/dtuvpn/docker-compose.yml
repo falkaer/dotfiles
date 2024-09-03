@@ -1,0 +1,38 @@
+services:
+  gluetun:
+    image: qmcgaw/gluetun
+    container_name: dtuvpn
+    cap_add:
+      - NET_ADMIN
+    devices:
+      - /dev/net/tun:/dev/net/tun
+    environment:
+      TZ: Europe/Copenhagen
+      VPN_SERVICE_PROVIDER: custom
+      VPN_TYPE: openvpn
+      DNS_KEEP_NAMESERVER: on # leak dns, doesn't matter
+      OPENVPN_VERBOSITY: 5
+      OPENVPN_CUSTOM_CONFIG: /gluetun/custom.conf
+      HTTPPROXY: on
+      # need these settings, otherwise healthcheck dies
+      OPENVPN_PROTOCOL: tcp
+      HEALTH_TARGET_ADDRESS: vpn-test.compute.dtu.dk:443
+      # HEALTH_VPN_DURATION_INITIAL: 30s
+    # user/pass in .env
+    env_file:
+      - .env
+    ports:
+      - 127.0.0.1:63480:8888 # http proxy on 63480
+    volumes:
+      - /home/falkaer/.config/docker/dtuvpn/config:/gluetun
+    restart: unless-stopped
+    healthcheck:
+      test:
+        [
+          'CMD-SHELL',
+          "wget --quiet --tries=1 -S -O - https://vpn-test.compute.dtu.dk/ | grep -q 'Your DTU VPN connection is working' || exit 1",
+        ]
+      interval: 1m
+      timeout: 10s
+      retries: 3
+      start_period: 10s

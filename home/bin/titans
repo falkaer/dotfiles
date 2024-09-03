@@ -1,0 +1,4 @@
+#!/bin/bash
+
+PROXY_PORT=63480
+sshpass -f ~/.dtupass ssh -o "ProxyCommand nc -X connect -x 127.0.0.1:$PROXY_PORT %h %p" kfaol@titans.compute.dtu.dk
