@@ -675,6 +675,10 @@ def latpath [] {
     $env.PROJECTS_DIR | path join "latent-features"
 }
 
+def notespath [] {
+    $env.PROJECTS_DIR | path join "notes"
+}
+
 # aliases
 alias core-ls = ls
 alias core-cat = cat
@@ -686,6 +690,7 @@ alias pt = ptw --runner "pytest" . --testmon
 alias lg = lazygit
 alias cat = bat --style="rule" --paging=never
 alias lat = cd (latpath)
+alias notes = cd (notespath)
 
 # poetry aliases
 # alias pyshell = poetry shell -C

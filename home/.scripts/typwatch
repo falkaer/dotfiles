@@ -21,11 +21,16 @@ compile() {
   local typ_file="$1"
   local pdf_file="${typ_file%.typ}.pdf"
 
-  if typst compile "$typ_file" "$pdf_file"; then
-    if ! pgrep -af "$PDF_VIEWER $pdf_file" > /dev/null; then
-      $PDF_VIEWER "$pdf_file" &
-    fi
+  # if typst compile "$typ_file" "$pdf_file"; then
+  if ! pgrep -af "$PDF_VIEWER $pdf_file" > /dev/null; then
+    $PDF_VIEWER "$pdf_file" &
   fi
+  # fi
+}
+
+cleanup() {
+  pkill -P $$ inotifywait
+  exit 0
 }
 
 watch_dir() {
@@ -36,8 +41,11 @@ watch_dir() {
       echo "Detected change in $file"
       compile "$file"
     fi
-  done
+  done &
+  wait $!
 }
+
+trap cleanup EXIT INT TERM HUP
 
 export TYPST_ROOT="$1"
 watch_dir "$1"
