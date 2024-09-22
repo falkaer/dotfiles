@@ -1,13 +1,8 @@
 #!/bin/bash
 
 if [ -x "$(command -v nvidia-smi)" ]; then
-  export LIBRA_DRIVER_NAME=nvidia
   export WLR_BACKEND=vulkan
-  export XDG_SESSION_TYPE=wayland
-  export GBM_BACKEND=nvidia-drm
-  export __GLX_VENDOR_LIBRARY_NAME=nvidia
   export WLR_NO_HARDWARE_CURSORS=1
-  export NVD_BACKEND=direct
 else
   # fix multi-display output on intel graphics
   export WLR_DRM_NO_MODIFIERS=1
