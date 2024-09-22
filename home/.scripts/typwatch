@@ -1,9 +1,10 @@
 #!/bin/bash
 
 PDF_VIEWER=zathura
+INOTIFY_PID=
 
 if [ $# -ne 1 ]; then
-    echo "Usage: $0 /path/to/notes"
+    echo "Usage: $0 /path/to/dir"
     exit 1
 fi
 
@@ -21,16 +22,17 @@ compile() {
   local typ_file="$1"
   local pdf_file="${typ_file%.typ}.pdf"
 
-  # if typst compile "$typ_file" "$pdf_file"; then
-  if ! pgrep -af "$PDF_VIEWER $pdf_file" > /dev/null; then
-    $PDF_VIEWER "$pdf_file" &
+  if typst compile "$typ_file" "$pdf_file"; then
+    if ! pgrep -af "$PDF_VIEWER $pdf_file" > /dev/null; then
+      $PDF_VIEWER "$pdf_file" &
+    fi
   fi
-  # fi
 }
 
 cleanup() {
-  pkill -P $$ inotifywait
-  exit 0
+  if [[ -n $INOTIFY_PID ]]; then
+    kill $INOTIFY_PID 2> /dev/null
+  fi
 }
 
 watch_dir() {
@@ -42,7 +44,8 @@ watch_dir() {
       compile "$file"
     fi
   done &
-  wait $!
+  INOTIFY_PID=$!
+  wait $INOTIFY_PID
 }
 
 trap cleanup EXIT INT TERM HUP

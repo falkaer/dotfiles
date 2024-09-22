@@ -1,7 +1,7 @@
 #!/bin/bash
 
 NOTES_DIR="$HOME/projects/notes"
-export TYPST_ROOT="$NOTES_DIR"
+TYPWATCH_PID=
 
 if [ ! -d "$NOTES_DIR" ]; then
   echo "Directory $NOTES_DIR does not exist."
@@ -9,14 +9,14 @@ if [ ! -d "$NOTES_DIR" ]; then
 fi
 
 cleanup() {
-  if [[ -n $typwatch_pid ]]; then
-    kill "$typwatch_pid" 2> /dev/null
+  if [[ -n $TYPWATCH_PID ]]; then
+    kill "$TYPWATCH_PID" 2> /dev/null
   fi
 }
 
 trap cleanup EXIT INT TERM HUP
 
 "$HOME/.scripts/typwatch" "$NOTES_DIR" > /dev/null 2>&1 &
-typwatch_pid=$!
+TYPWATCH_PID=$!
 
 hx "$NOTES_DIR"
