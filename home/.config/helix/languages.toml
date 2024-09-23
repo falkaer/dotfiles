@@ -5,6 +5,7 @@ config.diagnosticSeverity = "Warning"
 
 # PROGRAMMING LANGUAGES
 
+
 # pyright, ruff-lsp
 [[language]]
 name = "python"
@@ -28,6 +29,7 @@ args = ["server", "--preview"]
 [language-server.ruff.config.settings]
 args = ["--ignore", "E501"]
 
+
 # clangd
 [[language]]
 name = "cpp"
@@ -50,6 +52,16 @@ args = ["-"]
 command = "neocmakelsp"
 args = ["--stdio"]
 
+
+# rust-analyzer, rustfmt
+[[language]]
+name = "rust"
+language-servers = ["rust-analyzer"]
+
+[language.formatter]
+command = "rustfmt"
+
+
 # golines, goimports, gopls, golangci-lint-lsp
 [[language]]
 name = "go"
@@ -64,6 +76,7 @@ args = [
   "88",
   "--chain-split-dots",
 ]
+
 
 # bash-language-server, shfmt
 [[language]]
@@ -80,6 +93,7 @@ args = ["-s", "-ci", "-sr", "-kp", "-bn", "-i", "2"]
 # [language-server.biome]
 # command = "bash"
 # args = ["-c", "biome lsp-proxy --config-path ~/.config/biome.json"]
+
 
 # typescript-language-server, biome
 [[language]]
@@ -106,6 +120,7 @@ language-servers = [
   # "biome",
 ]
 
+
 # https://github.com/helix-editor/helix/discussions/8987
 # biome lsp-proxy doesn't work properly, this workaround works for now
 [language.formatter]
@@ -114,6 +129,7 @@ args = [
   "-c",
   "biome format --config-path ~/.config/biome.json --stdin-file-path a.ts",
 ]
+
 
 [[language]]
 name = "julia"
@@ -124,7 +140,9 @@ language-servers = ["julia"]
 command = "julia-lsp" # see ~/bin/julia-lsp
 timeout = 60
 
+
 # WORD PROCESSORS (LATEX / TYPST) 
+
 
 # texlab, tectonic, latexindent, typos-lsp
 [[language]]
@@ -184,6 +202,7 @@ args = [
   "--remove-braces=title,shorttitle,journal",
 ]
 
+
 # tinymist, typstfmt, prettypst, typos-lsp
 [[language]]
 name = "typst"
@@ -198,10 +217,13 @@ config = { exportPdf = "never", formatterMode = "disable" }
 command = "bash"
 args = [
   "-c",
-  "typstfmt --output - | prettypst --file-location ~/.config/prettypst.toml --use-std-in --use-std-out",
+  # "typstfmt --output - | prettypst --file-location ~/.config/prettypst.toml --use-std-in --use-std-out",
+  "typstfmt --output - | typstyle -c 88 -- | prettypst --file-location ~/.config/prettypst.toml --use-std-in --use-std-out",
 ]
 
+
 # PLAINTEXT / CONFIG LANGUAGES
+
 
 # marksman, markdown-oxide, mdformat, typos-lsp
 [[language]]
@@ -216,6 +238,7 @@ command = "markdown-oxide"
 command = "mdformat"
 args = ["--wrap", "88", "-"]
 
+
 # taplo, typos
 [[language]]
 name = "toml"
@@ -225,6 +248,7 @@ language-servers = ["taplo", "typos"]
 command = "taplo"
 args = ["format", "-"]
 
+
 # yaml-language-server, prettier, typos-lsp
 [[language]]
 name = "yaml"
@@ -233,6 +257,7 @@ language-servers = ["yaml-language-server", "typos"]
 [language.formatter]
 command = "prettier"
 args = ["--parser", "yaml"]
+
 
 # vscode-json-language-server, biome
 [[language]]
@@ -251,6 +276,7 @@ args = [
   "-c",
   "biome format --config-path ~/.config/biome.json --stdin-file-path a.json",
 ]
+
 
 [[language]]
 name = "kdl"
