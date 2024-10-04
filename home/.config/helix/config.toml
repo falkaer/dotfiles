@@ -24,12 +24,6 @@ left = [
 
 right = ["spinner", "diagnostics", "position-percentage"]
 
-# TODO: use icons?
-# [editor.statusline.mode]
-# normal = "N"
-# insert = "I"
-# select = "V"
-
 [editor.gutters]
 layout = ["diagnostics", "line-numbers", "spacer", "diff"]
 
@@ -53,31 +47,33 @@ i = ["insert_mode", "collapse_selection"]
 V = ["goto_first_nonwhitespace", "extend_to_line_end"]
 D = ["ensure_selections_forward", "extend_to_line_end"]
 
+# bruh
+"C-d" = "no_op"
+"C-u" = "no_op"
+
 # movement
-# "C-h" = "goto_first_nonwhitespace"
-# "C-l" = "goto_line_end"
-"C-h" = [
+"S-h" = [
   "move_char_left",
   "move_char_left",
   "move_char_left",
   "move_char_left",
   "move_char_left",
 ]
-"C-j" = [
+"S-j" = [
   "move_line_down",
   "move_line_down",
   "move_line_down",
   "move_line_down",
   "move_line_down",
 ]
-"C-k" = [
+"S-k" = [
   "move_line_up",
   "move_line_up",
   "move_line_up",
   "move_line_up",
   "move_line_up",
 ]
-"C-l" = [
+"S-l" = [
   "move_char_right",
   "move_char_right",
   "move_char_right",

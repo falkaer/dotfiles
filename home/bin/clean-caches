@@ -12,4 +12,6 @@ rm -rf $HOME/.cache/spotify/Data/*
 # clear pip cache
 rm -rf $HOME/.cache/pip/*
 
-conda clean --all
+uv cache clean
+
+cargo cache -a
