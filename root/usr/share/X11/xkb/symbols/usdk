@@ -21,18 +21,18 @@ xkb_symbols "usdk_technical" {
 
     key <AD01> { [ q,            Q,          U2200,         U2203         ] }; // q Q ∀ ∃
     key <AD02> { [ w,            W,          elementof,     notelementof  ] }; // w W ∈ ∉
-    key <AD03> { [ e,            E,          Greek_epsilon, Greek_EPSILON ] }; // e E ε Ε
+    key <AD03> { [ e,            E,          ae,            AE            ] }; // e E ε Ε
     key <AD04> { [ r,            R,          Greek_rho,     Greek_RHO     ] }; // r R ρ Ρ
     key <AD05> { [ t,            T,          Greek_tau,     Greek_TAU     ] }; // t T τ Τ
     key <AD06> { [ y,            Y,          Greek_upsilon, Greek_UPSILON ] }; // y Y υ Υ
     key <AD07> { [ u,            U,          Greek_theta,   Greek_THETA   ] }; // u U θ Θ
     key <AD08> { [ i,            I,          Greek_iota,    Greek_IOTA    ] }; // i I ι Ι
-    key <AD09> { [ o,            O,          Greek_omicron, Greek_OMICRON ] }; // o O ο Ο
+    key <AD09> { [ o,            O,          oslash,        Ooblique      ] }; // o O ο Ο
     key <AD10> { [ p,            P,          Greek_pi,      Greek_PI      ] }; // p P π Π
     key <AD11> { [ bracketleft,  braceleft,  aring,         Aring         ] }; // [ { å Å
     key <AD12> { [ bracketright, braceright, union,         intersection  ] }; // ] } ∪ ∩
 
-    key <AC01> { [ a,          A,        Greek_alpha, Greek_ALPHA ] }; // a A α Α
+    key <AC01> { [ a,          A,        aring,       Aring       ] }; // a A α Α
     key <AC02> { [ s,          S,        Greek_sigma, Greek_SIGMA ] }; // s S σ Σ
     key <AC03> { [ d,          D,        Greek_delta, Greek_DELTA ] }; // d D δ Δ
     key <AC04> { [ f,          F,        Greek_phi,   Greek_PHI   ] }; // f F φ Φ
