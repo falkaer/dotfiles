@@ -1,4 +1,7 @@
 #!/bin/bash
 
-cd "$HOME/projects/latent-features/src"
+LATPATH="$HOME/projects/latent-features"
+export PYTHONPATH="$LATPATH/src:$PYTHONPATH"
+
+cd "$LATPATH/src"
 marimo edit --no-token "$@"
