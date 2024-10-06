@@ -40,7 +40,7 @@ tag = "yellow"
 special = "darkred"
 
 # markup
-"markup.heading" = "lilac"
+"markup.heading" = { fg = "lightblue", modifiers = ["bold"] }
 "markup.bold" = { modifiers = ["bold"] }
 "markup.italic" = { modifiers = ["italic"] }
 "markup.strikethrough" = { modifiers = ["crossed_out"] }
@@ -111,6 +111,7 @@ paleblue = "#444b5f"
 darkorange = "#cc6432"
 darkred = "#cc4f32"
 yellow = "#ffc66d"
+palered = "#724327"
 lightgrey = "#787878"
 lightblue = "#4eade5"
 darkgrey = "#514e52"   # TODO: could be a little darker
