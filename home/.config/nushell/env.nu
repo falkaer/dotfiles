@@ -30,12 +30,12 @@ $env.NU_PLUGIN_DIRS = [
 ]
 
 # pyenv stuff
-$env.PYENV_ROOT = $"($env.HOME)/.pyenv"
-$env.PYENV_SHELL = "nu"
-$env.PATH = ($env.PATH | split row (char esep) | prepend $"($env.PYENV_ROOT)/shims")
-if ($"($env.PYENV_ROOT)/bin" | path exists) {
-    $env.PATH = ($env.PATH | prepend $"($env.PYENV_ROOT)/bin")
-}
+# $env.PYENV_ROOT = $"($env.HOME)/.pyenv"
+# $env.PYENV_SHELL = "nu"
+# $env.PATH = ($env.PATH | split row (char esep) | prepend $"($env.PYENV_ROOT)/shims")
+# if ($"($env.PYENV_ROOT)/bin" | path exists) {
+#     $env.PATH = ($env.PATH | prepend $"($env.PYENV_ROOT)/bin")
+# }
 
 # starship prompt
 mkdir ~/.cache/starship

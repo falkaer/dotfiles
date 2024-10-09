@@ -1,0 +1,39 @@
+[server]
+follow_symlink = false
+browser = "default"
+
+[package_management]
+manager = "uv"
+
+[completion]
+copilot = false
+activate_on_typing = true
+
+[ai.open_ai]
+
+[runtime]
+auto_instantiate = true
+auto_reload = "autorun"
+on_cell_change = "autorun"
+
+[display]
+cell_output = "above"
+theme = "light"
+default_width = "medium"
+code_editor_font_size = 14
+dataframes = "rich"
+
+[formatting]
+line_length = 88
+
+[keymap]
+preset = "vim"
+
+[keymap.overrides]
+
+[experimental]
+
+[save]
+autosave_delay = 1000
+autosave = "after_delay"
+format_on_save = false
