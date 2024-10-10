@@ -4,4 +4,4 @@ LATPATH="$HOME/projects/latent-features"
 export PYTHONPATH="$LATPATH/src:$PYTHONPATH"
 
 cd "$LATPATH/src"
-marimo edit --no-token "$@"
+marimo edit --skip-update-check --no-token "$@"
