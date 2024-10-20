@@ -45,6 +45,8 @@ autocmd DocStart mail.google.com mode ignore
 seturl teams.microsoft.com superignore true
 seturl teams.live.com superignore true
 seturl outlook.office.com superignore true
+seturl 127.0.0.1 superignore true
+seturl clearml.falkaer.io superignore true
 
 
 " Sometimes the status bar in the bottom left corner overlaps the Tridactyl
