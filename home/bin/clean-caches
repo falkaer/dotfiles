@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # clear pacman cache
-sudo pacman -Scc
+yay -Scc
 
 # clear logs
 sudo find /var/log -type f -delete
