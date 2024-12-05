@@ -1,0 +1,6 @@
+#!/bin/bash
+
+source "$PROJECTS_DIR/latent-features/.venv/bin/activate"
+cd "$PROJECTS_DIR/latent-features/src"
+
+PYTHONPATH="$PROJECTS_DIR/latent-features/src:$PYTHONPATH" PYTHONSTARTUP="$HOME/.config/bpython/bpython_env.py" bpython
