@@ -2,18 +2,23 @@ layout {
 	cwd "$PROJECTS_DIR/latent-features"
 
 	pane_template name="latshell" {
-		command "poetry"
-		args "shell"
+		command "nu"
+		args "-e" "overlay use .venv/bin/activate.nu"
 		close_on_exit true
 	}
 
-	pane_template name="status" {
+	pane_template name="lazygit" {
+		command "nu"
+		args "-e" "overlay use .venv/bin/activate.nu; lazygit"
+		close_on_exit true
+	}
+
+	pane_template name="status" stacked=true {
 		pane command="btm" close_on_exit=true
 		pane command="nvtop" close_on_exit=true
-		stacked true
 	}
 	
-	tab_template name="workspace" {
+	default_tab_template  {
 		pane split_direction="vertical" {
 			latshell {
 				focus true
@@ -23,19 +28,18 @@ layout {
 				status {
 					size "30%"
 				}
+				lazygit
 				children
 			}
 		}
 	}
 
-	workspace {
-		latshell
-	}
+	tab
 	
 	swap_tiled_layout {
-		workspace max_panes=2 {
+		tab max_panes=2 {
 		}
-		workspace max_panes=3 {
+		tab max_panes=3 {
 			pane
 		}
 	}
