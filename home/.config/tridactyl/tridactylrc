@@ -42,6 +42,7 @@ bind x tabclose
 " Don't run Tridactyl on some web sites because it doesn't work well, or
 " because the web site has its own keybindings.
 autocmd DocStart mail.google.com mode ignore
+seturl ui.perfetto.dev superignore true
 seturl teams.microsoft.com superignore true
 seturl teams.live.com superignore true
 seturl outlook.office.com superignore true

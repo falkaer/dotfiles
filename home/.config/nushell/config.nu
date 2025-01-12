@@ -632,6 +632,12 @@ $env.config = {
             event: {edit: cutwordright}
         }
         {
+            name: send_sigterm
+            modifier: control
+            keycode: char_\
+            mode: [emacs, vi_normal, vi_insert]
+            event: { send: executehostcommand, cmd: "send_signal 15" }        }
+        {
           name: sudo_last
           modifier: shift_alt
           keycode: char_s
@@ -657,6 +663,10 @@ $env.config = {
           ]
         }
     ]
+}
+
+def send_signal [signal: int] {
+    ps | where ppid == $nu.pid and status == "Running" | get pid | each { kill -s $signal $in }
 }
 
 # yazi cd workaround
