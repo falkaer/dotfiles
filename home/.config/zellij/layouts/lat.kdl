@@ -2,14 +2,14 @@ layout {
 	cwd "$PROJECTS_DIR/latent-features"
 
 	pane_template name="latshell" {
-		command "nu"
-		args "-e" "overlay use .venv/bin/activate.nu"
+		command "elvish"
+		args "-c" "use python; python:activate &venv-path=$E:PROJECTS_DIR/latent-features/.venv; elvish"
 		close_on_exit true
 	}
 
 	pane_template name="lazygit" {
-		command "nu"
-		args "-e" "overlay use .venv/bin/activate.nu; lazygit"
+		command "elvish"
+		args "-c" "use python; python:activate &venv-path=$E:PROJECTS_DIR/latent-features/.venv; lazygit; elvish"
 		close_on_exit true
 	}
 
