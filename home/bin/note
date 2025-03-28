@@ -1,6 +1,6 @@
 #!/bin/bash
 
-NOTES_DIR="$HOME/projects/notes"
+NOTES_DIR="$PROJECTS_DIR/notes"
 TYPWATCH_PID=
 
 if [ ! -d "$NOTES_DIR" ]; then
