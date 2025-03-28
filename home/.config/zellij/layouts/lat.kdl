@@ -2,14 +2,14 @@ layout {
 	cwd "$PROJECTS_DIR/latent-features"
 
 	pane_template name="latshell" {
-		command "elvish"
-		args "-c" "use python; python:activate &venv-path=$E:PROJECTS_DIR/latent-features/.venv; elvish"
+		command "fish"
+		args "-c" "source $PROJECTS_DIR/latent-features/.venv/bin/activate.fish; fish"
 		close_on_exit true
 	}
 
 	pane_template name="lazygit" {
-		command "elvish"
-		args "-c" "use python; python:activate &venv-path=$E:PROJECTS_DIR/latent-features/.venv; lazygit; elvish"
+		command "fish"
+		args "-c" "source $PROJECTS_DIR/latent-features/.venv/bin/activate.fish; lazygit; fish"
 		close_on_exit true
 	}
 

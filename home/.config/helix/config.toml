@@ -12,7 +12,7 @@ scroll-lines = 5
 idle-timeout = 0
 completion-trigger-len = 1
 
-shell = ["zsh", "-c"]
+shell = ["fish", "-c"]
 
 [editor.statusline]
 left = [

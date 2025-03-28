@@ -10,6 +10,8 @@ config.diagnosticSeverity = "Warning"
 [[language]]
 name = "python"
 language-servers = ["pyright", "ruff"]
+# language-servers = ["pyre", "ruff"]
+# language-servers = ["pylyzer", "ruff"]
 
 [language-server.pyright]
 command = "pyright-langserver"
@@ -21,6 +23,17 @@ autoImportCompletions = true
 
 [language-server.pyright.config.pyright]
 disableOrganizeImports = true
+
+
+[language-server.pyre]
+command = "pyre"
+args = ["persistent"]
+
+
+[language-server.pylyzer]
+command = "pylyzer"
+args = ["--server"]
+
 
 [language-server.ruff]
 command = "ruff"
@@ -223,6 +236,18 @@ args = [
 
 
 # PLAINTEXT / CONFIG LANGUAGES
+
+# nix: nil, alejandra
+[[language]]
+name = "nix"
+language-servers = ["nil"]
+
+[language-server.nil]
+command = "nil"
+
+[language.formatter]
+command = "alejandra"
+args = []
 
 
 # marksman, markdown-oxide, mdformat, typos-lsp
