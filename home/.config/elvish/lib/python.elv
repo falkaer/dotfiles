@@ -12,6 +12,7 @@ fn activate {|&venv-path=.venv|
   set paths = [$bin-dir $@paths]
   set-env VIRTUAL_ENV $full-path
   unset-env PYTHONHOME
+  unset-env PYTHONPATH
 }
 
 fn deactivate {

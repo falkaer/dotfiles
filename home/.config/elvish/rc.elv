@@ -70,8 +70,12 @@ fn fuck {
 
 fn zj {|@args| e:zellij $@args }
 fn zjl { e:zellij --layout lat }
-fn pt { e:ptw --runner "pytest" . --testmon }
 fn lg { e:lazygit }
+fn lj { e:lazyjj }
+
+fn pt {|@args|
+    e:ptw --runner "pytest" . --testmon $@args
+}
 
 fn ns {|@args|
     e:ns $@args
@@ -89,4 +93,4 @@ fn cudev {|device fn|
 eval (starship init elvish)
 
 set-env CARAPACE_BRIDGES 'zsh,fish,bash,inshellisense'
-eval (carapace _carapace | slurp)
+eval (carapace _carapace elvish | slurp)
